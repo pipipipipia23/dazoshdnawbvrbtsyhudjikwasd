@@ -1,4 +1,4 @@
-getgenv().vuaofweb = "http://0.tcp.ap.ngrok.io:14181"
+getgenv().vuaofweb = "0.tcp.ap.ngrok.io:14181"
 local Client = require(game.ReplicatedStorage.Library.Client)
 local Library = require(game:GetService("ReplicatedStorage").Library)
 getrenv().require = getgenv().require -- method tvk hihi (iu tvk vcl)
@@ -11,8 +11,9 @@ v1.WorldCmds.CanDoAction = function() return true end
 local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.GUIs.Teleport)
 local plr = game.Players.LocalPlayer
 local controls = require(game.Players.LocalPlayer.PlayerScripts.PlayerModule):GetControls()
+print("Wait connect websocket")
 local ws = WebSocket.connect("ws://"..getgenv().vuaofweb)
-print("connected")
+print(ws)
 local host = "http://"..getgenv().vuaofweb
 local Save = v1.Save.Get
 local Commas = v1.Functions.Commas
