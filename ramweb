@@ -63,6 +63,7 @@ function connect(a,b,c,d,e,f,g)
 end
 
 function edit(a,b,c,d,e,f,g)
+    print("edit")
     ws:Send(game:GetService("HttpService"):JSONEncode({
         Mode = "Edit",
         Id = a,
@@ -108,6 +109,15 @@ function getinfouser()
     return data
 end
 
+function getinfoall()
+    local res = request({
+        Url = host.."/user/get",
+        Method = "GET",
+    })
+    local data = game:GetService("HttpService"):JSONDecode(res.Body)
+    return data
+end
+
 function getdata2()
     for i,v in pairs(getinfouser()) do
         local a = string.split(v.Info, "|")
@@ -122,6 +132,15 @@ end
 
 function gettotal()
     return getinfouser().Total
+end
+
+function getinfo()
+    for i,v in pairs(getinfoall()) do
+        if v.Info ~= "HopServer" then
+            return true
+        end
+    end
+    return false
 end
 
 function get(thistype)
@@ -183,7 +202,7 @@ if status().StatusCode == 200 then
         for i,v in pairs(Site.data) do
             local Possible = true
             ID = tostring(v.id)
-            if tonumber(v.playing) <= 10 then
+            if tonumber(v.playing) <= 4 then
                 for _,Existing in pairs(AllIDs) do
                     if num ~= 0 then
                         if ID == tostring(Existing) then
@@ -205,8 +224,6 @@ if status().StatusCode == 200 then
                     wait()
                     pcall(function()
                         print("monimoni")
-                        wait()
-                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Hop Server"))
                         game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
                     end)
                     wait(4)
@@ -233,6 +250,13 @@ if status().StatusCode == 200 then
             TeleportSHOP()
         end
     end)   
+    function checkaz()
+        if Library.Signal.Invoke("Get Diamond Mine Collpase Time") then
+            return Library.Signal.Invoke("Get Diamond Mine Collpase Time")
+        else
+            return 0
+        end
+    end
     function checksamesv()
         for i,v in pairs(getinfonek()) do
             if v.JobId == game.JobId and v.Name ~= plr.Name then
@@ -242,16 +266,31 @@ if status().StatusCode == 200 then
         return false
     end
     spawn(function()
-        while true do wait(5)
+        while true do wait(10)
             pcall(function()
                 if GetClosestTorso() ~= false and checksamesv() == false then
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You|" .. tostring(getgenv().mapdefault)))
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You|" .. tostring(getgenv().mapdefault)))
+                    if getinfo() == false then
+                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
+                        wait(60)
+                        TeleportSHOP()
+                    end
                 elseif checksamesv() ~= false and GetClosestTorso() ~= false then
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
+                    if getinfo() == false then
+                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
+                        wait(60)
+                        TeleportSHOP()
+                    end
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() == false then
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Same Server: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
+                    if getinfo() == false then
+                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
+                        wait(60)
+                        TeleportSHOP()
+                    end
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Same Server: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 else
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Farm Normal|" .. tostring(getgenv().mapdefault)))
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Farm Normal|" .. tostring(getgenv().mapdefault)))
                 end
             end)
         end
