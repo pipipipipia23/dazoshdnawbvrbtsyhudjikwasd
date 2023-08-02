@@ -12,6 +12,7 @@ local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Script
 local plr = game.Players.LocalPlayer
 local controls = require(game.Players.LocalPlayer.PlayerScripts.PlayerModule):GetControls()
 local ws = WebSocket.connect("ws://"..getgenv().vuaofweb)
+print("connected")
 local host = "http://"..getgenv().vuaofweb
 local Save = v1.Save.Get
 local Commas = v1.Functions.Commas
