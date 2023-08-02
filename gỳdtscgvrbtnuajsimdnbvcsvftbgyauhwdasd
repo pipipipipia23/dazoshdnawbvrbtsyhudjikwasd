@@ -47,7 +47,6 @@ repeat wait(1)
         wait(10)
     end
 until game:GetService("Workspace"):FindFirstChild("__MAP")
-getrenv().require = getgenv().require
 local services = setmetatable({}, {
     __index = function(_, service)
         return game:GetService(service)
@@ -432,7 +431,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     wait(1)
     vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
--- getrenv().require = getgenv().require -- method tvk hihi (iu tvk vcl)
+getrenv().require = getgenv().require -- method tvk hihi (iu tvk vcl)
 local Client = require(game.ReplicatedStorage.Library.Client)
 local loirequire, kcj = pcall(function()
     local Library = require(game:GetService("ReplicatedStorage").Library)
@@ -2292,10 +2291,13 @@ function autodaycare()
                 else
                     for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Daycare.Frame.PetsAndLoot.Holder1Stage2:GetChildren()) do
                         if v:IsA("TextButton") and tablefind(ahih1i(10), v.Name) then
-                            clickman(v)
+                            if v.Equipped.Visible ~= true then
+                                clickman(v)
+                                wait(1)
+                            end
                         end
                     end
-                    wait(3)
+                    wait(2)
                     clickman(enrollne)
                     wait(2)
                     if dccheck() then
