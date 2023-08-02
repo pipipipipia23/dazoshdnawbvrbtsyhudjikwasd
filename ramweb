@@ -1,0 +1,257 @@
+
+local Client = require(game.ReplicatedStorage.Library.Client)
+local Library = require(game:GetService("ReplicatedStorage").Library)
+getrenv().require = getgenv().require -- method tvk hihi (iu tvk vcl)
+local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
+hookfunction(debug.getupvalue(Client.Network.Fire,1),function() return true end)
+hookfunction(debug.getupvalue(Client.Network.Invoke,1),function() return true end)
+hookfunction(debug.getupvalue(Library.Network.Invoke, 1), function() return true end)
+hookfunction(debug.getupvalue(Library.Network.Fire, 1), function() return true end)
+v1.WorldCmds.CanDoAction = function() return true end
+local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.GUIs.Teleport)
+local plr = game.Players.LocalPlayer
+local controls = require(game.Players.LocalPlayer.PlayerScripts.PlayerModule):GetControls()
+local ws = WebSocket.connect("ws://"..getgenv().vuaofweb)
+local host = "http://"..getgenv().vuaofweb
+local Save = v1.Save.Get
+local Commas = v1.Functions.Commas
+
+function status()
+    local res = request({
+        Url = (host .. "/user/get/%d"):format(game.Players.LocalPlayer.UserId),
+        Method = "GET"
+    })
+    return res
+end
+
+function iduser()
+    return game.Players.LocalPlayer.UserId
+end
+function nameuser()
+    return game.Players.LocalPlayer.Name
+end
+
+function namegame()
+    return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+end
+
+function jobid()
+    return game.JobId
+end
+
+function getstatus(aa)
+    if getgenv().setmain == true then
+        return "MainAccount|" .. aa
+    else
+        return aa
+    end
+end
+
+function connect(a,b,c,d,e,f,g)
+    ws:Send(game:GetService("HttpService"):JSONEncode({
+        Mode = "Connect",
+        Id = a,
+        Name = b,
+        Game = c,
+        JobId = d,
+        Total = e,
+        Cooldown = f,
+        Info = g
+    }))
+end
+
+function edit(a,b,c,d,e,f,g)
+    ws:Send(game:GetService("HttpService"):JSONEncode({
+        Mode = "Edit",
+        Id = a,
+        Name = b,
+        Game = c,
+        JobId = d,
+        Total = e,
+        Cooldown = f,
+        Info = g
+    }))
+end
+function connecta()
+    if status().StatusCode == 404 then
+        connect(iduser(), nameuser(), namegame(), jobid(), 0,0,getstatus("NewServer"))
+    end
+end
+
+local ticknek = tick()
+
+repeat wait(3)
+    connecta()
+until status().StatusCode == 200 or tick() - ticknek >= 10
+
+if status().StatusCode ~= 200 then
+    plr:Kick("Cannot Connect To Server!")
+end
+
+function getinfonek()
+    local res = request({
+        Url = host.."/user/get",
+        Method = "GET"
+    })
+    local data = game:GetService("HttpService"):JSONDecode(res.Body)
+    return data
+end
+
+function getinfouser()
+    local res = request({
+        Url = (host.."/user/get/%d"):format(game.Players.LocalPlayer.UserId),
+        Method = "GET"
+    })
+    local data = game:GetService("HttpService"):JSONDecode(res.Body)
+    return data
+end
+
+function getdata2()
+    for i,v in pairs(getinfouser()) do
+        local a = string.split(v.Info, "|")
+        if a[1] == "MainAccount" then
+            return a[2]
+        else
+            return a[1]
+        end
+    end
+    return false
+end
+
+function gettotal()
+    return getinfouser().Total
+end
+
+function get(thistype)
+    if game.PlaceId == 10321372166 and string.find(string.lower(thistype), "coins") then
+        return Save().HardcoreCurrency[thistype]
+    else
+        return Save()[thistype]
+    end
+end
+
+function GetClosestTorso()
+    for _,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character and v.Name ~= plr.Name then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Character.HumanoidRootPart.Position).Magnitude < 100 and (Vector3.new(9021,-13,2507)-v.Character.HumanoidRootPart.Position).Magnitude < 100 then
+                return v.Character.HumanoidRootPart.Position
+            end
+        end
+    end
+    return false
+end
+
+local gemnekaz = get("Diamonds")
+local gemnek = gettotal()
+
+function getthegem()
+    if gemnek == 0 then
+        return get("Diamonds") - gemnekaz
+    else
+        return (get("Diamonds") - gemnekaz) + gemnek
+    end
+end
+
+if status().StatusCode == 200 then
+    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Joined New Server"))
+    local PlaceID = game.PlaceId
+    local AllIDs = {}
+    local foundAnything = ""
+    local actualHour = os.date("!*t").hour
+    local Deleted = false
+
+    local File = pcall(function()
+        AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+    end)
+    if not File then
+        table.insert(AllIDs, actualHour)
+    end
+    function TPReturner()
+        local Site;
+        if foundAnything == "" then
+            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+        else
+            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+        end
+        local ID = ""
+        if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+            foundAnything = Site.nextPageCursor
+        end
+        local num = 0;
+        for i,v in pairs(Site.data) do
+            local Possible = true
+            ID = tostring(v.id)
+            if tonumber(v.playing) <= 10 then
+                for _,Existing in pairs(AllIDs) do
+                    if num ~= 0 then
+                        if ID == tostring(Existing) then
+                            Possible = false
+                        end
+                    else
+                        if tonumber(actualHour) ~= tonumber(Existing) then
+                            local delFile = pcall(function()
+                                -- delfile("NotSameServers.json")
+                                AllIDs = {}
+                                table.insert(AllIDs, actualHour)
+                            end)
+                        end
+                    end
+                    num = num + 1
+                end
+                if Possible == true then
+                    table.insert(AllIDs, ID)
+                    wait()
+                    pcall(function()
+                        print("monimoni")
+                        wait()
+                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Hop Server"))
+                        game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                    end)
+                    wait(4)
+                end
+            end
+        end
+    end
+    function TeleportSHOP()
+        pcall(function()
+            TPReturner()
+            if foundAnything ~= "" then
+                TPReturner()
+            end
+        end)
+    end
+    ws.OnMessage:Connect(function(message)
+        local data = game:GetService("HttpService"):JSONDecode(message)
+        if (data.Mode == "Hop" and data.Id == game.Players.LocalPlayer.UserId) then
+            ws:Send(game:GetService("HttpService"):JSONEncode({
+                Mode = "Edit",
+                Info = "Hop Server",
+            }))
+            ws:Close()
+            TeleportSHOP()
+        end
+    end)   
+    function checksamesv()
+        for i,v in pairs(getinfonek()) do
+            if v.JobId == game.JobId and v.Name ~= plr.Name then
+                return v.Name
+            end
+        end
+        return false
+    end
+    spawn(function()
+        while true do wait(5)
+            pcall(function()
+                if GetClosestTorso() ~= false and checksamesv() == false then
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You"))
+                elseif checksamesv() ~= false and GetClosestTorso() ~= false then
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv()))
+                elseif checksamesv() ~= false and GetClosestTorso() == false then
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Same Server: " .. checksamesv()))
+                else
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Farm Normal"))
+                end
+            end)
+        end
+    end)
+end
