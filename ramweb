@@ -245,13 +245,13 @@ if status().StatusCode == 200 then
         while true do wait(5)
             pcall(function()
                 if GetClosestTorso() ~= false and checksamesv() == false then
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You"))
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() ~= false then
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv()))
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() == false then
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Same Server: " .. checksamesv()))
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Same Server: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 else
-                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Farm Normal"))
+                    edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),0,getstatus("Farm Normal|" .. tostring(getgenv().mapdefault)))
                 end
             end)
         end
