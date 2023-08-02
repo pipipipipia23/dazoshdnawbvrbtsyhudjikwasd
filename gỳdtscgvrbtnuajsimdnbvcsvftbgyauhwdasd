@@ -47,6 +47,7 @@ repeat wait(1)
         wait(10)
     end
 until game:GetService("Workspace"):FindFirstChild("__MAP")
+getrenv().require = getgenv().require
 local services = setmetatable({}, {
     __index = function(_, service)
         return game:GetService(service)
