@@ -1,4 +1,4 @@
-getgenv().vuaofweb = "0.tcp.ap.ngrok.io:19937"
+getgenv().vuaofweb = "0.tcp.ap.ngrok.io:14181"
 local Client = require(game.ReplicatedStorage.Library.Client)
 local Library = require(game:GetService("ReplicatedStorage").Library)
 getrenv().require = getgenv().require -- method tvk hihi (iu tvk vcl)
