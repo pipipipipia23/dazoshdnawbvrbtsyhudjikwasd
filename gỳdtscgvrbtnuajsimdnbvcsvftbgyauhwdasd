@@ -1867,7 +1867,7 @@ getgenv().vitrimapgem = {
 function aasda()
     if checkgaint() == false or getgenv().mapdefault == getgenv().areafarm1 then
         if getgenv().checkmycollect then
-            getgenv().mapdefault = getgenv().areafarm1
+            getgenv().mapdefault = "Axolotl Deep Ocean"
             Statusfarm.updateInfo("Collapsed, Farm Fruit")
         end
         if getgenv().mapdefault == "Lucky Block Area" then
@@ -2142,7 +2142,7 @@ spawn(function()
                     end
                 end
             else
-                getgenv().mapdefault = getgenv().areafarm1
+                getgenv().mapdefault = "Axolotl Deep Ocean"
             end
         end)
     end
