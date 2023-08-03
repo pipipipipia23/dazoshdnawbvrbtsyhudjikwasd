@@ -979,9 +979,22 @@ if v1.WorldCmds.HasArea("Mystic Mine") == false then
     end
 
     local adudarkqua = {
-        ["Axolotl Deep Ocean"] = Vector3.new(3587.955810546875, -16.473529815673828, 2457.21044921875),
-        ["Mystic Mine"] = Vector3.new(9021.90234375, -13.249011993408203, 2506.343994140625),
+        ["Axolotl Deep Ocean"] = Vector3.new(4250.3017578125, -12.059213638305664, 3788.037353515625),
+        ["Mystic Mine"] = Vector3.new(9021.90234375, -33.249011993408203, 2506.343994140625),
+        ["Pixel Alps"] = Vector3.new(3897.318115234375, -39.473529815673828, 2440.701904296875),
     }
+
+    function createnew(name, vector)
+        local part = Instance.new("Part",game.Workspace)
+        part.Name = name
+        part.Position = vector
+        part.Size = Vector3.new(60, 3, 65)
+        part.Anchored = true
+    end
+
+    for i,v in pairs(adudarkqua) do
+        createnew(i, v)
+    end
 
     function aasda()
         if checkgaint() == false or getgenv().mapdefault == "Axolotl Deep Ocean" then
@@ -997,23 +1010,13 @@ if v1.WorldCmds.HasArea("Mystic Mine") == false then
                     Client.Network.Fire('Farm Coin', v, i)
                 end
             else
-                if getgenv().walkauto == false or (getgenv().mapdefault ~= "Mystic Mine" and getgenv().mapdefault ~= "Axolotl Deep Ocean") then
+                local v17 = v1.Directory.Areas[getgenv().mapdefault]
+                if v1.WorldCmds.Get() == v17.world and adudarkqua[getgenv().mapdefault] and adudarkqua[getgenv().mapdefault] ~= nil then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[getgenv().mapdefault]).Magnitude > 20 then
+                        plr.Character.HumanoidRootPart.CFrame = CFrame.new(adudarkqua[getgenv().mapdefault]) * CFrame.new(0,10,0)
+                    end
+                else
                     teleportto(getgenv().mapdefault)
-                    getgenv().autowalkne = false
-                elseif getgenv().walkauto == true and getgenv().mapdefault == "Axolotl Deep Ocean" then
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[getgenv().mapdefault]).Magnitude < 170 then
-                        getgenv().autowalkne = true
-                    else
-                        getgenv().autowalkne = false
-                        teleportto(getgenv().mapdefault)
-                    end
-                elseif getgenv().walkauto == true and getgenv().mapdefault == "Mystic Mine" then
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[getgenv().mapdefault]).Magnitude < 170 then
-                        getgenv().autowalkne = true
-                    else
-                        getgenv().autowalkne = false
-                        teleportto(getgenv().mapdefault)
-                    end
                 end
                 Statusfarm.updateInfo("Farm Fruit, Unlock Map")
                 for i,v in pairs(autoupdate2()) do
@@ -1816,11 +1819,6 @@ function teleportto(texta)
     print(hihi.Teleport(texta,true))
 end
 
-local adudarkqua = {
-    ["Cyber Cavern"] = Vector3.new(8786,-15,3037),
-    ["Mystic Mine"] = Vector3.new(9020,-13,2514),
-}
-
 local ngohem = {
     ["Cyber Cavern"] = Vector3.new(8704,-15,3027),
     ["Mystic Mine"] = Vector3.new(9046,-14,2416),
@@ -1855,15 +1853,34 @@ spawn(function()
 end)
 
  -- getgenv().walkauto , getgenv().mapdefault
-local tablenez = {
-    ["Axolotl Deep Ocean"] = Vector3.new(4250.30078125, 12.059065818786621, 3788.03759765625),
-    ["Mystic Mine"] = Vector3.new(9063.7255859375, -14.484909057617188, 2669.125),
-    ["Pixel Alps"] = Vector3.new(3897.318115234375, -16.473529815673828, 2440.701904296875)
+ local adudarkqua = {
+    ["Axolotl Deep Ocean"] = Vector3.new(4250.3017578125, -12.059213638305664, 3788.037353515625),
+    ["Mystic Mine"] = Vector3.new(9006.8349609375, -61.46352005004883, 2573.74951171875),
+    ["Pixel Alps"] = Vector3.new(3897.318115234375, -39.473529815673828, 2440.701904296875),
 }
+
 getgenv().vitrimapgem = {
-    CFrame.new(9006.8203125, -14.432657241821289, 2573.762939453125),
-    CFrame.new(9064.8271484375, -14.05805778503418, 2394.87255859375),
+    CFrame.new(9006.8203125, -61.46352005004883, 2573.762939453125),
+    CFrame.new(9064.8271484375, -61.46352005004883, 2394.87255859375),
 }
+
+function createnew(name, vector)
+    local part = Instance.new("Part",game.Workspace)
+    part.Name = name
+    part.Position = vector
+    part.Size = Vector3.new(60, 3, 65)
+    part.Anchored = true
+end
+
+for i,v in pairs(adudarkqua) do
+    createnew(i, v)
+end
+
+for i,v in pairs(getgenv().vitrimapgem) do
+    createnew(tostring(i), v.Position)
+end
+
+
 function aasda()
     if checkgaint() == false or getgenv().mapdefault == getgenv().areafarm1 then
         if getgenv().checkmycollect then
@@ -1882,12 +1899,16 @@ function aasda()
                 Client.Network.Fire('Farm Coin', v, i)
             end
         else
+            local v17 = v1.Directory.Areas[getgenv().mapdefault]
             if getgenv().mapdefault ~= "Mystic Mine" then
-                if (tablenez[getgenv().mapdefault] - plr.Character.HumanoidRootPart.Position).Magnitude > 20 then
+                if v1.WorldCmds.Get() == v17.world and adudarkqua[getgenv().mapdefault] and adudarkqua[getgenv().mapdefault] ~= nil then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[getgenv().mapdefault]).Magnitude > 20 then
+                        plr.Character.HumanoidRootPart.CFrame = CFrame.new(adudarkqua[getgenv().mapdefault]) * CFrame.new(0,10,0)
+                    end
+                else
                     teleportto(getgenv().mapdefault)
                 end
             else
-                local v17 = v1.Directory.Areas[getgenv().mapdefault]
                 if v1.WorldCmds.Get() == v17.world then
                     if (getgenv().vitrimapgem[getgenv().chonvitri].Position - plr.Character.HumanoidRootPart.Position).Magnitude > 20 then
                         plr.Character.HumanoidRootPart.CFrame = getgenv().vitrimapgem[getgenv().chonvitri]
@@ -2643,156 +2664,156 @@ function ismes()
     return game:GetService("Players").LocalPlayer.PlayerGui.Message.Enabled
 end
 local v17 = v1.Directory.Areas["Shop"]
-    function sendgem11()
-        if get("Diamonds") >= getgenv().soluonggem + 100000 then
-            Client.Network.Invoke("Buy Trading Plaza")
-            getgenv().sendgemnek = true
-            teleportto("Shop")
-            wait(5)
-            plr.Character.HumanoidRootPart.CFrame = CFrame.new(257.4012756347656, 97.88801574707031, 351.0747985839844)
-            controls:Disable()
-            wait(1)
-            sendneknek(getgenv().Nameaccmain,get("Diamonds") - 100000)
+    -- function sendgem11()
+    --     if get("Diamonds") >= getgenv().soluonggem + 100000 then
+    --         Client.Network.Invoke("Buy Trading Plaza")
+    --         getgenv().sendgemnek = true
+    --         teleportto("Shop")
+    --         wait(5)
+    --         plr.Character.HumanoidRootPart.CFrame = CFrame.new(257.4012756347656, 97.88801574707031, 351.0747985839844)
+    --         controls:Disable()
+    --         wait(1)
+    --         sendneknek(getgenv().Nameaccmain,get("Diamonds") - 100000)
+    --     else
+    --         getgenv().sendgemnek = false
+    --     end
+    -- end
+
+function sendgem11()
+    if get("Diamonds") >= getgenv().soluonggem then
+        if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
+            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
+        end
+        getgenv().sendgemnek = true
+        if v1.WorldCmds.Get() == v17.world then
+            if getmybank() == false then
+                if checkisbank() == false then
+                    if v1.WorldCmds.Get() == v17.world then
+                        autofixUI()
+                        if not checknearbank() then
+                            tweenfarasm(vitribank,CFrame.new(vitribank))
+                        end
+                    else
+                        teleportto("Shop")
+                    end
+                else
+                    if not checknearbank() then
+                        tweenfarasm(vitribank,CFrame.new(vitribank))
+                    else
+                        if getinvite() ~= false then
+                            clickman(getinvite())
+                        end
+                        wait(5)
+                        if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Do you want to accept this invite?" then
+                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Yes)
+                        else
+                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.No)
+                        end
+                        wait(2)
+                        if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
+                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
+                        end
+                        wait(10)
+                        Client.Network.Invoke("Bank Deposit",getmybank(),{} ,get("Diamonds"))
+                    end
+                end
+            end
         else
+            teleportto("Shop")
+        end
+    else
+        if getmybank() then
+            getgenv().sendgemnek = true
+            if v1.WorldCmds.Get() == v17.world then
+                if checkisbank() == false then
+                    if v1.WorldCmds.Get() == v17.world then
+                        autofixUI()
+                        if not checknearbank() then
+                            tweenfarasm(vitribank,CFrame.new(vitribank))
+                        end
+                    else
+                        teleportto("Shop")
+                    end
+                else
+                    if not checknearbank() then
+                        tweenfarasm(vitribank,CFrame.new(vitribank))
+                    else
+                        if getinvite2() ~= false then
+                            clickman(getinvite2()) 
+                            wait(3)
+                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Bank.Bottom.Leave)
+                            wait(3)
+                            if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Are you sure you want to leave this bank?" then
+                                clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Yes)
+                                wait(2)
+                                getgenv().doneleave = true
+                            else
+                                clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.No)
+                            end
+                            wait(2)
+                            if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
+                                clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
+                            end
+                            wait(10)
+                        end
+                    end
+                end
+            else
+                if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
+                    clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
+                end
+                teleportto("Shop")
+            end
+        else
+            if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
+                clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
+            end
             getgenv().sendgemnek = false
         end
     end
-
--- function sendgem11()
---     if get("Diamonds") >= getgenv().soluonggem then
---         if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
---             clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
---         end
---         getgenv().sendgemnek = true
---         if v1.WorldCmds.Get() == v17.world then
---             if getmybank() == false then
---                 if checkisbank() == false then
---                     if v1.WorldCmds.Get() == v17.world then
---                         autofixUI()
---                         if not checknearbank() then
---                             tweenfarasm(vitribank,CFrame.new(vitribank))
---                         end
---                     else
---                         teleportto("Shop")
---                     end
---                 else
---                     if not checknearbank() then
---                         tweenfarasm(vitribank,CFrame.new(vitribank))
---                     else
---                         if getinvite() ~= false then
---                             clickman(getinvite())
---                         end
---                         wait(5)
---                         if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Do you want to accept this invite?" then
---                             clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Yes)
---                         else
---                             clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.No)
---                         end
---                         wait(2)
---                         if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
---                             clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
---                         end
---                         wait(10)
---                         Client.Network.Invoke("Bank Deposit",getmybank(),{} ,get("Diamonds"))
---                     end
---                 end
---             end
---         else
---             teleportto("Shop")
---         end
---     else
---         if getmybank() then
---             getgenv().sendgemnek = true
---             if v1.WorldCmds.Get() == v17.world then
---                 if checkisbank() == false then
---                     if v1.WorldCmds.Get() == v17.world then
---                         autofixUI()
---                         if not checknearbank() then
---                             tweenfarasm(vitribank,CFrame.new(vitribank))
---                         end
---                     else
---                         teleportto("Shop")
---                     end
---                 else
---                     if not checknearbank() then
---                         tweenfarasm(vitribank,CFrame.new(vitribank))
---                     else
---                         if getinvite2() ~= false then
---                             clickman(getinvite2()) 
---                             wait(3)
---                             clickman(game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Bank.Bottom.Leave)
---                             wait(3)
---                             if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Are you sure you want to leave this bank?" then
---                                 clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Yes)
---                                 wait(2)
---                                 getgenv().doneleave = true
---                             else
---                                 clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.No)
---                             end
---                             wait(2)
---                             if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
---                                 clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
---                             end
---                             wait(10)
---                         end
---                     end
---                 end
---             else
---                 if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
---                     clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
---                 end
---                 teleportto("Shop")
---             end
---         else
---             if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
---                 clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
---             end
---             getgenv().sendgemnek = false
---         end
---     end
---     -- if getgenv().methodsendgem == "New" then
---     --     if get("Diamonds") >= getgenv().soluonggem + 100000 then
---     --         getgenv().sendgemnek = true
---     --         if getdata2()[1] == "StartForBuy" then
---     --             if v1.Shared.IsTradingPlaza then
---     --                 print(getdata2()[2], game.JobId)
---     --                 if getdata2()[2] ~= game.JobId then
---     --                     print("cac")
---     --                     edit(iduser(), nameuser(), namegame(), jobid(),0,getstatus("Joining Main Account"))
---     --                     game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,getdata2()[2], game.Players.LocalPlayer)
---     --                 else
---     --                     if (plr.Character.HumanoidRootPart.Position - getlocationbuy(ahihidongok()[2]).Position).Magnitude > 5 then
---     --                         plr.Character.HumanoidRootPart.CFrame = getlocationbuy(ahihidongok()[2])
---     --                     end
---     --                     wait(2)
---     --                     print(Client.Network.Invoke("Purchase Trading Booth Pet", ahihidongok()[1], ahihidongok()[2], ahihidongok()[3]))
---     --                 end
---     --             else
---     --                 edit(iduser(), nameuser(), namegame(), jobid(),0,getstatus("Joining Traing Server"))
---     --                 Client.Network.Invoke("Travel to Trading Plaza", "DEFAULT")
---     --             end
---     --         end
---     --     else
---     --         if v1.Shared.IsTradingPlaza then
---     --             local ts = game:GetService("TeleportService")
---     --             local p = game:GetService("Players").LocalPlayer
---     --             ts:Teleport(6284583030, p)
---     --         end
---     --         getgenv().sendgemnek = false
---     --     end
---     -- else
---     --     if get("Diamonds") >= getgenv().soluonggem + 100000 then
---     --         getgenv().sendgemnek = true
---     --         teleportto("Shop")
---     --         wait(5)
---     --         plr.Character.HumanoidRootPart.CFrame = CFrame.new(257.4012756347656, 97.88801574707031, 351.0747985839844)
---     --         wait(1)
---     --         sendneknek(getgenv().Nameaccmain,getgenv().soluonggem)
---     --     else
---     --         getgenv().sendgemnek = false
---     --     end
---     -- end
--- end
+    -- if getgenv().methodsendgem == "New" then
+    --     if get("Diamonds") >= getgenv().soluonggem + 100000 then
+    --         getgenv().sendgemnek = true
+    --         if getdata2()[1] == "StartForBuy" then
+    --             if v1.Shared.IsTradingPlaza then
+    --                 print(getdata2()[2], game.JobId)
+    --                 if getdata2()[2] ~= game.JobId then
+    --                     print("cac")
+    --                     edit(iduser(), nameuser(), namegame(), jobid(),0,getstatus("Joining Main Account"))
+    --                     game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,getdata2()[2], game.Players.LocalPlayer)
+    --                 else
+    --                     if (plr.Character.HumanoidRootPart.Position - getlocationbuy(ahihidongok()[2]).Position).Magnitude > 5 then
+    --                         plr.Character.HumanoidRootPart.CFrame = getlocationbuy(ahihidongok()[2])
+    --                     end
+    --                     wait(2)
+    --                     print(Client.Network.Invoke("Purchase Trading Booth Pet", ahihidongok()[1], ahihidongok()[2], ahihidongok()[3]))
+    --                 end
+    --             else
+    --                 edit(iduser(), nameuser(), namegame(), jobid(),0,getstatus("Joining Traing Server"))
+    --                 Client.Network.Invoke("Travel to Trading Plaza", "DEFAULT")
+    --             end
+    --         end
+    --     else
+    --         if v1.Shared.IsTradingPlaza then
+    --             local ts = game:GetService("TeleportService")
+    --             local p = game:GetService("Players").LocalPlayer
+    --             ts:Teleport(6284583030, p)
+    --         end
+    --         getgenv().sendgemnek = false
+    --     end
+    -- else
+    --     if get("Diamonds") >= getgenv().soluonggem + 100000 then
+    --         getgenv().sendgemnek = true
+    --         teleportto("Shop")
+    --         wait(5)
+    --         plr.Character.HumanoidRootPart.CFrame = CFrame.new(257.4012756347656, 97.88801574707031, 351.0747985839844)
+    --         wait(1)
+    --         sendneknek(getgenv().Nameaccmain,getgenv().soluonggem)
+    --     else
+    --         getgenv().sendgemnek = false
+    --     end
+    -- end
+end
 
 function getcommet()
     if getgenv().autocomet then
@@ -2949,5 +2970,31 @@ spawn(function()
             humanoid:MoveTo(Vector3.new(character.X, character.Y,character.Z + 30))
         end)
     end
+end)
+getgenv().checkedload = 0
+spawn(function()
+    while true do wait(1)
+        if game:GetService("Players").LocalPlayer.PlayerGui.Loading.Enabled == true then
+            getgenv().checkedload = getgenv().checkedload + 1
+        else
+            getgenv().checkedload = getgenv().checkedload - 1
+        end
+        if getgenv().checkedload >= 100 then
+            game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+        end
+    end
+end)
+
+spawn(function()
+    repeat wait() until game.CoreGui:FindFirstChild('RobloxPromptGui')
+    local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
+    po.ChildAdded:connect(function(a)
+        if a.Name == 'ErrorPrompt' then
+            repeat
+                ts:Teleport(game.PlaceId)
+                wait(2)
+            until false
+        end
+    end)
 end)
 return lib
