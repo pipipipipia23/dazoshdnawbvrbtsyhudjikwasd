@@ -12,7 +12,7 @@ local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Script
 local plr = game.Players.LocalPlayer
 local controls = require(game.Players.LocalPlayer.PlayerScripts.PlayerModule):GetControls()
 print("Wait connect websocket")
-local ws = WebSocket.connect("ws://"..getgenv().vuaofweb)
+local ws = WebSocket.connect("wss://"..getgenv().vuaofweb)
 print(ws)
 local host = "http://"..getgenv().vuaofweb
 local Save = v1.Save.Get
@@ -136,7 +136,7 @@ end
 
 function getinfo()
     for i,v in pairs(getinfoall()) do
-        if v.Info ~= "HopServer" then
+        if v.Info == "HopServer" and v.Name ~= plr.Name then
             return true
         end
     end
@@ -221,6 +221,7 @@ if status().StatusCode == 200 then
                 end
                 if Possible == true then
                     table.insert(AllIDs, ID)
+                    edithopsv()
                     wait()
                     pcall(function()
                         print("monimoni")
@@ -239,14 +240,21 @@ if status().StatusCode == 200 then
             end
         end)
     end
+    function edithopsv()
+        ws:Send(game:GetService("HttpService"):JSONEncode({
+            Mode = "Edit",
+            Id = game.Players.LocalPlayer.UserId,
+            Name = game.Players.LocalPlayer.Name,
+            Game = "",
+            JobId = "",
+            Total = 0,
+            Cooldown = 0,
+            Info = "HopServer",
+        }))
+    end
     ws.OnMessage:Connect(function(message)
         local data = game:GetService("HttpService"):JSONDecode(message)
         if (data.Mode == "Hop" and data.Id == game.Players.LocalPlayer.UserId) then
-            ws:Send(game:GetService("HttpService"):JSONEncode({
-                Mode = "Edit",
-                Info = "Hop Server",
-            }))
-            ws:Close()
             TeleportSHOP()
         end
     end)   
@@ -265,6 +273,7 @@ if status().StatusCode == 200 then
         end
         return false
     end
+    local timedelay = math.random(30,60)
     spawn(function()
         while true do wait(10)
             pcall(function()
@@ -272,21 +281,33 @@ if status().StatusCode == 200 then
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You|" .. tostring(getgenv().mapdefault)))
                     if getinfo() == false then
                         edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
-                        wait(60)
-                        TeleportSHOP()
+                        wait(timedelay)
+                        if getinfo() == false then
+                            TeleportSHOP()
+                        else
+                            edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"Wait HopServer")
+                        end
                     end
                 elseif checksamesv() ~= false and GetClosestTorso() ~= false then
                     if getinfo() == false then
                         edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
-                        wait(60)
-                        TeleportSHOP()
+                        wait(timedelay)
+                        if getinfo() == false then
+                            TeleportSHOP()
+                        else
+                            edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"Wait HopServer")
+                        end
                     end
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() == false then
                     if getinfo() == false then
                         edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
-                        wait(60)
-                        TeleportSHOP()
+                        wait(timedelay)
+                        if getinfo() == false then
+                            TeleportSHOP()
+                        else
+                            edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"Wait HopServer")
+                        end
                     end
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Same Server: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 else
