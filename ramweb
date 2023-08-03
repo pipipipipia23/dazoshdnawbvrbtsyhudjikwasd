@@ -723,15 +723,6 @@ if status().StatusCode == 200 then
                         end
                     end
                 elseif checksamesv() ~= false and GetClosestTorso() ~= false then
-                    if getinfo() == false then
-                        edithopsv()
-                        wait(timedelay)
-                        if getinfo() == false then
-                            TeleportSHOP()
-                        else
-                            edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"Wait HopServer")
-                        end
-                    end
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() == false then
                     if getinfo() == false then
