@@ -713,6 +713,7 @@ if status().StatusCode == 200 then
             pcall(function()
                 if GetClosestTorso() ~= false and checksamesv() == false then
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You|" .. tostring(getgenv().mapdefault)))
+                elseif checksamesv() ~= false and GetClosestTorso() ~= false then
                     if getinfo() == false then
                         edithopsv()
                         wait(timedelay)
@@ -722,7 +723,6 @@ if status().StatusCode == 200 then
                             edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"Wait HopServer")
                         end
                     end
-                elseif checksamesv() ~= false and GetClosestTorso() ~= false then
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() == false then
                     if getinfo() == false then
