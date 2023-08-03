@@ -714,7 +714,7 @@ if status().StatusCode == 200 then
                 if GetClosestTorso() ~= false and checksamesv() == false then
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You|" .. tostring(getgenv().mapdefault)))
                     if getinfo() == false then
-                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
+                        edithopsv()
                         wait(timedelay)
                         if getinfo() == false then
                             TeleportSHOP()
@@ -724,7 +724,7 @@ if status().StatusCode == 200 then
                     end
                 elseif checksamesv() ~= false and GetClosestTorso() ~= false then
                     if getinfo() == false then
-                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
+                        edithopsv()
                         wait(timedelay)
                         if getinfo() == false then
                             TeleportSHOP()
@@ -735,7 +735,7 @@ if status().StatusCode == 200 then
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() == false then
                     if getinfo() == false then
-                        edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"HopServer")
+                        edithopsv()
                         wait(timedelay)
                         if getinfo() == false then
                             TeleportSHOP()
