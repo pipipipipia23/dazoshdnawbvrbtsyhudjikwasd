@@ -2577,7 +2577,7 @@ spawn(function()
                     end
                 end
             else
-                getgenv().mapdefault = getgenv().areafarm1
+                getgenv().mapdefault = "Axolotl Deep Ocean"
             end
         end)
     end
