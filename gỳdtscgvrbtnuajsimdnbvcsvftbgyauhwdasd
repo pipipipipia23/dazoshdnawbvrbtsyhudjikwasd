@@ -2335,9 +2335,7 @@ function aasda()
             end
         else
             local v17 = v1.Directory.Areas[getgenv().mapdefault]
-            if v1.WorldCmds.Get() ~= v17.world then
                 teleportto(getgenv().mapdefault)
-            end
             Statusfarm.updateInfo("Auto Farm map: " .. getgenv().mapdefault)
             Gem.updateInfo(tostring(get("Diamonds")))
             Fruit.updateInfo(tostring(checkfruit()))
