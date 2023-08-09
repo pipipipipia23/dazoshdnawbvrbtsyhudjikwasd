@@ -2315,6 +2315,50 @@ for i,v in pairs(getgenv().vitrimapgem) do
     createnew(tostring(i), v.Position)
 end
 
+getgenv().dbuoiboost = false
+
+function isbooster()
+    local a = game
+    local b = a.Workspace
+    local c = a.Lighting
+    local d = b.Terrain
+    d.WaterWaveSize = 0
+    d.WaterWaveSpeed = 0
+    d.WaterReflectance = 0
+    d.WaterTransparency = 0
+    c.GlobalShadows = false
+    c.FogEnd = 9e9
+    c.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+    for e, f in pairs(a:GetDescendants()) do
+       if f:IsA("Part") or f:IsA("Union") or f:IsA("CornerWedgePart") or f:IsA("TrussPart") then
+           f.Material = "Plastic"
+           f.Reflectance = 0
+       elseif f:IsA("Decal") or f:IsA("Texture") then
+           f.Transparency = 0
+       elseif f:IsA("ParticleEmitter") or f:IsA("Trail") then
+           f.Lifetime = NumberRange.new(0)
+       elseif f:IsA("Explosion") then
+           f.BlastPressure = 0
+           f.BlastRadius = 0
+       elseif f:IsA("Fire") or f:IsA("SpotLight") or f:IsA("Smoke") or f:IsA("Sparkles") then
+           f.Enabled = false
+       elseif f:IsA("MeshPart") then
+           f.Material = "Plastic"
+           f.Reflectance = 0
+           f.TextureID = 10385902758728957
+       end
+    end
+    for e, g in pairs(c:GetChildren()) do
+       if
+           g:IsA("BlurEffect") or g:IsA("SunRaysEffect") or g:IsA("ColorCorrectionEffect") or g:IsA("BloomEffect") or
+               g:IsA("DepthOfFieldEffect")
+        then
+           g.Enabled = false
+       end
+    end
+    sethiddenproperty(game.Lighting, "Technology", "Compatibility")
+end
 
 function aasda()
     if checkgaint() == false or getgenv().mapdefault == getgenv().areafarm1 then
@@ -2335,7 +2379,15 @@ function aasda()
             end
         else
             local v17 = v1.Directory.Areas[getgenv().mapdefault]
-                teleportto(getgenv().mapdefault)
+            if v1.WorldCmds.Get() ~= v17.world then
+                getgenv().dbuoiboost == false
+            else
+                if getgenv().dbuoiboost == false then
+                    isbooster()
+                    getgenv().dbuoiboost == true
+                end
+            end
+            teleportto(getgenv().mapdefault)
             Statusfarm.updateInfo("Auto Farm map: " .. getgenv().mapdefault)
             Gem.updateInfo(tostring(get("Diamonds")))
             Fruit.updateInfo(tostring(checkfruit()))
@@ -3420,7 +3472,6 @@ spawn(function()
     end)
 end)
 return lib
-
 else
 if not game:IsLoaded() then game.Loaded:Wait() end
 
@@ -5324,6 +5375,14 @@ function aasda()
             end
         else
             local v17 = v1.Directory.Areas[getgenv().mapdefault]
+            if v1.WorldCmds.Get() ~= v17.world then
+                getgenv().dbuoiboost == false
+            else
+                if getgenv().dbuoiboost == false then
+                    isbooster()
+                    getgenv().dbuoiboost == true
+                end
+            end
             if getgenv().mapdefault ~= "Mystic Mine" then
                 if v1.WorldCmds.Get() == v17.world and adudarkqua[getgenv().mapdefault] and adudarkqua[getgenv().mapdefault] ~= nil then
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[getgenv().mapdefault]).Magnitude > 20 then
