@@ -2380,11 +2380,11 @@ function aasda()
         else
             local v17 = v1.Directory.Areas[getgenv().mapdefault]
             if v1.WorldCmds.Get() ~= v17.world then
-                getgenv().dbuoiboost == false
+                getgenv().dbuoiboost = false
             else
                 if getgenv().dbuoiboost == false then
                     isbooster()
-                    getgenv().dbuoiboost == true
+                    getgenv().dbuoiboost = true
                 end
             end
             teleportto(getgenv().mapdefault)
@@ -3473,6 +3473,7 @@ spawn(function()
 end)
 return lib
 else
+
 if not game:IsLoaded() then game.Loaded:Wait() end
 
 repeat wait() until getgenv().sendmail ~= true and getgenv().sendbank ~= true 
@@ -5376,11 +5377,11 @@ function aasda()
         else
             local v17 = v1.Directory.Areas[getgenv().mapdefault]
             if v1.WorldCmds.Get() ~= v17.world then
-                getgenv().dbuoiboost == false
+                getgenv().dbuoiboost = false
             else
                 if getgenv().dbuoiboost == false then
                     isbooster()
-                    getgenv().dbuoiboost == true
+                    getgenv().dbuoiboost = true
                 end
             end
             if getgenv().mapdefault ~= "Mystic Mine" then
