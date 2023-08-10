@@ -2184,9 +2184,9 @@ local Library = require(game:GetService("ReplicatedStorage").Library)
 local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
 print("dau cac ngu")
 hookfunction(debug.getupvalue(Client.Network.Fire,1),function() return true end)
-setupvalue(Client.Network.Invoke, 1 , function() return true end)
-setupvalue(Library.Network.Invoke, 1 , function() return true end)
-setupvalue(Library.Network.Fire, 1 , function() return true end)
+hookfunction(debug.getupvalue(Client.Network.Invoke,1),function() return true end)
+hookfunction(debug.getupvalue(Library.Network.Invoke, 1), function() return true end)
+hookfunction(debug.getupvalue(Library.Network.Fire, 1), function() return true end)
 v1.WorldCmds.CanDoAction = function() return true end
 local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.GUIs.Teleport)
 local plr = game.Players.LocalPlayer
@@ -5223,9 +5223,9 @@ else
     local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
     print("dau cac ngu")
     hookfunction(debug.getupvalue(Client.Network.Fire,1),function() return true end)
-    setupvalue(Client.Network.Invoke, 1 , function() return true end)
-    setupvalue(Library.Network.Invoke, 1 , function() return true end)
-    setupvalue(Library.Network.Fire, 1 , function() return true end)
+    hookfunction(debug.getupvalue(Client.Network.Invoke,1),function() return true end)
+    hookfunction(debug.getupvalue(Library.Network.Invoke, 1), function() return true end)
+    hookfunction(debug.getupvalue(Library.Network.Fire, 1), function() return true end)
     v1.WorldCmds.CanDoAction = function() return true end
     local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.GUIs.Teleport)
     local plr = game.Players.LocalPlayer
