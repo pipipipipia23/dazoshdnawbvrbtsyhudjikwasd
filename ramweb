@@ -2886,28 +2886,13 @@ if status().StatusCode == 200 then
         while true do wait(10)
             pcall(function()
                 if GetClosestTorso() ~= false and checksamesv() == false then
+                    game:Shutdown()
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() ~= false then
-                    if getinfo() == false then
-                        edithopsv()
-                        wait(timedelay)
-                        if getinfo() == false then
-                            TeleportSHOP()
-                        else
-                            edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"Wait HopServer")
-                        end
-                    end
+                    game:Shutdown()
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Have Players Nearest You,Account Savesv: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 elseif checksamesv() ~= false and GetClosestTorso() == false then
-                    if getinfo() == false then
-                        edithopsv()
-                        wait(timedelay)
-                        if getinfo() == false then
-                            TeleportSHOP()
-                        else
-                            edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),"Wait HopServer")
-                        end
-                    end
+                    game:Shutdown()
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Same Server: " .. checksamesv() .. "|" .. tostring(getgenv().mapdefault)))
                 else
                     edit(iduser(), nameuser(), namegame(), jobid(), getthegem(),checkaz(),getstatus("Farm Normal|" .. tostring(getgenv().mapdefault)))
