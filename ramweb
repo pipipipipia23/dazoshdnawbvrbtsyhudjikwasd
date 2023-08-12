@@ -2762,7 +2762,7 @@ end
 function GetClosestTorso()
     for _,v in pairs(game:GetService("Players"):GetPlayers()) do
         if v.Character and v.Name ~= plr.Name then
-            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Character.HumanoidRootPart.Position).Magnitude < 100 and (Vector3.new(9021,-13,2507)-v.Character.HumanoidRootPart.Position).Magnitude < 100 then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Character.HumanoidRootPart.Position).Magnitude < 50 and (Vector3.new(9021,-13,2507)-v.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 return v.Character.HumanoidRootPart.Position
             end
         end
