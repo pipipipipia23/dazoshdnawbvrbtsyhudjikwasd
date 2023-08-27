@@ -1,3 +1,38 @@
+if not game:IsLoaded() then game.Loaded:Wait() end
+repeat wait() until game.Players
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.ReplicatedStorage
+repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+local plr = game.Players.LocalPlayer
+local vu = game:GetService("VirtualUser")
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    wait(1)
+    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+function click(a)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,true,a,1)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
+end
+
+function fireButton1(button)
+	for i,signal in next, getconnections(button.Activated) do 
+		signal:Function()
+	end
+end
+
+-- check acc thi xoa "--" di 
+pcall(function()
+    if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        repeat wait()
+			fireButton1(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container[getgenv().team].Frame.ViewportFrame.TextButton)
+        until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded() or not game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+    end
+end)
 plr = game.Players.LocalPlayer
 getgenv().Status = {
     ["Inventory"] = {},
@@ -137,7 +172,7 @@ function updateinven()
 end
 function vlzlun()
     updateinven()
-    wait(5)
+    wait(getgenv().timedelay)
     saveconfig()
 end
 while true do wait()
