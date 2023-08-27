@@ -1,0 +1,146 @@
+plr = game.Players.LocalPlayer
+getgenv().Status = {
+    ["Inventory"] = {},
+    ["BloxFruit"] = {},
+    ["Fragments"] = {},
+    ["Beli"] = {},
+    ["Race"] = {},
+    ["FightingStyle"] = {},
+    ["AwakenedMove"] = {},
+    ["ScriptStatus"] = {
+        ["Level"] = 0,
+        ["World"] = "None",
+        ["DevilFruit"] = "None",
+    },
+}
+if not isfile("BloxFruit-"..plr.Name..".datas") then
+    writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+end
+wait(1)
+if isfile("BloxFruit-"..plr.Name..".datas") then
+    writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+end
+function saveconfig()
+    if isfile("BloxFruit-"..plr.Name..".datas") then
+        writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+    else
+        if not isfile("BloxFruit-"..plr.Name..".datas") then
+            writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+        end
+    end
+end
+
+getgenv().rarity = {
+    "Common",
+    "Uncommon",
+    "Rare",
+    "Legendary",
+    "Mythical"
+}
+
+function layfruit()
+    for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Tool") and v.ToolTip == "Blox Fruit" then
+            return v.Name
+        end
+    end
+    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v:IsA("Tool") and v.ToolTip == "Blox Fruit" then
+            return v.Name
+        end
+    end
+    return "None"
+end
+
+local MeleeTable = {"Superhuman","ElectricClaw","DragonTalon","SharkmanKarate","DeathStep","Godhuman"}
+
+function getmelee()
+    savemelee = {}
+    for i,v in pairs(MeleeTable) do
+        if checkstep2(v) == 1 or (v == "Godhuman" and checkstep2(v) == 2) then
+            table.insert(savemelee,v)
+        end
+    end
+    return savemelee
+end
+
+function remotemelee(a,b)
+	return game.ReplicatedStorage.Remotes.CommF_:InvokeServer(a,b)
+end
+
+function checkstep2(d)
+	if d == "DragonClaw" then
+		return remotemelee("BlackbeardReward", "DragonClaw", "2")
+	else
+		return remotemelee("Buy"..d, 1)
+	end
+end
+
+function Statusawaken()
+    aduvip = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("getAwakenedAbilities")
+    vailoz = {}
+    for i,v in pairs(aduvip) do
+        if aduvip[i]["Awakened"] == true then
+            table.insert(vailoz, aduvip[i]["Key"])
+        end
+    end
+    return vailoz
+end
+
+local placeId = game.PlaceId
+function getsea()
+    if placeId == 2753915549 then
+        Sea = "Sea 1"
+    elseif placeId == 4442272183 then
+        Sea = "Sea 2"
+    elseif placeId == 7449423635 then
+        Sea = "Sea 3"
+    end
+    return Sea
+end
+
+function updateinven()
+    local Inventory = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
+    getgenv().Status = {
+        ["Inventory"] = {},
+        ["BloxFruit"] = {},
+        ["Fragments"] = {},
+        ["Beli"] = {},
+        ["Race"] = {},
+        ["FightingStyle"] = {},
+        ["AwakenedMove"] = {},
+        ["ScriptStatus"] = {
+            ["Level"] = 0,
+            ["World"] = "None",
+            ["DevilFruit"] = "None",
+        },
+    }
+    for i,v in pairs(Inventory) do
+        if not getgenv().Status["Inventory"][v.Type] then
+            getgenv().Status["Inventory"][v.Type] = {}
+        elseif not getgenv().Status["Inventory"][v.Type][getgenv().rarity[v.Rarity + 1]] then
+            getgenv().Status["Inventory"][v.Type][getgenv().rarity[v.Rarity + 1]] = {}
+        end
+    end
+    for i,v in pairs(Inventory) do
+        table.insert(getgenv().Status["Inventory"][v.Type][getgenv().rarity[v.Rarity + 1]], v.Name)
+    end
+    getgenv().Status["BloxFruit"] = layfruit()
+    getgenv().Status["Fragments"] = tostring(plr.Data.Fragments.Value)
+    getgenv().Status["Beli"] = tostring(plr.Data.Beli.Value)
+    getgenv().Status["Race"] = tostring(plr.Data.Race.Value)
+    getgenv().Status["FightingStyle"] = getmelee()
+    getgenv().Status["AwakenedMove"] = Statusawaken()
+    getgenv().Status["ScriptStatus"]["Level"] = tostring(plr.Data.Level.Value)
+    getgenv().Status["ScriptStatus"]["World"] = getsea()
+    getgenv().Status["ScriptStatus"]["DevilFruit"] = layfruit()
+end
+function vlzlun()
+    updateinven()
+    wait(5)
+    saveconfig()
+end
+while true do wait()
+    local a ,b = pcall(vlzlun)
+    print(a,b)
+end
