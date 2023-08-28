@@ -45,10 +45,10 @@ getgenv().Status = {
     ["ScriptStatus"] = {
         ["Auto Farm"] = "None",
         ["Auto Item"] = "None",
-        ["Level"] = 0,
-        ["World"] = "None",
-        ["DevilFruit"] = "None",
     },
+    ["Level"] = 0,
+    ["World"] = "None",
+    ["DevilFruit"] = "None",
 }
 if not isfile(plr.Name..".datas") then
     writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
@@ -149,10 +149,10 @@ function updateinven()
         ["ScriptStatus"] = {
             ["Auto Farm"] = "None",
             ["Auto Item"] = "None",
-            ["Level"] = 0,
-            ["World"] = "None",
-            ["DevilFruit"] = "None",
         },
+        ["Level"] = 0,
+        ["World"] = "None",
+        ["DevilFruit"] = "None",
     }
     for i,v in pairs(Inventory) do
         if not getgenv().Status["Inventory"][v.Type] then
@@ -170,9 +170,9 @@ function updateinven()
     getgenv().Status["Race"] = tostring(plr.Data.Race.Value)
     getgenv().Status["FightingStyle"] = getmelee()
     getgenv().Status["AwakenedMove"] = Statusawaken()
-    getgenv().Status["ScriptStatus"]["Level"] = tostring(plr.Data.Level.Value)
-    getgenv().Status["ScriptStatus"]["World"] = getsea()
-    getgenv().Status["ScriptStatus"]["DevilFruit"] = layfruit()
+    getgenv().Status["Level"] = tostring(plr.Data.Level.Value)
+    getgenv().Status["World"] = getsea()
+    getgenv().Status["DevilFruit"] = layfruit()
 end
 function vlzlun()
     updateinven()
