@@ -43,24 +43,26 @@ getgenv().Status = {
     ["FightingStyle"] = {},
     ["AwakenedMove"] = {},
     ["ScriptStatus"] = {
+        ["Auto Farm"] = "None",
+        ["Auto Item"] = "None",
         ["Level"] = 0,
         ["World"] = "None",
         ["DevilFruit"] = "None",
     },
 }
-if not isfile("BloxFruit-"..plr.Name..".datas") then
-    writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+if not isfile(plr.Name..".datas") then
+    writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
 end
 wait(1)
-if isfile("BloxFruit-"..plr.Name..".datas") then
-    writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+if isfile(plr.Name..".datas") then
+    writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
 end
 function saveconfig()
-    if isfile("BloxFruit-"..plr.Name..".datas") then
-        writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+    if isfile(plr.Name..".datas") then
+        writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
     else
-        if not isfile("BloxFruit-"..plr.Name..".datas") then
-            writefile("BloxFruit-"..plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
+        if not isfile(plr.Name..".datas") then
+            writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Status))
         end
     end
 end
@@ -173,6 +175,7 @@ end
 function vlzlun()
     updateinven()
     wait(getgenv().timedelay)
+    print("Update")
     saveconfig()
 end
 while true do wait()
