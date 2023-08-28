@@ -147,6 +147,8 @@ function updateinven()
         ["FightingStyle"] = {},
         ["AwakenedMove"] = {},
         ["ScriptStatus"] = {
+            ["Auto Farm"] = "None",
+            ["Auto Item"] = "None",
             ["Level"] = 0,
             ["World"] = "None",
             ["DevilFruit"] = "None",
