@@ -160,7 +160,8 @@ function updateinven()
     for i,v in pairs(Inventory) do
         if not getgenv().Status["Inventory"][v.Type] then
             getgenv().Status["Inventory"][v.Type] = {}
-        elseif not getgenv().Status["Inventory"][v.Type][getgenv().rarity[v.Rarity + 1]] then
+        end
+        if not getgenv().Status["Inventory"][v.Type][getgenv().rarity[v.Rarity + 1]] and getgenv().Status["Inventory"][v.Type] then
             getgenv().Status["Inventory"][v.Type][getgenv().rarity[v.Rarity + 1]] = {}
         end
     end
@@ -177,6 +178,9 @@ function updateinven()
     getgenv().Status["World"] = getsea()
     getgenv().Status["DevilFruit"] = layfruit()
 end
+updateinven()
+saveconfig()
+
 function vlzlun()
     updateinven()
     wait(getgenv().timedelay)
