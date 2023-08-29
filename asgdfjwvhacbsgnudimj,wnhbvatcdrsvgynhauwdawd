@@ -1,4 +1,3 @@
-getgenv().team = "Marines" -- Pirates
 getgenv().timedelay = 5
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
