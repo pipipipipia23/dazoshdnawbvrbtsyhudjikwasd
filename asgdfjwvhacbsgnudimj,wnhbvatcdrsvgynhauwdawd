@@ -1,3 +1,4 @@
+getgenv().team = "Marines" -- Pirates
 getgenv().timedelay = 5
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -117,7 +118,7 @@ end
 function Statusawaken()
     aduvip = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("getAwakenedAbilities")
     vailoz = {}
-    if type(aduvip) ~= "table" then
+    if type(aduvip) == "table" then
         for i,v in pairs(aduvip) do
             if aduvip[i]["Awakened"] == true then
                 table.insert(vailoz, aduvip[i]["Key"])
