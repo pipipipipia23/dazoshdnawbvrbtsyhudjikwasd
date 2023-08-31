@@ -3036,7 +3036,7 @@ if getgenv().hiep then
                                     local v48 = v1.Save.Get()
                                     for i,v in pairs(v48.Pets) do 
                                         local checkne = v1.Directory.Pets[v48.Pets[i]["id"]]
-                                        if checkne.rarity == "Exclusive" then
+                                        if checkne.rarity == "Exclusive" and string.find(checkne.name , "Huge") then
                                             table.insert(vloz, v48.Pets[i]["uid"])
                                         end
                                     end
