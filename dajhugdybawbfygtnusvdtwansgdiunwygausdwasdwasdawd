@@ -3,6 +3,7 @@ getgenv().Nameaccmain = "quanhbugem"
 spawn(function()
     local tickne = tick()
     repeat wait()
+        print("ERR")
     until tick() - tickne > 60 or getgenv().loaded == true
     if getgenv().loaded ~= true then
         game:Shutdown()
