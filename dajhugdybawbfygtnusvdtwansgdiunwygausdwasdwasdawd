@@ -1,1783 +1,16 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-getgenv().farmabcxyz = "double" -- single
-getgenv().chonvitri = 1 -- 1 hoac 2
-getgenv().methodchange = "So Luong Fruit" -- Check Theo Thoi Gian ( day la method doi map)
-getgenv().areafarm1 = "Pixel Alps" -- Cat Kingdom
-getgenv().timemap1 = 200 -- Min, hoac so luong fruit
-getgenv().areafarm2 = "Mystic Mine"
-getgenv().unlock_spawn_to_map = "Kawaii Candyland"
-getgenv().timemap2 = 400 -- Min, hoac so luong fruit
-getgenv().tgianne = 1
-getgenv().methodhutgem = "Old" -- new
-getgenv().startresetfruit = true
-getgenv().resetfruit30min = true
-getgenv().countdaycare = 10
-getgenv().autodaycare = false
-getgenv().Nameaccmain = "ufyfYUevctA"
-getgenv().soluonggem = 5000000000
-getgenv().methodfarmfruit = "2" -- "1" = farm max fruit, "2" if min fruit farm until max 
-getgenv().autosendgem = false
-getgenv().methodsendgem = "Old"
-getgenv().fruitslect = {"Orange", "Apple"}
-getgenv().methodautofarm = "New"
-getgenv().turnonfarmgiant = false
-getgenv().whitescreen = false
-getgenv().autodaily = true
-getgenv().walkauto = true
-getgenv().autocomet = false
-getgenv().boostnow = false
-getgenv().Onlyfarmunlockmap = false
+getgenv().Nameaccmain = "quanhbugem"
+spawn(function()
+    local tickne = tick()
+    repeat wait()
+    until tick() - tickne > 60 or getgenv().loaded == true
+    if getgenv().loaded ~= true then
+        game:Shutdown()
+    end
+end)
 if not game:IsLoaded() then game.Loaded:Wait() end
 local plr = game.Players.LocalPlayer
 getgenv().Save = {
+    nexttimefarm = 0,
     ["Mine Collapse"] = 0,
 }
 
@@ -1797,433 +30,15 @@ function saveconfig()
         end
     end
 end
-saveconfig()
-repeat wait() until getgenv().sendmail ~= true and getgenv().sendbank ~= true 
-getgenv().checked = 0
-repeat wait(1) 
-    getgenv().checked = getgenv().checked + 1 
-    if getgenv().checked > 100 then
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-        wait(10)
-    end
-until game.Players
-repeat wait(1) 
-    getgenv().checked = getgenv().checked + 1 
-    if getgenv().checked > 100 then
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-        wait(10)
-    end
-until game.Players.LocalPlayer
-repeat wait(1) 
 
-until game.ReplicatedStorage
-repeat wait(1) 
-    getgenv().checked = getgenv().checked + 1 
-    if getgenv().checked > 100 then
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-        wait(10)
-    end
-until game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
-repeat wait(1) 
-    getgenv().checked = getgenv().checked + 1 
-    if getgenv().checked > 100 then
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-        wait(10)
-    end
-until game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Main")
-repeat wait(1) 
-    getgenv().checked = getgenv().checked + 1 
-    if getgenv().checked > 100 then
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-        wait(10)
-    end
-until game:GetService("Players").LocalPlayer.PlayerGui.Main.Right
-repeat wait(1) 
-    getgenv().checked = getgenv().checked + 1 
-    if getgenv().checked > 100 then
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-        wait(10)
-    end
-until game:GetService("Workspace"):FindFirstChild("__MAP")
+repeat wait() until game.Players
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.ReplicatedStorage
+repeat wait() until game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Main")
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.Main.Right
+repeat wait() until game:GetService("Workspace"):FindFirstChild("__MAP")
 
-local services = setmetatable({}, {
-    __index = function(_, service)
-        return game:GetService(service)
-    end,
-})
-
-local lib = {}
-local utils = {}
-
-utils.random = function(_length)
-	local characters = "abcdefghijklmnopqrstuvwxyz1234567890"
-	characters = string.split(characters, "")
-			
-	local randomString = ""
-			
-	for i = 1, _length do
-		local i = math.random(1, #characters)
-				
-		if (not tonumber(characters[i])) then
-			local uppercase = math.random(1, 2) == 2 and true or false
-			randomString = randomString .. (uppercase and characters[i]:upper() or characters[i])
-		else
-			randomString = randomString .. characters[i]
-		end
-	end
-			
-	return randomString
-end
-
-utils.create = function(class, prop)
-	local obj = Instance.new(class)
-		
-	for prop, v in next, prop do
-				obj[prop] = v
-	end
-		
-	pcall(function()
-		obj.AutoButtonColor = false
-	end)
-	
-	obj.Name = utils.random(16)
-		
-	return obj
-end
-
-utils.tween = function(obj, info, properties, callback)
-	local anim = services.TweenService:Create(obj, TweenInfo.new(unpack(info)), properties)
-	anim:Play()
-
-	if callback then
-		anim.Completed:Connect(callback)
-	end
-
-	return anim
-end
-
-utils.dragify = function(object, hoverobj, speed, additionalObject)
-	local start, objectPosition, dragging
-
-	speed = speed or 0
-
-	hoverobj.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-			dragging = true
-			start = input.Position
-			objectPosition = object.Position
-		end
-	end)
-
-	hoverobj.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-			dragging = false
-		end
-	end)
-
-	services.UserInputService.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
-			utils.tween(object, { speed }, {
-				Position = UDim2.new(
-					objectPosition.X.Scale,
-					objectPosition.X.Offset + (input.Position - start).X,
-					objectPosition.Y.Scale,
-					objectPosition.Y.Offset + (input.Position - start).Y
-				),
-			})
-			utils.tween(additionalObject, { speed + 0.0000001 }, {
-				Position = UDim2.new(
-					objectPosition.X.Scale,
-					objectPosition.X.Offset + (input.Position - start).X,
-					objectPosition.Y.Scale,
-					objectPosition.Y.Offset + (input.Position - start).Y
-				),
-			})
-		end
-	end)
-end
-
-utils.updatesize = function(uil, obj)
-	local Property = "CanvasSize"
-
-	if not obj:IsA("ScrollingFrame") then
-		Property = "Size"
-	end
-
-	local cS = uil.AbsoluteContentSize
-
-	game.TweenService
-		:Create(obj, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-			[Property] = UDim2.new(
-				Property == "Size" and obj.Size.X.Scale or 0,
-				cS.X,
-				Property == "Size" and obj.Size.Y.Scale or 0,
-				cS.Y + 50
-			),
-		})
-		:Play()
-end
-
--- // Main Functions
-
-lib.createWindow = function()
-    local ScreenGui = utils.create('ScreenGui', {
-		Parent = game:GetService('CoreGui'),
-		ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
-        ResetOnSpawn = false,
-        DisplayOrder = 9
-    })
-
-    local BackgroundFrame = utils.create('Frame', {
-		Parent = ScreenGui,
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		BackgroundColor3 = Color3.fromRGB(27, 27, 25),
-		BackgroundTransparency = 1.000,
-		Position = UDim2.new(0.5, 0, 0.5, 0),
-		Size = UDim2.new(0, 400, 0, 270),
-    })
-
-    utils.create('UICorner', {
-		CornerRadius = UDim.new(0, 12),
-		Parent = BackgroundFrame,
-    })
-
-    local BackgroundShadow = utils.create('ImageLabel', {
-		Parent = BackgroundFrame,
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-		BackgroundTransparency = 1.000,
-		Position = UDim2.new(0.499853075, 0, 0.496137619, 0),
-		Size = UDim2.new(1, 0, 1, 0),
-		ZIndex = 0,
-		Image = "rbxassetid://8992584561",
-		ImageColor3 = Color3.fromRGB(33, 32, 46),
-		ImageTransparency = 0.100,
-		ScaleType = Enum.ScaleType.Slice,
-		SliceCenter = Rect.new(73, 73, 73, 73),
-		SliceScale = 0.980,
-    })
-
-    local BackgroundPlasma = utils.create('ImageLabel', {
-		Name = "BackgroundPlasma",
-		Parent = BackgroundFrame,
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-		BackgroundTransparency = 1.000,
-		Position = UDim2.new(0.482142866, 10, 0.477272719, 20),
-		Size = UDim2.new(1, 0, 1, 0),
-		Image = "rbxassetid://8992584561",
-		ImageColor3 = Color3.fromRGB(196, 167, 231),
-		SliceCenter = Rect.new(73, 73, 73, 73),
-		SliceScale = 0.980,
-    })
-
-    local BackgroundPlasma_2 = utils.create('ImageLabel', {
-            Name = "BackgroundPlasma",
-            Parent = BackgroundFrame,
-            AnchorPoint = Vector2.new(0.5, 0.5),
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundTransparency = 1.000,
-            Position = UDim2.new(0.482142866, 10, 0.477272719, 20),
-            Size = UDim2.new(1, 0, 1, 0),
-            Image = "rbxassetid://8992584561",
-            ImageColor3 = Color3.fromRGB(196, 167, 231),
-            SliceCenter = Rect.new(73, 73, 73, 73),
-            SliceScale = 0.980,
-    })
-
-    local CanvasGroup = utils.create('CanvasGroup', {
-		Parent = ScreenGui,
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-		BackgroundTransparency = 1.000,
-		Position = UDim2.new(0.5, 0, 0.5, 0),
-		Size = UDim2.new(0, 400, 0, 270),
-		ZIndex = 2,
-    })
-
-    local UIStroke = utils.create('UIStroke', {
-        Color = Color3.fromRGB(86, 82, 110),
-        Thickness = 2.000,
-        Parent = CanvasGroup,
-    })
-
-    local MainFrame = utils.create('Frame', {
-		Name = "MainFrame",
-		Parent = CanvasGroup,
-		BackgroundColor3 = Color3.fromRGB(25, 23, 28),
-		BackgroundTransparency = 0.200,
-		Size = UDim2.new(1, 0, 1, 0)
-    })
-    local UICorner = utils.create('UICorner', {
-            CornerRadius = UDim.new(0, 12),
-            Parent = MainFrame,
-    })
-    local Content = utils.create('Frame', {
-            Name = "Content",
-            Parent = MainFrame,
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundTransparency = 1.000,
-            BorderColor3 = Color3.fromRGB(0, 0, 0),
-            BorderSizePixel = 0,
-            Size = UDim2.new(1, 0, 1, 0),
-    })
-    local TopBar = utils.create('Frame', {
-            Name = "TopBar",
-            Parent = Content,
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundTransparency = 1.000,
-            Size = UDim2.new(1, 0, 0, 36),
-    })
-    local xSeperator = utils.create('Frame', {
-            Name = "xSeperator",
-            Parent = TopBar,
-            BackgroundColor3 = Color3.fromRGB(196, 167, 231),
-            BackgroundTransparency = 0.800,
-            BorderSizePixel = 0,
-            Position = UDim2.new(0, 0, 1, 0),
-            Size = UDim2.new(1, 0, 0, 1),
-    })
-    local Buttons = utils.create('Frame', {
-            Name = "Buttons",
-            Parent = TopBar,
-            AnchorPoint = Vector2.new(0, 0.5),
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundTransparency = 1.000,
-            Position = UDim2.new(0, 10, 0.5, 0),
-            Size = UDim2.new(0, 100, 0, 10),
-    })
-    local UIListLayout = utils.create('UIListLayout', {
-            Parent = Buttons,
-            FillDirection = Enum.FillDirection.Horizontal,
-            SortOrder = Enum.SortOrder.LayoutOrder,
-            Padding = UDim.new(0, 5),
-    })
-    local Close = utils.create('Frame', {
-            Name = "Close",
-            Parent = Buttons,
-            BackgroundColor3 = Color3.fromRGB(235, 111, 146),
-            BackgroundTransparency = 0.300,
-            Size = UDim2.new(0, 10, 0, 10),
-    })
-    local UICorner_2 = utils.create('UICorner', {
-            CornerRadius = UDim.new(0, 3192),
-            Parent = Close,
-    })
-    local Minimize = utils.create('Frame', {
-            Name = "Minimize",
-            Parent = Buttons,
-            BackgroundColor3 = Color3.fromRGB(246, 193, 119),
-            BackgroundTransparency = 0.300,
-            Size = UDim2.new(0, 10, 0, 10),
-    })
-    local UICorner_3 = utils.create('UICorner', {
-            CornerRadius = UDim.new(0, 3192),
-            Parent = Minimize,
-    })
-    local ImageButton = utils.create('ImageButton', {
-            Parent = TopBar,
-            AnchorPoint = Vector2.new(0.5, 0.5),
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundTransparency = 1.000,
-            Position = UDim2.new(0.930000007, 0, 0.5, 0),
-            Size = UDim2.new(0, 15, 0, 15),
-            AutoButtonColor = false,
-            Image = "rbxassetid://11422927659",
-            ImageColor3 = Color3.fromRGB(110, 106, 134),
-    })
-    local Info = utils.create('Frame', {
-            Name = "Info",
-            Parent = Content,
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundTransparency = 1.000,
-            BorderColor3 = Color3.fromRGB(0, 0, 0),
-            BorderSizePixel = 0,
-            Position = UDim2.new(0, 0, 0.137037039, 0),
-            Size = UDim2.new(1, 0, 0.862962961, 0),
-    })
-    local UIPadding = utils.create('UIPadding', {
-            Parent = Info,
-            PaddingLeft = UDim.new(0, 10),
-            PaddingTop = UDim.new(0, 12),
-    })
-    local UIListLayout_2 = utils.create('UIListLayout', {
-            Parent = Info,
-            SortOrder = Enum.SortOrder.LayoutOrder,
-            Padding = UDim.new(0, 3),
-    })
-
-    utils.dragify(CanvasGroup, TopBar, 0.08, BackgroundFrame)
-
-    local window = {}
-
-    window.createField = function(name, value)
-        local Button = utils.create('Frame', {
-            Name = "Button",
-            Parent = Info,
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundTransparency = 1.000,
-            Size = UDim2.new(1, 0, 0, 40),
-            -- // Generated by natsu.ps1#4977's plugin
-        })
-        local Frame = utils.create('Frame', {
-                Parent = Button,
-                AnchorPoint = Vector2.new(0.5, 0.5),
-                BackgroundColor3 = Color3.fromRGB(25, 23, 28),
-                BackgroundTransparency = 0.900,
-                Position = UDim2.new(0.5, -5, 0.5, 0),
-                Size = UDim2.new(0.899999976, 0, 0.899999976, 0),
-                -- // Generated by natsu.ps1#4977's plugin
-        })
-        local UICorner = utils.create('UICorner', {
-                CornerRadius = UDim.new(0, 6),
-                Parent = Frame,
-                -- // Generated by natsu.ps1#4977's plugin
-        })
-        local UIStroke = utils.create('UIStroke', {
-                Color = Color3.fromRGB(196, 167, 231),
-                Transparency = 0.800,
-                Parent = Frame,
-                -- // Generated by natsu.ps1#4977's plugin
-        })
-        local TextLabel = utils.create('TextLabel', {
-                Parent = Frame,
-                BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-                BackgroundTransparency = 1.000,
-                Position = UDim2.new(0, 13, 0, 0),
-                Size = UDim2.new(0, 120, 1, 0),
-                Font = Enum.Font.Gotham,
-                Text = name .. ": " .. value,
-                TextColor3 = Color3.fromRGB(224, 222, 244),
-                TextSize = 14.000,
-                TextTransparency = 0.200,
-                TextXAlignment = Enum.TextXAlignment.Left,
-                -- // Generated by natsu.ps1#4977's plugin
-        })
-
-        CanvasGroup.Size = UDim2.new(CanvasGroup.Size.X.Scale, CanvasGroup.Size.X.Offset, CanvasGroup.Size.Y.Scale, CanvasGroup.Size.Y.Offset + 40)
-
-        local shit = {}
-
-        shit.updateInfo = function(_value)
-            TextLabel.Text = name .. ": " .. _value
-        end
-
-        return shit
-    end
-
-    return window
-end
-
-local window = lib.createWindow()
-local Hubname = window.createField("Hub Name: ", "DaNeKo Hub")
-local Status = window.createField("Status: ", "Loaded")
-local Error = window.createField("Check: ", "None")
-local Error2 = window.createField("Check2: ", "None")
-local Statusfarm = window.createField("Statusfarm: ", "None")
-local Gem = window.createField("Gem: ", "None")
-local Fruit = window.createField("Fruit: ", "None")
------ UI lib
 local vu = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
     vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -2231,1616 +46,391 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 local Client = require(game.ReplicatedStorage.Library.Client)
+local loirequire, kcj = pcall(function()
+    local Library = require(game:GetService("ReplicatedStorage").Library)
+end)
+if loirequire == false then
+    wait(4)
+    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
+else
+    local Library = require(game:GetService("ReplicatedStorage").Library)
+end
 local Library = require(game:GetService("ReplicatedStorage").Library)
 local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
-print("dau cac ngu")
+getgenv().loaded = true
+getrenv().require = getgenv().require
 hookfunction(debug.getupvalue(Client.Network.Fire,1),function() return true end)
 hookfunction(debug.getupvalue(Client.Network.Invoke,1),function() return true end)
 hookfunction(debug.getupvalue(Library.Network.Invoke, 1), function() return true end)
 hookfunction(debug.getupvalue(Library.Network.Fire, 1), function() return true end)
-getrenv().require = getgenv().require
 v1.WorldCmds.CanDoAction = function() return true end
 local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.GUIs.Teleport)
 local plr = game.Players.LocalPlayer
 local controls = require(game.Players.LocalPlayer.PlayerScripts.PlayerModule):GetControls()
+local Save = v1.Save.Get
+local Commas = v1.Functions.Commas
 function getdafarm()
     return #Client.PetCmds.GetEquipped()
 end
+
 local vitribank = Vector3.new(229.9514923095703, 98.11483001708984, 360.9400329589844)
+local vitribankhl = Vector3.new(2383.46728515625, 0.4109991192817688, -1858.5555419921875)
 function bankloaded()
     return game:GetService("Players").LocalPlayer.PlayerGui.BankLoading.Enabled
 end
 Client.Network.Invoke("Equip Best Pets")
-yowtf = 0
-spawn(function()
-    while true do wait(1)
-        pcall(function()
-            if (plr.Character.HumanoidRootPart.Position - vitribank).Magnitude < 10 then
-                yowtf = yowtf + 1
-                Error.updateInfo("Near Bank Time: " .. tostring(yowtf) .. " 300s rejoin")
-                if yowtf == 60 * 3 then
-                    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-                end
-            else
-                yowtf = yowtf - 1
-            end
-        end)
+function teleportto(texta)
+    local v17 = v1.Directory.Areas[texta]
+    if v1.WorldCmds.Get() ~= v17.world then
+        hihi.Teleport(texta,true)
     end
-end)
-yowtf1 = 0
-spawn(function()
-    while true do wait(1)
-        pcall(function()
-            if bankloaded() then
-                yowtf1 = yowtf1 + 1
-                Error.updateInfo("Load Bank Time: " .. tostring(yowtf1) .. " 300s rejoin")
-                if yowtf1 == 60 * 3 then
-                    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-                end
-            else
-                yowtf1 = yowtf1 - 1
-            end
-        end)
-    end
-end)
----------------------------------------------------------------------------------------------------
-if v1.WorldCmds.HasArea("Mystic Mine") == false then
-    getgenv().chestselect = {"World Yellow Lucky Block", "World Blue Lucky Block", "World Pink Lucky Block", "World Rainbow Lucky Block"} -- "World Yellow Lucky Block", "World Blue Lucky Block", "World Pink Lucky Block", "World Rainbow Lucky Block" (support lucky area block)
-    _G.vitribanchon = 1 -- 1->5 (only lucky area)
-    getgenv().farmabcxyz = "double" -- single
-    getgenv().methodchange = "So Luong Fruit" -- Check Theo Thoi Gian ( day la method doi map)
-    getgenv().areafarm1 = "Pixel Alps" -- Axolotl Deep Ocean
-    getgenv().timemap1 = 100 -- Min, hoac so luong fruit
-    getgenv().areafarm2 = getgenv().unlock_spawn_to_map
-    getgenv().timemap2 = 200 -- Min, hoac so luong fruit
-    getgenv().tgianne = 1
-    getgenv().methodhutgem = "Old" -- new
-    getgenv().startresetfruit = true
-    getgenv().resetfruit30min = true
-    getgenv().countdaycare = 10
-    getgenv().autodaycare = false
-    getgenv().soluonggem = 70000000000
-    getgenv().autosendgem = false
-    getgenv().fruitslect = {"Orange", "Apple"}
-    getgenv().methodautofarm = "New"
-    getgenv().turnonfarmgiant = false
-    getgenv().whitescreen = false
-    getgenv().autodaily = true
-    getgenv().walkauto = true
-    getgenv().farmranknek = true
-    -- getgenv().bankdefault = "dd27e3f7-ffa0-48d7-a958-d9b643d99064"
-    local vitricuabank = Vector3.new(231.22198486328125, 98.11483001708984, 358.1041259765625)
-    local vitrimail = Vector3.new(254.9382781982422, 98.11483001708984, 352.31182861328125)
-    local v48 = v1.Save.Get()
-    function havenearbank()
-        for i,v in pairs(game.Players:GetChildren()) do
-            if v.Name ~= plr.Name then
-                if (v.Character.HumanoidRootPart.Position - vitricuabank).Magnitude < 10 then
-                    Statusfarm.updateInfo("Have player near bank (wait)")
-                end
-            end
-        end
-        return false
-    end
-    function teleportto(texta)
-        print(hihi.Teleport(texta,true))
-    end
-    function indexpet()
-        a = 0
-        for i,v in pairs(v48.Pets) do
-            if v48.Pets[i]["s"] >= 100000000000000000 then
-                a = a + 1   
-            end
-        end
-        return a
-    end
+end
+getgenv().Save["Mine Collapse"] = 0
+saveconfig()
+teleportto("Shop")
+wait(10)
+plr.Character.HumanoidRootPart.CFrame = CFrame.new(249.63430786132812, 100.11482238769531, 118.42450714111328)
+wait(1)
 
-    function getmybank()
-        print("Cac")
-        if bankloaded() == false then
-            if getgenv().doneleave ~= true then
-                for i,v in pairs(Client.Network.Invoke("Get My Banks")) do
-                    if v.Owner ~= game.Players.LocalPlayer.UserId then
-                        return v.BUID
-                    end
-                end
-                return false
-            end
-            return false
-        end
-        return false
-    end
-
-    local vitrirs = Vector3.new(232.1697235107422, 98.11483001708984, 312.91363525390625)
-    local vitribank = Vector3.new(229.9514923095703, 98.11483001708984, 360.9400329589844)
-    local vitrimerchan = Vector3.new(-389.8507995605469, 98.14244842529297, 90.26082611083984)
-    function checknearbank()
-        if (plr.Character.HumanoidRootPart.Position - vitribank).Magnitude < 10 then
-            return true
-        end
-        return false
-    end
-
-    local v17 = v1.Directory.Areas["Shop"]
-    function autofixUI()
-        if checknearbank() and checkisbank() == false then
-            tweenfarasm(vitrirs,CFrame.new(vitrirs))
-            tweenfarasm(vitribank,CFrame.new(vitribank))
-        end
-    end
-    function teleportto(texta)
-        print(hihi.Teleport(texta,true))
-    end
-    function fireButton1(button)
-        for i,signal in next, getconnections(button.Activated) do 
-            signal:Function()
-        end
-    end
-    function clickman(a)
-        spawn(function()
-            fireButton1(a)
-        end)
-    end
-    function getinvite()
-        for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Side.Holder:GetChildren()) do
-            if string.find(v.Name, "INVITE") then
-                local a = string.gsub(v.Player.Text, "@", "")
-                print(getgenv().Nameaccmain, a)
-                if a == getgenv().Nameaccmain then
-                    return v
-                end
-            end
-        end
-        return false
-    end
-    function stringfind(a,b)
-        if string.find(a,b) then
-            return true
-        end
-        return false
-    end
-    function getinvite2()
-        for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Side.Holder:GetChildren()) do
-            if not stringfind(v.Name, "INVITE") then
-                if string.len(v.Name) > 30 then
-                    if v.Owner.Text == tostring("@" .. getgenv().Nameaccmain) then
-                        return v
-                    end
-                end
-            end
-        end
-        return false
-    end
-    function ismes()
-        return game:GetService("Players").LocalPlayer.PlayerGui.Message.Enabled
-    end
-    function checkisbank()
-        return game:GetService("Players").LocalPlayer.PlayerGui.Bank.Enabled
-    end
-    local v17 = v1.Directory.Areas["Shop"]
-    function tweenfarasm(targetPos, targetCFrame)
-        if v1.WorldCmds.Get() == v17.world then
-            local gay = (targetPos-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-            local Tween = game:GetService('TweenService'):Create(
-                game.Players.LocalPlayer.Character.HumanoidRootPart,
-                TweenInfo.new(
-                    gay / 50, 
-                    Enum.EasingStyle.Linear
-                ),
-                {CFrame = targetCFrame * CFrame.new(0,0,0)}
-            )
-            Tween:Play()
-            Tween.Completed:Wait()
-        else
-            teleportto("Shop")
-        end
-    end 
-
-    function haveslot()
-        local dbuaz = game:GetService("Players").LocalPlayer.PlayerGui.Main.Bottom.Inventory.Equipped.Text
-        local slotpet = string.split(dbuaz, "/")
-        if tonumber(slotpet[2]) >= 11 then
-            return true
-        end
-        return false
-    end
-
-    function autocollectslot()
-        if haveslot() == false then
-            print(Client.Network.Invoke("Redeem Pet Collection"))
-        end
-        return true
-    end
-
-    repeat wait(1)
-        print("Azaza")
-        Statusfarm.updateInfo("Collect Slot")
-        autocollectslot()
-    until haveslot() == true
-    Statusfarm.updateInfo("Collect Slot Done")
-    function azowtf()
-        pcall(function()
-            if havenearbank() == false then
-                if indexpet() < 11 then
-                    Statusfarm.updateInfo("Go to bank")
-                    if getmybank() == false then
-                        if v1.WorldCmds.Get() == v17.world then
-                            if getmybank() == false then
-                                if checkisbank() == false then
-                                    if v1.WorldCmds.Get() == v17.world then
-                                        autofixUI()
-                                        if not checknearbank() then
-                                            tweenfarasm(vitribank,CFrame.new(vitribank))
-                                        end
-                                    else
-                                        teleportto("Shop")
-                                    end
-                                else
-                                    if not checknearbank() then
-                                        tweenfarasm(vitribank,CFrame.new(vitribank))
-                                    else
-                                        if getinvite() ~= false then
-                                            print("get success")
-                                            clickman(getinvite())
-                                        end
-                                        wait(5)
-                                        if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Do you want to accept this invite?" then
-                                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Yes)
-                                        else
-                                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.No)
-                                        end
-                                        wait(2)
-                                        if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
-                                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
-                                        end
-                                        Statusfarm.updateInfo("Wait send gem")
-                                        wait(10)
-                                        Client.Network.Invoke("Bank Deposit",getmybank(),{} ,get("Diamonds"))
-                                    end
-                                end
-                            end
-                        else
-                            teleportto("Shop")
-                        end
-                    else
-                        Statusfarm.updateInfo("Setup get 11 pet")
-                        getgenv().gettablepet = {}
-                        getgenv().toiuutable = Client.Network.Invoke("Get Bank", getmybank()).Storage.Pets
-                        for i,v in pairs(toiuutable) do
-                            local thuvien = v1.Directory.Pets[v.id]
-                            if #getgenv().gettablepet < 11 and thuvien.rarity ~= "Exclusive" then
-                                table.insert(getgenv().gettablepet, v.uid)
-                            end
-                        end
-                        Client.Network.Invoke("Bank Withdraw",getmybank(),getgenv().gettablepet ,100000000)
-                    end
-                else
-                    Client.Network.Invoke("Equip Best Pets")
-                end
-            end
-        end)
-    end
-
-    while indexpet() < 11 do wait(5)
-        local a,b = pcall(function()
-            if v1.WorldCmds.Get() == v17.world then
-                azowtf()
-                Statusfarm.updateInfo("Start Get Pet")
-            else
-                teleportto("Shop")
-            end
-        end)
-        print(a,b)
-    end
-
-    function azazazaz()
-        if v1.WorldCmds.Get() == v17.world then
-            if v1.WorldCmds.Get() == v17.world then
-                if checkisbank() == false then
-                    if v1.WorldCmds.Get() == v17.world then
-                        autofixUI()
-                        if not checknearbank() then
-                            tweenfarasm(vitribank,CFrame.new(vitribank))
-                        end
-                    else
-                        teleportto("Shop")
-                    end
-                else
-                    if not checknearbank() then
-                        tweenfarasm(vitribank,CFrame.new(vitribank))
-                    else
-                        if getinvite2() ~= false then
-                            clickman(getinvite2()) 
-                            wait(3)
-                            clickman(game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Bank.Bottom.Leave)
-                            wait(3)
-                            if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Are you sure you want to leave this bank?" then
-                                clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Yes)
-                                Statusfarm.updateInfo("Leave Bank Success!")
-                                getgenv().doneleave = true
-                            else
-                                clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.No)
-                            end
-                            wait(2)
-                            if game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Desc.Text == "Success! You are now a member." then
-                                clickman(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Ok)
-                            end
-                            wait(10)
-                        end
-                    end
-                end
-            else
-                teleportto("Shop")
-            end
-        end
-    end
-
-    while (getgenv().doneleave ~= true and getmybank() ~= false) do wait(5)
-        pcall(function()
-            Statusfarm.updateInfo("Leave Bank!")
-            tweenfarasm(vitricuabank, CFrame.new(vitricuabank))
-            azazazaz()
-        end)
-    end
-
-    Client.Network.Invoke("Equip Best Pets")
-
-    function checkhasmail()
-        if Client.Network.Invoke("Get Mail") then
-            return true
-        end
-        return false
-    end
-
-    function havemail()
-        if checkhasmail() then
-            for i,v in pairs(Client.Network.Invoke("Get Mail").Inbox) do
-                return true
-            end
-        end
-        return false
-    end
-
-    while havemail() do wait(5)
-        pcall(function()
-            if v1.WorldCmds.Get() == v17.world then
-                Statusfarm.updateInfo("Claim Mail")
-                tweenfarasm(vitrimail, CFrame.new(vitrimail))
-                wait(5)
-                Client.Network.Invoke("Claim All Mail")
-            else
-                teleportto("Shop")
-            end
-        end)
-    end
-
-    local tablecoins = {}
-
-    local a = require(game:GetService("ReplicatedStorage").__DIRECTORY.Upgrades.Upgrades)
-
-    for i,v in pairs(a) do
-        if v.currency == "Diamonds" then
-            table.insert(tablecoins, i)
-        end
-    end
-
-    function getupr()
-        for i,v in pairs(tablecoins) do
-            if Library.Save.Get().Upgrades[v] == nil or Library.Save.Get().Upgrades[v] < 5 then
-                return v 
-            end
-        end
-        return false
-    end
-
-    while getupr() ~= false do wait(1)
-        pcall(function()
-            tweenfarasm(vitrimerchan, CFrame.new(vitrimerchan))
-            if v1.WorldCmds.Get() == v17.world then
-                Statusfarm.updateInfo("Auto Upgrade diamond merchan")
-                Client.Network.Invoke("Buy Upgrade", getupr())
-            end
-        end)
-    end
-
-    ----------------------------------------------------------------------------------------------------
-
-    function autoupdate2()
-        getgenv().petsimz = {}
-        if getgenv().methodautofarm == "Old" then
-        else
-            local Pets = Client.PetCmds.GetEquipped()
-            local cac = 0
-            local a = {}
-            local b = {}
-            for _, Pet in pairs(Pets) do
-                table.insert(b, Pet.uid)
-            end
-            for i,v in pairs(Client.Network.Invoke('Get Coins')) do
-                if v.a == getgenv().mapdefault then
-                    if workspace.__THINGS.Coins:FindFirstChild(i) then
-                        table.insert(a,i)
-                    end
-                end
-            end
-            local result = {}
-            for i = 1, math.min(#a, #b) do
-                result[a[i]] = b[i]
-            end
-            for key, value in pairs(result) do
-                getgenv().petsimz[value] = key
-            end
-            return getgenv().petsimz
-        end
-    end
-
-    function checkgaint()
-        if getgenv().turnonfarmgiant == true then
-            for i,v in pairs(Client.Network.Invoke('Get Coins')) do
-                if v.a == "Mystic Mine" and string.find(v.n, "Giant") then
-                    if workspace.__THINGS.Coins:FindFirstChild(i) then
-                        return {i,v.p}
-                    end
-                end
-            end
-        end
-        return false
-    end
-
-    local vitrilucky = {
-        ["1"] = CFrame.new(-278.0175476074219, 280.28961181640625, 1582.909423828125),
-        ["2"] = CFrame.new(-142.0844268798828, 205.1637420654297, 1621.3187255859375),
-        ["3"] = CFrame.new(-41.142391204833984, 190.16372680664062, 1540.5394287109375),
-        ["4"] = CFrame.new(-318.45367431640625, 255.66372680664062, 1383.4219970703125),
-        ["5"] = CFrame.new(-186.7466583251953, 205.16372680664062, 1393.80029296875),
-    }
-
-    function teleportto(texta)
-        print(texta)
-        print(hihi.Teleport(texta,true))
-    end
-
-    local adudarkqua = {
-        ["Axolotl Deep Ocean"] = Vector3.new(4250.3017578125, -12.059213638305664, 3788.037353515625),
-        ["Mystic Mine"] = Vector3.new(9021.90234375, -33.249011993408203, 2506.343994140625),
-        ["Pixel Alps"] = Vector3.new(3897.318115234375, -39.473529815673828, 2440.701904296875),
-    }
-
-    function createnew(name, vector)
-        local part = Instance.new("Part",game.Workspace)
-        part.Name = name
-        part.Position = vector
-        part.Size = Vector3.new(60, 3, 65)
-        part.Anchored = true
-    end
-
-    for i,v in pairs(adudarkqua) do
-        createnew(i, v)
-    end
-    function aasda()
-        if checkgaint() == false or getgenv().mapdefault == "Axolotl Deep Ocean" then
-            if getgenv().mapdefault == "Lucky Block Area" then
-                local v17 = v1.Directory.Areas[getgenv().mapdefault]
-                if v1.WorldCmds.Get() ~= v17.world then
-                    teleportto(getgenv().mapdefault)
-                else
-                    plr.Character.HumanoidRootPart.CFrame = vitrilucky[tostring(_G.vitribanchon)]
-                end
-                for i,v in pairs(autoupdate2()) do
-                    Client.Network.Invoke('Join Coin', v, {i})
-                    Client.Network.Fire('Farm Coin', v, i)
-                end
-            else
-                if getgenv().mapdefault == "Diamond Mine" then
-                    if not getgenv().TimeCollapse then
-                        teleportto("Shop")
-                    end
-                else
-                    teleportto(getgenv().mapdefault)
-                end
-                Statusfarm.updateInfo("Farm Fruit, Unlock Map")
-                for i,v in pairs(autoupdate2()) do
-                    Client.Network.Invoke('Join Coin', v, {i})
-                    Client.Network.Fire('Farm Coin', v, i)
-                end
-            end
-        else
-            getgenv().autowalkne = false
-            plr.Character.HumanoidRootPart.CFrame = CFrame.new(checkgaint()[2])
-            for i,v in pairs(Client.PetCmds.GetEquipped()) do
-                Client.Network.Invoke('Join Coin', checkgaint()[1], {v.uid})
-                Client.Network.Fire('Farm Coin', checkgaint()[1], v.uid)
-            end
-        end
-    end
-
-    local itemboost = {
-        "Triple Coins",
-        "Triple Damage",
-        "Super Lucky",
-        "Ultra Lucky"
-    }
-
-    function getboost()
-        local v48 = v1.Save.Get();
-        for i,v in pairs(v48.BoostsInventory) do
-            if tonumber(v) ~= 0 then
-                Client.Network.Fire("Activate Boost",i)
-            end
-        end
-    end
-    local humanoid = game.Players.LocalPlayer.Character.Humanoid
-    -- (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(9021.90234375, -13.249011993408203, 2506.343994140625)).Magnitude
-    function autowalk()
-        if getgenv().autowalkne == true then
-            controls:Enable()
-            local humanoid = game.Players.LocalPlayer.Character.Humanoid
-            local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-            local jumpHeight = 10 -- Độ cao nhảy
-            local function onTouched(part)
-                if part:IsDescendantOf(workspace) then
-                    humanoid.Jump = true
-                end
-            end
-            rootPart.Touched:Connect(onTouched)
-            local radius = 40
-            local center = rootPart.Position
-            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[getgenv().mapdefault]).Magnitude < 45 then
-                repeat wait(1)
-                    for angle = 0, 360, 10 do
-                        local radians = math.rad(angle)
-                        local xOffset = math.cos(radians) * radius
-                        local zOffset = math.sin(radians) * radius
-                        local destination = center + Vector3.new(xOffset, 0, zOffset)
-                        humanoid:MoveTo(destination)
-                        humanoid.MoveToFinished:Wait()
-                        humanoid.Jump = false
-                        if angle == 360 then
-
-                        end
-                    end
-                until getgenv().autowalkne == false or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[getgenv().mapdefault]).Magnitude > 45
-            else
-                humanoid:MoveTo(adudarkqua[getgenv().mapdefault])
-            end
-        end
-    end
-
-    spawn(function()
-        while true do wait(1)
-            pcall(autowalk)
-        end
-    end)
-
-    spawn(function()
-        while true do wait(1)
-            local a,b = pcall(getboost)
-        end
-    end)
-
-    spawn(function()
-        while true do wait(getgenv().tgianne)
-            if not getgenv().startdc and not getgenv().collectdc and getgenv().sendgemnek == false then
-                local a,b = pcall(aasda)
-                print(a,b)
-            end
-        end
-    end)
-
-    spawn(function()
-        while true do wait()
-            if getgenv().resetfruit30min then
-                if getgenv().startresetfruit == false then
-                    local tickna = tick()
-                    repeat wait()
-                    until tick() - tickna >= 60 * 60
-                    getgenv().startresetfruit = true
-                end
-            end
-        end
-    end)
-
-    function checkfruit()
-        soluong = 0
-        for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.Boosts:GetChildren()) do
-            if v.Name == "Orange" or v.Name == "Apple" then
-                local zad = string.gsub(v.TimeLeft.Text , "x" ,"")
-                soluong = soluong + tonumber(zad)
-            end
-        end
-        return soluong
-    end
-    getgenv().farmmerne = false
-
-    function vailonluondaucatmoi()
-        local mapList = {}
-        local getmaptp = game:GetService("Players").LocalPlayer.PlayerGui.Teleport.Frame.LeftContainer.Holder
-        for i,v in pairs(getmaptp:GetChildren()) do
-            if v:IsA("TextButton") and v.Name ~= "WorldTemplate" then
-                table.insert(mapList, v.Name)
-            end
-        end
-
-        local mapTable = {}
-        for i, mapName in ipairs(mapList) do
-            mapTable[i] = {name = mapName, data = {}}
-        end
-
-        local gateanother = {}
-
-        for i, mapData in pairs(mapTable) do
-            if mapData.name ~= "Hardcore" and mapData.name ~= "Claw" and mapData.name ~= "Halloween" and mapData.name ~= "Deen Event" then
-                dbuoi = nil
-                local a,b = pcall(function() 
-                    dbuoi = require(game:GetService("ReplicatedStorage")["__DIRECTORY"].Areas["areas | " .. mapData.name .. " World"])
-                end)
-                if a == false then
-                    dbuoi = require(game:GetService("ReplicatedStorage")["__DIRECTORY"].Areas["areas | " .. mapData.name])
-                end
-                dcac = nil
-                local a,b = pcall(function() 
-                    dcac = require(game:GetService("ReplicatedStorage")["__DIRECTORY"].Worlds["worlds | " .. mapData.name])
-                end)
-                if a == false then
-                    dcac = require(game:GetService("ReplicatedStorage")["__DIRECTORY"].Worlds[mapData.name])
-                elseif v == "Hardcore" then
-                    dcac = require(game:GetService("ReplicatedStorage")["__DIRECTORY"].Worlds["worlds | " .. mapData.name])
-                else
-                    dcac = require(game:GetService("ReplicatedStorage")["__DIRECTORY"].Worlds["worlds | " .. mapData.name])
-                end
-                for i2,v2 in pairs(dbuoi) do
-                    if v2.hidden == false and v2.isVIP == nil and (v2.mult ~= 0 or dcac[mapData.name].gravity ~= nil) then
-                        if v2.gate == nil then
-                            if i2 ~= "Shop" then
-                                table.insert(mapData.data, {i2, 0,dcac[mapData.name].mainCurrency})
-                            end
-                        else
-                            if v2.isShop == false then
-                                if v2.gate.currency == dcac[mapData.name].mainCurrency then
-                                    table.insert(mapData.data, {i2, v2.gate.cost,v2.gate.currency})
-                                else
-                                    table.insert(gateanother, {i2, v2.gate.cost, v2.gate.currency})
-                                end
-                                for i3,v3 in pairs(gateanother) do
-                                    if v3[3] == dcac[mapData.name].mainCurrency then
-                                        table.insert(mapData.data, {v3[1], v3[2], v3[3]})
-                                        table.remove(gateanother, i3)
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-        for i,v in pairs(mapTable) do
-            table.sort(v.data, function(a,b) return a[2] < b[2] end)
-        end
-        return mapTable
-    end
-    function getmapautoup()
-        for i,v in pairs(vailonluondaucatmoi()) do
-            for i1,v2 in pairs(v.data) do 
-                if v1.WorldCmds.HasArea(v2[1]) == false then
-                    if i1 - 1 == 0 then
-                        return {v.data[i1][1],v.data[i1][1],v.data[i1][2],v.data[i1][3]}
-                    else
-                        return {v.data[i1 - 1][1],v.data[i1][1],v.data[i1][2],v.data[i1][3]}
-                    end
-                end
-            end
-        end
-    end
-
-    function gethugepet()
-        local v48 = v1.Save.Get()
-        for i,v in pairs(v48.Pets) do 
-            if not tablefind(petblacklist , v48.Pets[i]["uid"]) then
-                local checkne = v1.Directory.Pets[v48.Pets[i]["id"]]
-                if checkne.rarity == "Exclusive" and (v48.Pets[i].l == nil or v48.Pets[i].l == false) and v48.Pets[i].s ~= nil and v48.Pets[i].s ~= 0 then
-                    return v48.Pets[i]["uid"]
-                end
-            end
-        end
-        return false
-    end
-
-    spawn(function()
-        while true do wait()
-            pcall(function()
-                if getgenv().farmranknek == false then
-                    if getgenv().startresetfruit == true then
-                        getgenv().mapdefault = getgenv().areafarm1
-                        local tickne = tick()
-                        repeat wait()
-                        until tick() - tickne > 120
-                        getgenv().startresetfruit = false
-                    else
-                        if getgenv().farmabcxyz == "double" then
-                            if getgenv().methodchange == "So Luong Fruit" then
-                                if checkfruit() >= getgenv().timemap2 then
-                                    getgenv().farmmerne = true
-                                    getgenv().mapdefault = getgenv().areafarm2
-                                end
-                                if checkfruit() < getgenv().timemap1 or (checkfruit() > getgenv().timemap1 and checkfruit() < getgenv().timemap2) then
-                                    if getgenv().farmmerne == true then
-                                        if checkfruit() <= getgenv().timemap1 then
-                                            getgenv().mapdefault = getgenv().areafarm1
-                                            getgenv().farmmerne = false
-                                        end
-                                    end
-                                    if getgenv().farmmerne == false then
-                                        getgenv().mapdefault = getgenv().areafarm1
-                                    end
-                                end
-                            else
-                                local map1 = tick()
-                                repeat wait()
-                                    getgenv().mapdefault = getgenv().areafarm1
-                                until tick() - map1 >= getgenv().timemap1 * 60
-                                local map2 = tick()
-                                repeat wait()
-                                    getgenv().mapdefault = getgenv().areafarm2
-                                until tick() - map2 >= getgenv().timemap2 * 60
-                            end
-                        else
-                            getgenv().mapdefault = getgenv().areafarm1
-                        end
-                    end
-                else
-                    if v1.WorldCmds.HasArea(getgenv().areafarm2) == true then
-                        if game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Rank.RankName.Text ~= "PET OVERLORD" then
-                            if checkfruit() >= getgenv().timemap2 then
-                                getgenv().farmmerne = true
-                                getgenv().mapdefault = getgenv().areafarm2
-                            end
-                            if checkfruit() < getgenv().timemap1 or (checkfruit() > getgenv().timemap1 and checkfruit() < getgenv().timemap2) then
-                                if getgenv().farmmerne == true then
-                                    if checkfruit() <= getgenv().timemap1 then
-                                        getgenv().mapdefault = getgenv().areafarm1
-                                        getgenv().farmmerne = false
-                                    end
-                                end
-                                if getgenv().farmmerne == false then
-                                    getgenv().mapdefault = getgenv().areafarm1
-                                end
-                            end
-                        else
-                            Statusfarm.updateInfo("Buy Diamond Cave")
-                            if v1.WorldCmds.HasArea("Mystic Mine") == true then
-                                game:Shutdown()
-                            end
-                            print("a haaaa")
-                            Client.Network.Invoke("Buy Area", "Diamond Mine")
-                            getgenv().mapdefault = "Diamond Mine"
-                            Client.Network.Invoke("Buy Area", "Paradise Cave")
-                            Client.Network.Invoke("Buy Area", "Cyber Cavern")
-                            print("Buyeddddddddddd")
-                            function gethuge()
-                                local vloz = {}
-                                local v48 = v1.Save.Get()
-                                for i,v in pairs(v48.Pets) do 
-                                    local checkne = v1.Directory.Pets[v48.Pets[i]["id"]]
-                                    if checkne.rarity == "Exclusive" and string.find(checkne.name , "Huge") then
-                                        table.insert(vloz, v48.Pets[i]["uid"])
-                                    end
-                                end
-                                return vloz
-                            end
-                            Client.Network.Invoke("Diamond Mine: Release Pet", "Mystic Mine", gethuge()[1])
-                        end
-                    else
-                        getgenv().mapdefault = getmapautoup()[1]
-                        if getmapautoup()[2] == "The Void" then
-                            function ahasud()
-                                Client.Network.Fire("Start Hacker Portal Quests")
-                                local l__IsHardcore__2 = v1.Shared.IsHardcore;
-                                local v3 = v1.Save.Get();
-                                local v4, v5 = unpack(l__IsHardcore__2 and v3.Hardcore.HackerPortalProgress or v3.HackerPortalProgress);
-                                if 1 < v5 then
-                                    v5 = 1;
-                                    v4 = v1.Shared.HackerPortalQuests[1];
-                                end;
-                                local v6 = v1.Shared.HackerPortalQuests[v5];
-                                local v7 = v6 - v4
-                                return v7
-                            end
-                            if ahasud() > 0 then
-                                getgenv().mapdefault = "Hacker Portal"
-                            else
-                                Client.Network.Invoke("Finish Hacker Portal Quest")
-                                teleportto2("The Void")
-                            end
-                        else
-                            getgenv().mapdefault = getmapautoup()[1]
-                            if get(getmapautoup()[4]) >= getmapautoup()[3] then
-                                Client.Network.Invoke("Buy Area", getmapautoup()[2])
-                            end
-                        end
-                    end
-                    wait(5)
-                end
-            end)
-        end
-    end)
-
-    local Orbs = getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.Game.Orbs)
-    local Lootbags = getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.Game.Lootbags)
-    function lootbag(v1)
-        Lootbags.Collect(v1)
-    end
-    function lootorb(v1)
-        Orbs.Collect(v1)
-    end
-    if getgenv().methodhutgem == "Old" then
-        workspace.__THINGS.Orbs.ChildAdded:Connect(function(v)
-            pcall(lootorb(v))
-        end)
-        workspace.__THINGS.Lootbags.ChildAdded:Connect(function(v)
-            pcall(lootbag(v))
-        end)
+function get(thistype)
+    if game.PlaceId == 10321372166 and string.find(string.lower(thistype), "coins") then
+        return Save().HardcoreCurrency[thistype]
     else
-        spawn(function()
-            pcall(function()
-                while true do wait(.2)
-                    pcall(function()
-                        for i,v in pairs(game:GetService("Workspace")["__THINGS"].Orbs:GetChildren()) do
-                            v.CanCollide = false
-                            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,0)
-                        end
-                    end)
-                end
-            end)
-        end)
-        
-        spawn(function()
-            pcall(function()
-                while true do wait(.2)
-                    pcall(function()
-                        for i,v in pairs(game:GetService("Workspace")["__THINGS"].Lootbags:GetChildren()) do
-                            v.CanCollide = false
-                            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,0)
-                        end
-                    end)
-                end
-            end)
-        end)
+        return Save()[thistype]
     end
+end
 
-    function ahih1i(num)
-        if num == 0 then
-            return
-        end
-        local v48 = v1.Save.Get()
-        local petmain = {}
-        local petblacklist = {}
-        getgenv().resultpet = {}
-        for i,v in pairs(game:GetService("Workspace")["__THINGS"].Pets:GetChildren()) do
-            table.insert(petblacklist, v.Name)
-        end
-        for i,v in pairs(v48.Pets) do 
-            if not table.find(petblacklist , v48.Pets[i]["uid"]) then
-                local checkne = v1.Directory.Pets[v48.Pets[i]["id"]]
-                if checkne.rarity ~= "Event" then
-                    table.insert(petmain, {tonumber(v48.Pets[i]["s"]), v48.Pets[i]["uid"]})
-                end
-            end
-        end
+function tweenfarasm(targetPos, targetCFrame)
+    local gay = (targetPos-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    local Tween = game:GetService('TweenService'):Create(
+        game.Players.LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(
+            gay / 100, 
+            Enum.EasingStyle.Linear
+        ),
+        {CFrame = targetCFrame * CFrame.new(0,0,0)}
+    )
+    Tween:Play()
+end
 
-        if num == 1 and num ~= 0 then
-            numreal = 1
+local tablecoins = {}
+
+local a = require(game:GetService("ReplicatedStorage").__DIRECTORY.Upgrades.Upgrades)
+
+for i,v in pairs(a) do
+    if v.currency == "Halloween Candy" then
+        table.insert(tablecoins, i)
+    end
+end
+
+function getupr()
+    for i,v in pairs(tablecoins) do
+        if (Library.Save.Get().Upgrades[v] == nil or Library.Save.Get().Upgrades[v] < 5) and get("Halloween Candy") >= 100000000000 then
+            return v 
+        end
+    end
+    return false
+end
+
+while getupr() ~= false do wait(1)
+    pcall(function()
+        local v17 = v1.Directory.Areas["Halloween"] 
+        if v1.WorldCmds.Get() == v17.world then
+            tweenfarasm(vitribankhl, CFrame.new(vitribankhl))
+            Client.Network.Invoke("Buy Upgrade", getupr())
         else
-            numreal = num/2
-        end
-
-        for i =1 , numreal do 
-            local index = 0
-            local maxmath = -math.huge
-            for j = 1 , #petmain do
-                if maxmath < petmain[j][1] then
-                    maxmath = petmain[j][1]
-                    jack5triu = petmain[j][2]
-                    index = j
-                end
-            end
-            table.insert(resultpet , jack5triu)
-            table.remove(petmain , index)
-        end
-    end
-
-    function candaycarene()
-        local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
-        local v65 = v1.Save.Get()
-        if v1.Shared.IsHardcore then
-            v67 = v65.DaycareHardcoreQueue
-        else
-            v67 = v65.DaycareQueue
-        end
-        return #v67
-    end
-
-    getgenv().cacdbuoi = false
-
-    function autodaycare()
-        ahih1i(getgenv().countdaycare - candaycarene())
-        if candaycarene() < getgenv().countdaycare and #getgenv().resultpet > 0 then
-            getgenv().startdc = true
-            teleportto("Spawn")
-            if not game:GetService("Workspace")["__MAP"].Interactive:FindFirstChild("Daycare") then
-                teleportto("Spawn")
-            end
-            plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["__MAP"].Interactive.Daycare.Pad.CFrame
-            controls:Disable()
-            wait(2)
-            Client.Network.Invoke("Daycare: Enroll", getgenv().resultpet)
-        else
-            getgenv().startdc = false
-        end
-    end
-
-    function candaycare()
-        local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
-        local v65 = v1.Save.Get()
-        if v1.Shared.IsHardcore then
-            v67 = v65.DaycareHardcoreQueue
-        else
-            v67 = v65.DaycareQueue
-        end
-        for i,v in pairs(v67) do
-            return true
-        end
-        return false
-    end
-
-    function gettime()
-        access = false
-        local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
-        local v65 = v1.Save.Get()
-        if v1.Shared.IsHardcore then
-            v67 = v65.DaycareHardcoreQueue
-        else
-            v67 = v65.DaycareQueue
-        end
-        for i,v in pairs(v67) do
-            local u13 = v1.Shared.DaycareComputeRemainingTime(v65, v67[i])
-            access = true
-            if u13 > 4 then
-                return false
-            end
-        end
-        if access == false then
-            return false
-        end
-    end
-    
-
-    function collectdaycare()
-        if gettime() ~= false and candaycare() then
-            getgenv().collectdc = true
-            teleportto("Spawn")
-            if not game:GetService("Workspace")["__MAP"].Interactive:FindFirstChild("Daycare") then
-                teleportto("Spawn")
-            end
-            plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["__MAP"].Interactive.Daycare.Pad.CFrame
-            Client.Network.Invoke("Daycare: Claim", nil)
-        else
-            getgenv().collectdc = false
-        end
-    end
-
-    spawn(function()
-        while true do wait(3)
-            if getgenv().countdaycare - candaycarene() ~= 0 and getgenv().autodaycare then
-                getgenv().autowalkne = false
-                pcall(autodaycare)
-            else
-                getgenv().startdc = false
-            end
+            teleportto("Halloween")
         end
     end)
+end
 
-    spawn(function()
-        while true do wait(1)
-            getgenv().TimeCollapse = Library.Signal.Invoke("Get Diamond Mine Collpase Time")
-            if getgenv().autowalkne then
-                game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
-                wait(4)
-                game:GetService("VirtualInputManager"):SendKeyEvent(false, 32, false, game)
-            end
-        end
-    end)
-
-    spawn(function()
-        while true do wait(5)
-            if candaycare() and gettime() ~= false and getgenv().sendgemnek == false then
-                getgenv().autowalkne = false
-                pcall(collectdaycare)
-            else
-                getgenv().collectdc = false
-            end
-        end
-    end)
-
-    local Save = v1.Save.Get
-    local Commas = v1.Functions.Commas
-
-    function get(thistype)
-        if game.PlaceId == 10321372166 and string.find(string.lower(thistype), "coins") then
-            return Save().HardcoreCurrency[thistype]
-        else
-            return Save()[thistype]
-        end
+function getfreegift()
+    local v48 = v1.Save.Get()
+    local index = 0
+    for i,v in pairs(v48.FreeGiftsRedeemed) do
+        index = i
     end
 
-    function ComposeMail(name,Diamond)    
-        return {
-            Recipient = tostring(name), 
-            Message = "", 
-            Pets = {}, 
-            Diamonds = tonumber(Diamond),
-        };
-    end;
-    function sendneknek(a,b)
-        print("adubuqua")
-        print(Client.Network.Invoke("Send Mail",ComposeMail(a,b)))
-    end
+    return index + 1
+end
 
-    function sendgem11()
-        if get("Diamonds") >= getgenv().soluonggem + 100000 then
-            Client.Network.Invoke("Buy Trading Plaza")
+function getmap()
+    return v1.WorldCmds.Get()
+end
+
+function noclip()
+    -- if not plr.Character.HumanoidRootPart:FindFirstChild("EffectsSY") then
+    --     local plr = game.Players.LocalPlayer
+    --     local BV = Instance.new("BodyVelocity", plr.Character.HumanoidRootPart)
+    --     BV.Parent = plr.Character.HumanoidRootPart
+    --     BV.Name = "EffectsSY"
+    --     BV.MaxForce = Vector3.new(111110, 100000, 1111110)
+    --     BV.Velocity = Vector3.new(0, 0, 0)
+    -- end
+end
+
+function datachest(namemap)
+    local v17 = v1.Directory.Areas[namemap]
+    if v1.WorldCmds.Get() == v17.world then
+        local dbuoi = false
+        local getframe = nil
+        getgenv().hasfindcoin = false
+        for i,v in pairs(Client.Network.Invoke('Get Coins')) do
+            if v.a == namemap then
+                if dbuoi == false then
+                    dbuoi = {} 
+                end
+                getgenv().hasfindcoin = true
+                getframe = v.p
+                if (v.p - plr.Character.HumanoidRootPart.Position).Magnitude <= 309 then
+                    table.insert(dbuoi, i)
+                end
+            end
+        end
+        if getgenv().hasfindcoin and not dbuoi then
+            dbuoi = true
+        end
+        return dbuoi
+    else
+        teleportto(namemap)
+    end
+end
+
+function checkfruit()
+    soluong = 0
+    for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.Boosts:GetChildren()) do
+        if v.Name == "Orange" or v.Name == "Apple" then
+            local zad = string.gsub(v.TimeLeft.Text , "x" ,"")
+            soluong = soluong + tonumber(zad)
+        end
+    end
+    return soluong
+end
+
+local Orbs = getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.Game.Orbs)
+local Lootbags = getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.Game.Lootbags)
+
+workspace.__THINGS.Orbs.ChildAdded:Connect(function(v)
+    Orbs.Collect(v)
+end)
+
+function lootbag()
+    for i,v in pairs(game:GetService("Workspace")["__THINGS"].Lootbags:GetChildren()) do
+        getgenv().cac = true
+        v.CanCollide = false
+        v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,0)
+    end
+    if #game:GetService("Workspace")["__THINGS"].Lootbags:GetChildren() < 1 and #workspace.__THINGS.Orbs:GetChildren() < 1 then
+        getgenv().cac = false
+    end
+end
+
+spawn(function()
+    while true do wait()
+        pcall(lootbag)
+    end
+end)
+
+getgenv().whatthefuckup = 0
+
+function GetClosestTorso()
+    for _,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character and v.Name ~= plr.Name then
+            if (Vector3.new(9021,-13,2507)-v.Character.HumanoidRootPart.Position).Magnitude <= 180 then
+                teleportto("Shop")
+                wait(math.random(5,10))
+                game:Shutdown()
+            end
+        end
+    end
+    return false
+end
+
+function get(thistype)
+    if game.PlaceId == 10321372166 and string.find(string.lower(thistype), "coins") then
+        return Save().HardcoreCurrency[thistype]
+    else
+        return Save()[thistype]
+    end
+end
+
+function ComposeMail(name,Diamond)    
+    return {
+        Recipient = tostring(name), 
+        Message = "", 
+        Pets = {}, 
+        Diamonds = tonumber(Diamond),
+    };
+end;
+function sendneknek(a,b)
+    print(Client.Network.Invoke("Send Mail",ComposeMail(a,b)))
+end
+
+function sendgem11()
+    if getgenv().TimeCollapse then
+        if getgenv().TimeCollapse > 600 and get("Diamonds") > 1000000000 then
             getgenv().sendgemnek = true
             teleportto("Shop")
             wait(5)
             plr.Character.HumanoidRootPart.CFrame = CFrame.new(257.4012756347656, 97.88801574707031, 351.0747985839844)
-            controls:Disable()
             wait(1)
-            sendneknek(getgenv().Nameaccmain,getgenv().soluonggem)
+            sendneknek(getgenv().Nameaccmain,(get("Diamonds") - 100000))
         else
             getgenv().sendgemnek = false
         end
     end
-
-    spawn(function()
-        while true do wait(5)
-            if getgenv().autosendgem then
-                getgenv().autowalkne = false
-                pcall(sendgem11)
-            else
-                getgenv().sendgemnek = false
-            end
-        end
-    end)
-
-    function toiuu()
-        for i,v in next, workspace:GetDescendants() do
-            pcall(function()
-                v.Transparency = 1
-            end)
-        end
-        for i,v in next, getnilinstances() do
-            pcall(function()
-                v.Transparency = 1
-                for i1,v1 in next, v:GetDescendants() do
-                    v1.Transparency = 1
-                end
-            end)
-        end
-        local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
-        local g = game
-        local w = g.Workspace
-        local l = g.Lighting
-        local t = w.Terrain
-        pcall(function()
-            sethiddenproperty(l,"Technology",2)
-            sethiddenproperty(t,"Decoration",false)
-        end)
-        t.WaterWaveSize = 0
-        t.WaterWaveSpeed = 0
-        t.WaterReflectance = 0
-        t.WaterTransparency = 0
-        l.GlobalShadows = 0
-        l.FogEnd = 9e9
-        l.Brightness = 0
-        settings().Rendering.QualityLevel = "Level01"
-        for i, v in pairs(w:GetDescendants()) do
-            if v:IsA("BasePart") and not v:IsA("MeshPart") then
-                v.Material = "Plastic"
-                v.Reflectance = 0
-            elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
-                v.Transparency = 1
-            elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                v.Lifetime = NumberRange.new(0)
-            elseif v:IsA("Explosion") then
-                v.BlastPressure = 1
-                v.BlastRadius = 1
-            elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                v.Enabled = false
-            elseif v:IsA("MeshPart") and decalsyeeted then
-                v.Material = "Plastic"
-                v.Reflectance = 0
-                v.TextureID = 10385902758728957
-            elseif v:IsA("SpecialMesh") and decalsyeeted  then
-                v.TextureId=0
-            elseif v:IsA("ShirtGraphic") and decalsyeeted then
-                v.Graphic=0
-            elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
-                v[v.ClassName.."Template"]=0
-            end
-        end
-        for i = 1,#l:GetChildren() do
-            e=l:GetChildren()[i]
-            if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                e.Enabled = false
-            end
+end
+function getboost()
+    local v48 = v1.Save.Get();
+    for i,v in pairs(v48.BoostsInventory) do
+        if tonumber(v) ~= 0 then
+            Client.Network.Fire("Activate Boost",i)
         end
     end
-
-    toiuu()
-
-    if getgenv().whitescreen then
-        local RunService = game:GetService("RunService")
-        RunService:Set3dRenderingEnabled(false)
-    else
-        local RunService = game:GetService("RunService")
-        RunService:Set3dRenderingEnabled(true)
+end
+function header()
+    getgenv().TimeCollapse = Library.Signal.Invoke("Get Diamond Mine Collpase Time")
+    sendgem11()
+    GetClosestTorso()
+    getboost()
+    if not game:GetService("Workspace"):FindFirstChild("__MAP") then
+        getgenv().whatthefuckup = getgenv().whatthefuckup + 1
     end
-
-    game.NetworkClient.ChildRemoved:Connect(function()
-        game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-    end)
-
-    game.Players.PlayerRemoving:connect(function(plr)
-        if plr == game.Players.LocalPlayer then
-            game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-        end
-    end)
-
-    spawn(function()
-        while true do wait(60)
-            if getgenv().autodaily then
-                for i = 1 , 12 do
-                    Client.Network.Invoke("Redeem Free Gift", i)
-                    wait(2)
-                end
-            end
-        end
-    end)
-elseif getgenv().Onlyfarmunlockmap == false and v1.WorldCmds.HasArea("Mystic Mine") == true then
-    getgenv().Nameaccmain = "quanhbugem"
-    spawn(function()
-        local tickne = tick()
-        repeat wait()
-        until tick() - tickne > 60 or getgenv().loaded == true
-        if getgenv().loaded ~= true then
-            game:Shutdown()
-        end
-    end)
-    if not game:IsLoaded() then game.Loaded:Wait() end
-    local plr = game.Players.LocalPlayer
-    getgenv().Save = {
-        nexttimefarm = 0,
-        ["Mine Collapse"] = 0,
-    }
-    
-    if not isfile(plr.Name..".datas") then
-        writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Save))
+    if getgenv().TimeCollapse then
+        getgenv().Save.nexttimefarm = getgenv().TimeCollapse + tick()
+        saveconfig()
     end
-    wait(1)
-    if isfile(plr.Name..".datas") then
-        writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Save))
-    end
-    function saveconfig()
-        if isfile(plr.Name..".datas") then
-            writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Save))
-        else
-            if not isfile(plr.Name..".datas") then
-                writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().Save))
-            end
-        end
-    end
-    
-    repeat wait() until game.Players
-    repeat wait() until game.Players.LocalPlayer
-    repeat wait() until game.ReplicatedStorage
-    repeat wait() until game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
-    repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Main")
-    repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.Main.Right
-    repeat wait() until game:GetService("Workspace"):FindFirstChild("__MAP")
-    
-    local vu = game:GetService("VirtualUser")
-    game:GetService("Players").LocalPlayer.Idled:connect(function()
-        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-        wait(1)
-        vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-    end)
-    local Client = require(game.ReplicatedStorage.Library.Client)
-    local loirequire, kcj = pcall(function()
-        local Library = require(game:GetService("ReplicatedStorage").Library)
-    end)
-    if loirequire == false then
-        wait(4)
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId, game.Players.LocalPlayer)
-    else
-        local Library = require(game:GetService("ReplicatedStorage").Library)
-    end
-    local Library = require(game:GetService("ReplicatedStorage").Library)
-    local v1 = require(game.ReplicatedStorage:WaitForChild("Framework"):WaitForChild("Library"))
-    getgenv().loaded = true
-    getrenv().require = getgenv().require
-    hookfunction(debug.getupvalue(Client.Network.Fire,1),function() return true end)
-    hookfunction(debug.getupvalue(Client.Network.Invoke,1),function() return true end)
-    hookfunction(debug.getupvalue(Library.Network.Invoke, 1), function() return true end)
-    hookfunction(debug.getupvalue(Library.Network.Fire, 1), function() return true end)
-    v1.WorldCmds.CanDoAction = function() return true end
-    local hihi = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.GUIs.Teleport)
-    local plr = game.Players.LocalPlayer
-    local controls = require(game.Players.LocalPlayer.PlayerScripts.PlayerModule):GetControls()
-    local Save = v1.Save.Get
-    local Commas = v1.Functions.Commas
-    function getdafarm()
-        return #Client.PetCmds.GetEquipped()
-    end
-    
-    local vitribank = Vector3.new(229.9514923095703, 98.11483001708984, 360.9400329589844)
-    local vitribankhl = Vector3.new(2383.46728515625, 0.4109991192817688, -1858.5555419921875)
-    function bankloaded()
-        return game:GetService("Players").LocalPlayer.PlayerGui.BankLoading.Enabled
-    end
-    Client.Network.Invoke("Equip Best Pets")
-    function teleportto(texta)
-        local v17 = v1.Directory.Areas[texta]
-        if v1.WorldCmds.Get() ~= v17.world then
-            hihi.Teleport(texta,true)
-        end
-    end
-    getgenv().Save["Mine Collapse"] = 0
-    saveconfig()
-    teleportto("Shop")
-    wait(10)
-    plr.Character.HumanoidRootPart.CFrame = CFrame.new(249.63430786132812, 100.11482238769531, 118.42450714111328)
-    wait(1)
-
-    function get(thistype)
-        if game.PlaceId == 10321372166 and string.find(string.lower(thistype), "coins") then
-            return Save().HardcoreCurrency[thistype]
-        else
-            return Save()[thistype]
-        end
-    end
-    
-    function tweenfarasm(targetPos, targetCFrame)
-        local gay = (targetPos-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        local Tween = game:GetService('TweenService'):Create(
-            game.Players.LocalPlayer.Character.HumanoidRootPart,
-            TweenInfo.new(
-                gay / 100, 
-                Enum.EasingStyle.Linear
-            ),
-            {CFrame = targetCFrame * CFrame.new(0,0,0)}
-        )
-        Tween:Play()
-    end
-
-    local tablecoins = {}
-
-    local a = require(game:GetService("ReplicatedStorage").__DIRECTORY.Upgrades.Upgrades)
-
-    for i,v in pairs(a) do
-        if v.currency == "Halloween Candy" then
-            table.insert(tablecoins, i)
-        end
-    end
-
-    function getupr()
-        for i,v in pairs(tablecoins) do
-            if (Library.Save.Get().Upgrades[v] == nil or Library.Save.Get().Upgrades[v] < 5) and get("Halloween Candy") >= 100000000000 then
-                return v 
-            end
-        end
-        return false
-    end
-
-    while getupr() ~= false do wait(1)
-        pcall(function()
-            local v17 = v1.Directory.Areas["Halloween"] 
-            if v1.WorldCmds.Get() == v17.world then
-                tweenfarasm(vitribankhl, CFrame.new(vitribankhl))
-                Client.Network.Invoke("Buy Upgrade", getupr())
-            else
-                teleportto("Halloween")
-            end
-        end)
-    end
-    
-    function getfreegift()
-        local v48 = v1.Save.Get()
-        local index = 0
-        for i,v in pairs(v48.FreeGiftsRedeemed) do
-            index = i
-        end
-    
-        return index + 1
-    end
-    
-    function getmap()
-        return v1.WorldCmds.Get()
-    end
-    
-    function noclip()
-        -- if not plr.Character.HumanoidRootPart:FindFirstChild("EffectsSY") then
-        --     local plr = game.Players.LocalPlayer
-        --     local BV = Instance.new("BodyVelocity", plr.Character.HumanoidRootPart)
-        --     BV.Parent = plr.Character.HumanoidRootPart
-        --     BV.Name = "EffectsSY"
-        --     BV.MaxForce = Vector3.new(111110, 100000, 1111110)
-        --     BV.Velocity = Vector3.new(0, 0, 0)
-        -- end
-    end
-    
-    function datachest(namemap)
-        local v17 = v1.Directory.Areas[namemap]
-        if v1.WorldCmds.Get() == v17.world then
-            local dbuoi = false
-            local getframe = nil
-            getgenv().hasfindcoin = false
-            for i,v in pairs(Client.Network.Invoke('Get Coins')) do
-                if v.a == namemap then
-                    if dbuoi == false then
-                        dbuoi = {} 
-                    end
-                    getgenv().hasfindcoin = true
-                    getframe = v.p
-                    if (v.p - plr.Character.HumanoidRootPart.Position).Magnitude <= 309 then
-                        table.insert(dbuoi, i)
-                    end
-                end
-            end
-            if getgenv().hasfindcoin and not dbuoi then
-                dbuoi = true
-            end
-            return dbuoi
-        else
-            teleportto(namemap)
-        end
-    end
-    
-    function checkfruit()
-        soluong = 0
-        for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.Boosts:GetChildren()) do
-            if v.Name == "Orange" or v.Name == "Apple" then
-                local zad = string.gsub(v.TimeLeft.Text , "x" ,"")
-                soluong = soluong + tonumber(zad)
-            end
-        end
-        return soluong
-    end
-    
-    local Orbs = getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.Game.Orbs)
-    local Lootbags = getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.Game.Lootbags)
-    
-    workspace.__THINGS.Orbs.ChildAdded:Connect(function(v)
-        Orbs.Collect(v)
-    end)
-    
-    function lootbag()
-        for i,v in pairs(game:GetService("Workspace")["__THINGS"].Lootbags:GetChildren()) do
-            getgenv().cac = true
-            v.CanCollide = false
-            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,0)
-        end
-        if #game:GetService("Workspace")["__THINGS"].Lootbags:GetChildren() < 1 and #workspace.__THINGS.Orbs:GetChildren() < 1 then
-            getgenv().cac = false
-        end
-    end
-    
-    spawn(function()
-        while true do wait()
-            pcall(lootbag)
-        end
-    end)
-    
-    getgenv().whatthefuckup = 0
-    
-    function GetClosestTorso()
-        for _,v in pairs(game:GetService("Players"):GetPlayers()) do
-            if v.Character and v.Name ~= plr.Name then
-                if (Vector3.new(9021,-13,2507)-v.Character.HumanoidRootPart.Position).Magnitude <= 180 then
-                    teleportto("Shop")
-                    wait(math.random(5,10))
-                    game:Shutdown()
-                end
-            end
-        end
-        return false
-    end
-    
-    function get(thistype)
-        if game.PlaceId == 10321372166 and string.find(string.lower(thistype), "coins") then
-            return Save().HardcoreCurrency[thistype]
-        else
-            return Save()[thistype]
-        end
-    end
-    
-    function ComposeMail(name,Diamond)    
-        return {
-            Recipient = tostring(name), 
-            Message = "", 
-            Pets = {}, 
-            Diamonds = tonumber(Diamond),
-        };
-    end;
-    function sendneknek(a,b)
-        print(Client.Network.Invoke("Send Mail",ComposeMail(a,b)))
-    end
-    
-    function sendgem11()
-        if getgenv().TimeCollapse then
-            if getgenv().TimeCollapse > 600 and get("Diamonds") > 1000000000 then
-                getgenv().sendgemnek = true
-                teleportto("Shop")
-                wait(5)
-                plr.Character.HumanoidRootPart.CFrame = CFrame.new(257.4012756347656, 97.88801574707031, 351.0747985839844)
-                wait(1)
-                sendneknek(getgenv().Nameaccmain,(get("Diamonds") - 100000))
-            else
-                getgenv().sendgemnek = false
-            end
-        end
-    end
-    function getboost()
-        local v48 = v1.Save.Get();
-        for i,v in pairs(v48.BoostsInventory) do
-            if tonumber(v) ~= 0 then
-                Client.Network.Fire("Activate Boost",i)
-            end
-        end
-    end
-    function header()
-        getgenv().TimeCollapse = Library.Signal.Invoke("Get Diamond Mine Collpase Time")
-        sendgem11()
-        GetClosestTorso()
-        getboost()
-        if not game:GetService("Workspace"):FindFirstChild("__MAP") then
-            getgenv().whatthefuckup = getgenv().whatthefuckup + 1
-        end
-        if getgenv().TimeCollapse then
-            getgenv().Save.nexttimefarm = getgenv().TimeCollapse + tick()
+    if getgenv().TimeCollapse and not getgenv().sendgemnek then
+        if getgenv().TimeCollapse > 600 then
+            getgenv().Save["Mine Collapse"] = getgenv().TimeCollapse
             saveconfig()
-        end
-        if getgenv().TimeCollapse and not getgenv().sendgemnek then
-            if getgenv().TimeCollapse > 600 then
-                getgenv().Save["Mine Collapse"] = getgenv().TimeCollapse
-                saveconfig()
-            else
-                getgenv().Save["Mine Collapse"] = 0
-                saveconfig()
-            end
         else
             getgenv().Save["Mine Collapse"] = 0
             saveconfig()
         end
-        if getgenv().boostn == true then
-            print("ngu cặc")
-            if getfreegift() <= 12 then
-                Client.Network.Invoke("Redeem Free Gift", getfreegift())
-            end
-        end
+    else
+        getgenv().Save["Mine Collapse"] = 0
+        saveconfig()
     end
-    
-    spawn(function()    
-        while true do wait(1)
-            local a,b = pcall(header)
-            print(a,b)
+    if getgenv().boostn == true then
+        print("ngu cặc")
+        if getfreegift() <= 12 then
+            Client.Network.Invoke("Redeem Free Gift", getfreegift())
         end
-    end)
-    
-    function detecterror()
-        if getgenv().whatthefuckup > 30 then
-            game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-        end
-        if game:GetService("Workspace"):FindFirstChild("__MAP") then
-            getgenv().whatthefuckup = getgenv().whatthefuckup - 1
-        end
-    end
-    
-    spawn(function()    
-        while true do wait(5)
-            pcall(detecterror)
-        end
-    end)
-    
-    function autoupdate2(petdata, chestdata)
-        local Pets = petdata
-        local cac = 0
-        local a = {}
-        local b = {}
-        for _, Pet in pairs(Pets) do
-            table.insert(b, Pet.uid)
-        end
-        for i,v in pairs(chestdata) do
-            if workspace.__THINGS.Coins:FindFirstChild(v) then
-                table.insert(a,v)
-            end
-        end
-    
-        local result = {}
-        local maxLength = #b
-        local minLength = #a
-        
-        local lastIndexA = 1
-        
-        for i = 1, maxLength do
-            local aValue = a[lastIndexA]
-            local bValue = b[i]
-            result[bValue] = aValue
-            lastIndexA = (lastIndexA % minLength) + 1
-        end
-    
-        return result
-    end
-    
-    function getstatuschest()
-        return getmap() == "Diamond Mine" and type(datachest("Mystic Mine")) ~= "table"
-    end
-    
-    local adudarkqua = {
-        ["Axolotl Deep Ocean"] = Vector3.new(4250.3017578125, -12.059213638305664, 3788.037353515625),
-        ["Mystic Mine"] = Vector3.new(9051.1884765625, -14.433807373046875, 2454.767578125),
-        ["Pixel Alps"] = Vector3.new(3790.39599609375, -16.473529815673828, 2443.77197265625),
-    }
-    
-    function autofarm(map)
-        local datachest = datachest(map)
-        if type(datachest) == "table" then
-            getgenv().farmer = true
-            local getonechest = datachest[1] -- can luu y 
-            local Pets = Client.PetCmds.GetEquipped()
-            if datachest ~= false and datachest ~= true then
-                teleportto(map)
-                if map == "Mystic Mine" then
-                    getgenv().boostn = true
-                else
-                    getgenv().boostn = false
-                end
-                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[map]).Magnitude > 20 then
-                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(adudarkqua[map]) * CFrame.new(0,10,0)
-                end
-                for i,v in pairs(autoupdate2(Pets,datachest)) do
-                    Client.Network.Invoke('Join Coin', v, {i})
-                    Client.Network.Fire('Farm Coin', v, i)
-                end
-            end
-        else
-            getgenv().farmer = false
-        end
-    end
-    
-    local RunService = game:GetService("RunService")
-    RunService:Set3dRenderingEnabled(false)
-    
-    function farminfarm()
-        if not getgenv().sendgemnek then
-            if (checkfruit() < 380 or getstatuschest() or getgenv().Save.nexttimefarm > tick()) and getgenv().cac ~= true then
-                if getmap() == "Diamond Mine" then
-                    local az = tick()
-                    repeat wait()
-    
-                    until tick() - az > 4
-                end
-                getgenv().Save.nexttimefarm = tick() + 90
-                saveconfig()
-                repeat wait(.5)
-                    autofarm("Pixel Alps") 
-                until (checkfruit() >= 390 and tick() > getgenv().Save.nexttimefarm) or getgenv().sendgemnek
-            else
-                autofarm("Mystic Mine")
-            end
-        end
-    end
-    
-    while true do wait(.5)
-        pcall(farminfarm)
     end
 end
-return lib
+
+spawn(function()    
+    while true do wait(1)
+        local a,b = pcall(header)
+        print(a,b)
+    end
+end)
+
+function detecterror()
+    if getgenv().whatthefuckup > 30 then
+        game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+    end
+    if game:GetService("Workspace"):FindFirstChild("__MAP") then
+        getgenv().whatthefuckup = getgenv().whatthefuckup - 1
+    end
+end
+
+spawn(function()    
+    while true do wait(5)
+        pcall(detecterror)
+    end
+end)
+
+function autoupdate2(petdata, chestdata)
+    local Pets = petdata
+    local cac = 0
+    local a = {}
+    local b = {}
+    for _, Pet in pairs(Pets) do
+        table.insert(b, Pet.uid)
+    end
+    for i,v in pairs(chestdata) do
+        if workspace.__THINGS.Coins:FindFirstChild(v) then
+            table.insert(a,v)
+        end
+    end
+
+    local result = {}
+    local maxLength = #b
+    local minLength = #a
+    
+    local lastIndexA = 1
+    
+    for i = 1, maxLength do
+        local aValue = a[lastIndexA]
+        local bValue = b[i]
+        result[bValue] = aValue
+        lastIndexA = (lastIndexA % minLength) + 1
+    end
+
+    return result
+end
+
+function getstatuschest()
+    return getmap() == "Diamond Mine" and type(datachest("Mystic Mine")) ~= "table"
+end
+
+local adudarkqua = {
+    ["Axolotl Deep Ocean"] = Vector3.new(4250.3017578125, -12.059213638305664, 3788.037353515625),
+    ["Mystic Mine"] = Vector3.new(9051.1884765625, -14.433807373046875, 2454.767578125),
+    ["Pixel Alps"] = Vector3.new(3790.39599609375, -16.473529815673828, 2443.77197265625),
+}
+
+function autofarm(map)
+    local datachest = datachest(map)
+    if type(datachest) == "table" then
+        getgenv().farmer = true
+        local getonechest = datachest[1] -- can luu y 
+        local Pets = Client.PetCmds.GetEquipped()
+        if datachest ~= false and datachest ~= true then
+            teleportto(map)
+            if map == "Mystic Mine" then
+                getgenv().boostn = true
+            else
+                getgenv().boostn = false
+            end
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - adudarkqua[map]).Magnitude > 20 then
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(adudarkqua[map]) * CFrame.new(0,10,0)
+            end
+            for i,v in pairs(autoupdate2(Pets,datachest)) do
+                Client.Network.Invoke('Join Coin', v, {i})
+                Client.Network.Fire('Farm Coin', v, i)
+            end
+        end
+    else
+        getgenv().farmer = false
+    end
+end
+
+local RunService = game:GetService("RunService")
+RunService:Set3dRenderingEnabled(false)
+
+function farminfarm()
+    if not getgenv().sendgemnek then
+        if (checkfruit() < 380 or getstatuschest() or getgenv().Save.nexttimefarm > tick()) and getgenv().cac ~= true then
+            if getmap() == "Diamond Mine" then
+                local az = tick()
+                repeat wait()
+
+                until tick() - az > 4
+            end
+            getgenv().Save.nexttimefarm = tick() + 90
+            saveconfig()
+            repeat wait(.5)
+                autofarm("Pixel Alps") 
+            until (checkfruit() >= 390 and tick() > getgenv().Save.nexttimefarm) or getgenv().sendgemnek
+        else
+            autofarm("Mystic Mine")
+        end
+    end
+end
+
+while true do wait(.5)
+    pcall(farminfarm)
+end
