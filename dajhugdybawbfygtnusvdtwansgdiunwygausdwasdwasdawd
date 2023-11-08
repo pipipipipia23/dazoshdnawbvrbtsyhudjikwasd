@@ -2664,7 +2664,7 @@
 
 
 
-getgenv().Nameaccmain = "quanhbugem"
+
 spawn(function()
     local tickne = tick()
     repeat wait()
