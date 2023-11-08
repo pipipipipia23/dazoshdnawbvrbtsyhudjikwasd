@@ -3136,27 +3136,28 @@ function autofarm(map)
         getgenv().farmer = false
     end
 end
-
-function farminfarm()
-    if not getgenv().sendgemnek then
-        if (checkfruit() < 380 or getstatuschest() or getgenv().Save.nexttimefarm > tick()) and getgenv().cac ~= true then
-            if getmap() == "Diamond Mine" then
-                local az = tick()
-                repeat wait()
-
-                until tick() - az > 4
+if not Library.Signal.Invoke("Get Diamond Mine Collpase Time") then
+    function farminfarm()
+        if not getgenv().sendgemnek then
+            if (checkfruit() < 380 or getstatuschest() or getgenv().Save.nexttimefarm > tick()) and getgenv().cac ~= true then
+                if getmap() == "Diamond Mine" then
+                    local az = tick()
+                    repeat wait()
+    
+                    until tick() - az > 4
+                end
+                getgenv().Save.nexttimefarm = tick() + 90
+                saveconfig()
+                repeat wait(.5)
+                    autofarm("Pixel Alps") 
+                until (checkfruit() >= 390 and tick() > getgenv().Save.nexttimefarm) or getgenv().sendgemnek
+            else
+                autofarm("Mystic Mine")
             end
-            getgenv().Save.nexttimefarm = tick() + 90
-            saveconfig()
-            repeat wait(.5)
-                autofarm("Pixel Alps") 
-            until (checkfruit() >= 390 and tick() > getgenv().Save.nexttimefarm) or getgenv().sendgemnek
-        else
-            autofarm("Mystic Mine")
         end
     end
-end
-
-while true do wait(.5)
-    pcall(farminfarm)
+    
+    while true do wait(.5)
+        pcall(farminfarm)
+    end
 end
