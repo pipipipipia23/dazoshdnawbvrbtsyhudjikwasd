@@ -469,9 +469,6 @@ function autofarm(map)
     end
 end
 
-local RunService = game:GetService("RunService")
-RunService:Set3dRenderingEnabled(false)
-
 function farminfarm()
     if not getgenv().sendgemnek then
         if (checkfruit() < 380 or getstatuschest() or getgenv().Save.nexttimefarm > tick()) and getgenv().cac ~= true then
