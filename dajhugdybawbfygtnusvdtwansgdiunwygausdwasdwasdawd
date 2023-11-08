@@ -2997,7 +2997,10 @@ function sendgem11()
     if getgenv().TimeCollapse then
         if getgenv().TimeCollapse > 600 and get("Diamonds") > 1000000000 then
             getgenv().sendgemnek = true
-            teleportto("Shop")
+            local v17 = v1.Directory.Areas["Shop"]
+            if v1.WorldCmds.Get() ~= v17.world then
+                teleportto("Shop")
+            end
             wait(5)
             plr.Character.HumanoidRootPart.CFrame = CFrame.new(257.4012756347656, 97.88801574707031, 351.0747985839844)
             wait(1)
