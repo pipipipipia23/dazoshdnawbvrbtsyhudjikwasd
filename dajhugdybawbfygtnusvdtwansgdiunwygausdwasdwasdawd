@@ -41,10 +41,11 @@ Client.Network.Invoke("Equip Best Pets")
 function teleportto(texta)
     local v17 = v1.Directory.Areas[texta]
     if v1.WorldCmds.Get() ~= v17.world then
+        Library.WorldCmds.Load(v17.world)
+        wait(3)
         print(hihi.Teleport(texta,true))
     end
 end
-
 local originalPlay = Library.Audio.Play
 Library.Audio.Play = function(...) 
     if checkcaller() then
@@ -113,4 +114,4 @@ Library.Audio.Play = function(...)
     end
     return originalPlay(...)
 end
-print(Library.WorldCmds.Load("Spawn"))
+print(Library.WorldCmds.Load("Kawaii Tokyo"))
