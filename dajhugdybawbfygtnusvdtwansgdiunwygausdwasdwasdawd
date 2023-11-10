@@ -2150,8 +2150,9 @@ end
                 autofarm("Mystic Mine")
             end
         end
+    end
     
     while true do wait(.5)
         pcall(farminfarm)
     end
-end
+
