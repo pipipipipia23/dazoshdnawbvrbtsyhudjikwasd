@@ -1968,6 +1968,19 @@ end)
 
 getgenv().whatthefuckup = 0
 
+function GetClosestTorso()
+    for _,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character and v.Name ~= plr.Name then
+            if (Vector3.new(9021,-13,2507)-v.Character.HumanoidRootPart.Position).Magnitude <= 180 then
+                teleportto("Shop")
+                wait(math.random(5,10))
+                game:Shutdown()
+            end
+        end
+    end
+    return false
+end
+
 function get(thistype)
     if game.PlaceId == 10321372166 and string.find(string.lower(thistype), "coins") then
         return Save().HardcoreCurrency[thistype]
@@ -2131,28 +2144,28 @@ function autofarm(map)
         getgenv().farmer = false
     end
 end
-    print("Vao day")
-    function farminfarm()
-        if not getgenv().sendgemnek then
-            if (checkfruit() < 380 or getstatuschest() or getgenv().Save.nexttimefarm > tick()) and getgenv().cac ~= true then
-                if getmap() == "Diamond Mine" then
-                    local az = tick()
-                    repeat wait()
-    
-                    until tick() - az > 4
-                end
-                getgenv().Save.nexttimefarm = tick() + 90
-                saveconfig()
-                repeat wait(.5)
-                    autofarm("Pixel Alps") 
-                until (checkfruit() >= 390 and tick() > getgenv().Save.nexttimefarm) or getgenv().sendgemnek
-            else
-                autofarm("Mystic Mine")
+print("Vao day")
+function farminfarm()
+    if not getgenv().sendgemnek then
+        if (checkfruit() < 380 or getstatuschest() or getgenv().Save.nexttimefarm > tick()) and getgenv().cac ~= true then
+            if getmap() == "Diamond Mine" then
+                local az = tick()
+                repeat wait()
+
+                until tick() - az > 4
             end
+            getgenv().Save.nexttimefarm = tick() + 90
+            saveconfig()
+            repeat wait(.5)
+                autofarm("Pixel Alps") 
+            until (checkfruit() >= 390 and tick() > getgenv().Save.nexttimefarm) or getgenv().sendgemnek
+        else
+            autofarm("Mystic Mine")
         end
     end
-    
-    while true do wait(.5)
-        pcall(farminfarm)
-    end
+end
+
+while true do wait(.5)
+    pcall(farminfarm)
+end
 
