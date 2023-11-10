@@ -2131,7 +2131,6 @@ function autofarm(map)
         getgenv().farmer = false
     end
 end
-if not Library.Signal.Invoke("Get Diamond Mine Collpase Time") then
     print("Vao day")
     function farminfarm()
         if not getgenv().sendgemnek then
@@ -2151,7 +2150,6 @@ if not Library.Signal.Invoke("Get Diamond Mine Collpase Time") then
                 autofarm("Mystic Mine")
             end
         end
-    end
     
     while true do wait(.5)
         pcall(farminfarm)
