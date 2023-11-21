@@ -143,6 +143,7 @@ end
 function updateinven()
     local Inventory = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
     getgenv().Status = {
+        ["Username"] = "None",
         ["Inventory"] = {},
         ["BloxFruit"] = {},
         ["Fragments"] = {},
@@ -155,6 +156,7 @@ function updateinven()
             ["Auto Item"] = "None",
         },
         ["Level"] = 0,
+        ["Bounty"] = 0,
         ["World"] = "None",
         ["DevilFruit"] = "None",
     }
@@ -169,6 +171,8 @@ function updateinven()
     for i,v in pairs(Inventory) do
         table.insert(getgenv().Status["Inventory"][v.Type][getgenv().rarity[v.Rarity + 1]], v.Name)
     end
+    getgenv().Status["Username"] = plr.Name
+    getgenv().Status["Bounty"] = tostring(plr.leaderstats["Bounty/Honor"].Value)
     getgenv().Status["BloxFruit"] = layfruit()
     getgenv().Status["Fragments"] = tostring(plr.Data.Fragments.Value)
     getgenv().Status["Beli"] = tostring(plr.Data.Beli.Value)
@@ -179,6 +183,7 @@ function updateinven()
     getgenv().Status["World"] = getsea()
     getgenv().Status["DevilFruit"] = layfruit()
 end
+
 updateinven()
 saveconfig()
 
