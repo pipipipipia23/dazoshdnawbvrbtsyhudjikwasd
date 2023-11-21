@@ -26,12 +26,10 @@ function fireButton1(button)
 		signal:Function()
 	end
 end
-
--- check acc thi xoa "--" di 
 pcall(function()
     if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
         repeat wait()
-			fireButton1(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container[getgenv().team].Frame.ViewportFrame.TextButton)
+			getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container[getgenv().team].Frame.TextButton.Activated)[1]:Function()
         until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded() or not game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
     end
 end)
