@@ -1,4 +1,1 @@
-spawn(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
-end)
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/856d0065f6093d55e730fac750679fd3.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/33c80bc8fd7b4114be190153e164fb94.lua"))()
