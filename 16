@@ -7462,13 +7462,13 @@ if hasunlockzones("Rainbow Road") then
     end
 
     function getshit()
-        for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
-            if v._data.id == 'Charm Stone' and v._data._am ~= nil then
-                if v._data._am >= 5 then
-                    return i 
-                end
-            end
-        end
+        -- for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
+        --     if v._data.id == 'Rainbow Swirl' and v._data._am ~= nil then
+        --         if v._data._am >= 200 then
+        --             return i 
+        --         end
+        --     end
+        -- end
         return false
     end
 
