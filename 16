@@ -7224,7 +7224,6 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/33c80bc8fd7b41
 
 
 
-
 getgenv().diamonds = 2000000
 getgenv().magicshard = 100
 getgenv().sendhuge = true
@@ -7334,6 +7333,11 @@ end
 ---
 
 if hasunlockzones("Rainbow Road") then
+
+    if game:GetService("Players").LocalPlayer.PlayerGui.Starter.Enabled == true then
+        game:GetService("Players").LocalPlayer.PlayerGui.Starter:Destroy()
+    end
+
     spawn(function()
         while true do wait(1)
             if tick() - getgenv().ticka > 60 * 90 then
@@ -8017,7 +8021,7 @@ else
     spawn(function()
         while true do wait(1)
             pcall(function() 
-            click2(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Contents.Ok)
+                click2(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Contents.Ok)
             end)
         end
     end)
