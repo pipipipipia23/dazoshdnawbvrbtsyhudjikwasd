@@ -7334,10 +7334,6 @@ end
 
 if hasunlockzones("Rainbow Road") then
 
-    if game:GetService("Players").LocalPlayer.PlayerGui.Starter.Enabled == true then
-        game:GetService("Players").LocalPlayer.PlayerGui.Starter:Destroy()
-    end
-
     spawn(function()
         while true do wait(1)
             if tick() - getgenv().ticka > 60 * 90 then
@@ -7457,7 +7453,7 @@ if hasunlockzones("Rainbow Road") then
     function gettnt()
         -- for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
         --     if v._data.id == 'TNT' and v._data._am ~= nil then
-        --         if v._data._am >= 200 then
+        --         if v._data._am >= 500 then
         --             return i 
         --         end
         --     end
@@ -7715,6 +7711,16 @@ if hasunlockzones("Rainbow Road") then
         game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,true,a,1)
         game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
     end
+
+    pcall(function()
+        if game:GetService("Players").LocalPlayer.PlayerGui.Starter.Enabled == true then
+            click2(game:GetService("Players").clonoyoru788.PlayerGui.Starter.Frame.Pets.Cat)
+            wait(.2)
+            click2(game:GetService("Players").clonoyoru788.PlayerGui.Starter.Frame.Pets.Corgi)
+            wait(.2)
+            click2(game:GetService("Players").clonoyoru788.PlayerGui.Starter.Frame.Ok)
+        end
+    end)
 
     spawn(function()
         while true do task.wait()
