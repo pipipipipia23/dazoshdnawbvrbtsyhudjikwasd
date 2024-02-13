@@ -7451,13 +7451,6 @@ if hasunlockzones("Rainbow Road") then
     end
 
     function gettnt()
-        for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
-            if v._data.id == 'TNT' and v._data._am ~= nil then
-                if v._data._am >= 500 then
-                    return i 
-                end
-            end
-        end
         return false
     end
 
