@@ -7339,9 +7339,7 @@ if hasunlockzones("Rainbow Road") then
     spawn(function()
         while true do wait(1)
             if tick() - getgenv().ticka > 60 * 90 then
-                local ts = game:GetService("TeleportService")
-                local p = game:GetService("Players").LocalPlayer
-                ts:Teleport(8737899170, p)
+                game:Shutdown()
             end
         end
     end)
