@@ -7224,7 +7224,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/33c80bc8fd7b41
 
 
 
-getgenv().diamonds = 1000000
+getgenv().diamonds = 2000000
 getgenv().magicshard = 100
 getgenv().sendhuge = true
 -- getgenv().username = 'huybloaz2'
@@ -7633,57 +7633,59 @@ if hasunlockzones("Rainbow Road") then
                 return
             end
             if getpart() == false and haverod() then
-                -- if isheaven() and not checkisfish() then
-                --     clickz('6')
-                --     wait(5)
-                --     return
-                -- end
-                -- if not checkisfish() then
-                --     getgenv().clickfish = false
-                --     plr.Character.HumanoidRootPart.CFrame = CFrame.new(-185.91006469726562, 117.53734588623047, 5170.603515625)
-                -- else
-                --     if (plr.Character.HumanoidRootPart.Position - CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375).Position).Magnitude > 10 then
-                --         plr.Character.HumanoidRootPart.CFrame = CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375)
-                --     end
-                -- end
-                -- getgenv().isfish = true
-                -- if game.Players.LocalPlayer.Character:FindFirstChild("Model") then
-                --     if game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
-                --         getgenv().clickfish = false
-                --         local tick1 = tick()
-                --         repeat wait()
-                --         until tick() - tick1 > 2.8
-                --         local args = {
-                --             [1] = "AdvancedFishing",
-                --             [2] = "RequestReel"
-                --         }
-                        
-                --         game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
-                --     end
-                --     if game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
-                --         getgenv().clickfish = true
-                --     end
-                --     if not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
-                --         getgenv().clickfish = false
-                --         print("here")
-                --         local args = {
-                --             [1] = "AdvancedFishing",
-                --             [2] = "RequestCast",
-                --             [3] = Vector3.new(1480.2294921875, 61.62503433227539, -4442.16796875)
-                --         }
-                        
-                --         game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))        
-                --     end
-                -- end
-                -- if checkisfish() and not game.Players.LocalPlayer.Character:FindFirstChild("Model") then
-                --     wait(5)
-                --     if checkisfish() and not game.Players.LocalPlayer.Character:FindFirstChild("Model") then
-                --         clickz('10')
-                --     end
-                -- end
-                -- if getcoin2()[1] > 2300000 then
-                --     autobuyfish()
-                -- end
+                if getgenv().autofish == true then
+                    if isheaven() and not checkisfish() then
+                        clickz('6')
+                        wait(5)
+                        return
+                    end
+                    if not checkisfish() then
+                        getgenv().clickfish = false
+                        plr.Character.HumanoidRootPart.CFrame = CFrame.new(-185.91006469726562, 117.53734588623047, 5170.603515625)
+                    else
+                        if (plr.Character.HumanoidRootPart.Position - CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375).Position).Magnitude > 10 then
+                            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375)
+                        end
+                    end
+                    getgenv().isfish = true
+                    if game.Players.LocalPlayer.Character:FindFirstChild("Model") then
+                        if game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
+                            getgenv().clickfish = false
+                            local tick1 = tick()
+                            repeat wait()
+                            until tick() - tick1 > 2.8
+                            local args = {
+                                [1] = "AdvancedFishing",
+                                [2] = "RequestReel"
+                            }
+                            
+                            game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+                        end
+                        if game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
+                            getgenv().clickfish = true
+                        end
+                        if not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
+                            getgenv().clickfish = false
+                            print("here")
+                            local args = {
+                                [1] = "AdvancedFishing",
+                                [2] = "RequestCast",
+                                [3] = Vector3.new(1480.2294921875, 61.62503433227539, -4442.16796875)
+                            }
+                            
+                            game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))        
+                        end
+                    end
+                    if checkisfish() and not game.Players.LocalPlayer.Character:FindFirstChild("Model") then
+                        wait(5)
+                        if checkisfish() and not game.Players.LocalPlayer.Character:FindFirstChild("Model") then
+                            clickz('10')
+                        end
+                    end
+                    if getcoin2()[1] > 2300000 then
+                        autobuyfish()
+                    end
+                end
             else
                 if checkisfish() then
                     clickz('8')
