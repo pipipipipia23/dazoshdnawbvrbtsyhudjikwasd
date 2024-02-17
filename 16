@@ -7453,6 +7453,13 @@ if hasunlockzones("Rainbow Road") then
     end
 
     function gettnt()
+        for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
+            if v._data.id == 'TNT' and v._data._am ~= nil then
+                if v._data._am >= 500 then
+                    return i 
+                end
+            end
+        end
         return false
     end
 
@@ -7711,11 +7718,28 @@ if hasunlockzones("Rainbow Road") then
 
     pcall(function()
         if game:GetService("Players").LocalPlayer.PlayerGui.Starter.Enabled == true then
-            click2(game:GetService("Players").clonoyoru788.PlayerGui.Starter.Frame.Pets.Cat)
+            click2(game:GetService("Players").LocalPlayer.PlayerGui.Starter.Frame.Pets.Cat)
             wait(.2)
-            click2(game:GetService("Players").clonoyoru788.PlayerGui.Starter.Frame.Pets.Corgi)
+            click2(game:GetService("Players").LocalPlayer.PlayerGui.Starter.Frame.Pets.Corgi)
             wait(.2)
-            click2(game:GetService("Players").clonoyoru788.PlayerGui.Starter.Frame.Ok)
+            click2(game:GetService("Players").LocalPlayer.PlayerGui.Starter.Frame.Ok)
+        end
+    end)
+
+    function jump()
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
+        wait(4)
+        game:GetService("VirtualInputManager"):SendKeyEvent(false, 32, false, game)
+    end
+
+    spawn(function()
+        while true do wait()
+            pcall(function()
+                local tickm = tick()
+                repeat wait()
+                until tick() - tickm >= 30
+                jump()
+            end)
         end
     end)
 
