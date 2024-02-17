@@ -7735,10 +7735,9 @@ if hasunlockzones("Rainbow Road") then
     spawn(function()
         while true do wait()
             pcall(function()
-                local tickm = tick()
-                repeat wait()
-                until tick() - tickm >= 30
-                jump()
+                if getgenv().isfish == false then
+                    jump()
+                end
             end)
         end
     end)
