@@ -6683,7 +6683,7 @@ end
 
 spawn(function()
     while true do wait(1)
-        if tick() - getgenv().ticka > 60 * 20 then
+        if tick() - getgenv().ticka > 60 * 30 then
             game:Shutdown()
         end
     end
