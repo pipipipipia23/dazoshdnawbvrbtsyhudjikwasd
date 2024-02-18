@@ -7336,14 +7336,6 @@ end
 
 if hasunlockzones("Rainbow Road") then
 
-    spawn(function()
-        while true do wait(1)
-            if tick() - getgenv().ticka > 60 * 300 then
-                game:Shutdown()
-            end
-        end
-    end)
-
     function checkisfish()
         if plr.Character.HumanoidRootPart.Position.Y > 60 and plr.Character.HumanoidRootPart.Position.Y < 70 then
             return true
