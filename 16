@@ -4888,14 +4888,6 @@ function hasunlockzones(name)
     return Client.ZoneCmds.Owns(name)
 end
 
-spawn(function()
-    while true do wait(1)
-        if tick() - getgenv().ticka > 60 * 30 then
-            game:Shutdown()
-        end
-    end
-end)
-
 function romanToNumber(roman)
     local numerals = {
         ["i"] = 1,
