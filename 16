@@ -4788,6 +4788,14 @@ end
 
 print(Rebirth)
 
+    spawn(function()
+        while true do wait(1)
+            if tick() - getgenv().ticka > 60 * 180 then
+                game:Shutdown()
+            end
+        end
+    end)
+
 if (getrank() < 3 and not hasunlockzones("Rainbow River")) or (Rebirth == 1 and not hasunlockzones("Rainbow River")) then
     -- auto rank
     print("AAAAAAAAAAAAAAAAAAAAA")
