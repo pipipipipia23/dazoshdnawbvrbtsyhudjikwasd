@@ -4790,7 +4790,7 @@ print(Rebirth)
 
     spawn(function()
         while true do wait(1)
-            if tick() - getgenv().ticka > 60 * 180 then
+            if tick() - getgenv().ticka > 60 * 120 then
                 game:Shutdown()
             end
         end
