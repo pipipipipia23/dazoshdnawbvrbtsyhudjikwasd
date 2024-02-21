@@ -5993,8 +5993,8 @@ if hasunlockzones("Rainbow Road") then
                         getgenv().clickfish = false
                         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-185.91006469726562, 117.53734588623047, 5170.603515625)
                     else
-                        if (plr.Character.HumanoidRootPart.Position - CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375).Position).Magnitude > 10 then
-                            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375)
+                        if (plr.Character.HumanoidRootPart.Position - CFrame.new(1451.81298828125, 66.06719207763672, -4448.7490234375).Position).Magnitude > 10 then
+                            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1451.81298828125, 66.06719207763672, -4448.7490234375)
                         end
                     end
                     getgenv().isfish = true
