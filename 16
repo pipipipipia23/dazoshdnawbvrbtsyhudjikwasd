@@ -4384,371 +4384,10 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/33c80bc8fd7b41
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-getgenv().diamonds = 1000000
-getgenv().magicshard = 100
+getgenv().diamonds = 2000000
+getgenv().magicshard = 1000
 getgenv().sendhuge = true
--- getgenv().username = 'huybloaz2'
+-- getgenv().username = 'quanhsavehuge'
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.ReplicatedStorage
@@ -4770,7 +4409,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
 
 function hasunlockzones(name) 
     return Client.ZoneCmds.Owns(name)
@@ -4788,15 +4427,10 @@ end
 
 print(Rebirth)
 
-    spawn(function()
-        while true do wait(1)
-            if tick() - getgenv().ticka > 60 * 120 then
-                game:Shutdown()
-            end
-        end
-    end)
-
 if (getrank() < 3 and not hasunlockzones("Rainbow River")) or (Rebirth == 1 and not hasunlockzones("Rainbow River")) then
+    -- auto rank
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/aahsdasd-/main/asdzxc"))()
+    -- end auto rank
 else
 ---
 getgenv().datas = {
@@ -4861,6 +4495,14 @@ end
 ---
 
 if hasunlockzones("Rainbow Road") then
+
+    spawn(function()
+        while true do wait(1)
+            if tick() - getgenv().ticka > 60 * 180 then
+                game:Shutdown()
+            end
+        end
+    end)
 
     function checkisfish()
         if plr.Character.HumanoidRootPart.Position.Y > 60 and plr.Character.HumanoidRootPart.Position.Y < 70 then
@@ -4969,13 +4611,13 @@ if hasunlockzones("Rainbow Road") then
     end
 
     function gettnt()
-        for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
-            if v._data.id == 'TNT' and v._data._am ~= nil then
-                if v._data._am >= 500 then
-                    return i 
-                end
-            end
-        end
+        -- for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
+        --     if v._data.id == 'TNT' and v._data._am ~= nil then
+        --         if v._data._am >= 500 then
+        --             return i 
+        --         end
+        --     end
+        -- end
         return false
     end
 
@@ -5469,7 +5111,7 @@ else
             pcall(unlockmapattk)
             pcall(autoeatpotion)
             pcall(autotnt)
-pcall(autocreatetnt)
+            pcall(autocreatetnt)
         end
     end
 
