@@ -4409,7 +4409,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
 
 function hasunlockzones(name) 
     return Client.ZoneCmds.Owns(name)
@@ -4654,6 +4654,13 @@ if hasunlockzones("Rainbow Road") then
         getconnections(game:GetService("Players").LocalPlayer.PlayerGui["_MISC"].Instancing.BottomButtons.BUTTONS.Home.Activated)[1]:Fire()
     end
 
+    function isoutsite() 
+        if plr.Character.HumanoidRootPart.Position.Y < -1000 then
+            return true
+        end
+        return false
+    end
+
     function click(x,y)
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(x, y))
@@ -4793,16 +4800,22 @@ if hasunlockzones("Rainbow Road") then
             if getpart() == false and haverod() then
                 if getgenv().autofish == true then
                     if isheaven() and not checkisfish() then
+                        print("???????")
+                        clickz('6')
+                        return
+                    end
+                    if isoutsite() then
                         clickz('6')
                         wait(5)
                         return
                     end
+
                     if not checkisfish() then
                         getgenv().clickfish = false
                         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-185.91006469726562, 117.53734588623047, 5170.603515625)
                         wait(5)
                     else
-                                            if (plr.Character.HumanoidRootPart.Position - CFrame.new(1451.81298828125, 66.06719207763672, -4448.7490234375).Position).Magnitude > 10 then
+                        if (plr.Character.HumanoidRootPart.Position - CFrame.new(1451.81298828125, 66.06719207763672, -4448.7490234375).Position).Magnitude > 10 then
                             plr.Character.HumanoidRootPart.CFrame = CFrame.new(1451.81298828125, 66.06719207763672, -4448.7490234375)
                         end
                     end
