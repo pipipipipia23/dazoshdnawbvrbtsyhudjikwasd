@@ -4409,7 +4409,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
 
 function hasunlockzones(name) 
     return Client.ZoneCmds.Owns(name)
@@ -4442,6 +4442,18 @@ function create()
         writefile(plr.Name..".datas", game:GetService("HttpService"):JSONEncode(getgenv().datas))
     end
 end
+
+-- function noclip()
+-- 	if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+-- 		local Noclip = Instance.new("BodyVelocity")
+-- 		Noclip.Name = "BodyClip"
+-- 		Noclip.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+-- 		Noclip.MaxForce = Vector3.new(100000,100000,100000)
+-- 		Noclip.Velocity = Vector3.new(0,0,0)
+-- 	end
+-- end
+
+-- noclip()
 
 function LoadSetting()
     if isfile(plr.Name..".datas") then
@@ -4655,7 +4667,7 @@ if hasunlockzones("Rainbow Road") then
     end
 
     function isoutsite() 
-        if plr.Character.HumanoidRootPart.Position.Y < -1000 then
+        if plr.Character.HumanoidRootPart.Position.Y < -500 then
             return true
         end
         return false
@@ -4809,7 +4821,6 @@ if hasunlockzones("Rainbow Road") then
                         wait(5)
                         return
                     end
-
                     if not checkisfish() then
                         getgenv().clickfish = false
                         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-185.91006469726562, 117.53734588623047, 5170.603515625)
@@ -4861,6 +4872,11 @@ if hasunlockzones("Rainbow Road") then
             else
                 if checkisfish() then
                     clickz('8')
+                    wait(5)
+                    return
+                end
+                if isoutsite() then
+                    clickz('6')
                     wait(5)
                     return
                 end
