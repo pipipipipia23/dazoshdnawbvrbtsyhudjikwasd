@@ -4809,7 +4809,7 @@ if hasunlockzones("Rainbow Road") then
                 game:GetService("ReplicatedStorage").Network:FindFirstChild("Mailbox: Send"):InvokeServer(unpack(args))
                 return
             end
-            if getpart() == false and haverod() then
+            if haverod() then
                 if getgenv().autofish == true then
                     if isheaven() and not checkisfish() then
                         print("???????")
@@ -4870,31 +4870,7 @@ if hasunlockzones("Rainbow Road") then
                     end
                 end
             else
-                if checkisfish() then
-                    clickz('8')
-                    wait(5)
-                    return
-                end
-                if isoutsite() then
-                    clickz('6')
-                    wait(5)
-                    return
-                end
-                if getpart() then
-                    getgenv().isfish = false
-                    local UTS = game.UserInputService
-                    local camera = game.Workspace.CurrentCamera
-                    local plr = game.Players.LocalPlayer
-                    game.Players.LocalPlayer.CameraMaxZoomDistance = 0
-                    game.Players.LocalPlayer.CameraMinZoomDistance = 0
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getpart().CFrame * CFrame.new(0,-1,0)
-                    local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
-                    local centerX, centerY = (screenSize.X / 2) + 30, (screenSize.Y / 2) + 30
-                    click(centerX,centerY)
-                    game:GetService("VirtualInputManager"):SendMouseButtonEvent(centerX, centerY,0,true,a,1)
-                    game:GetService("VirtualInputManager"):SendMouseButtonEvent(centerX, centerY,0,false,a,1)
-                    wait(.2)
-                end
+                
             end
         end
     end
