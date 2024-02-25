@@ -4654,6 +4654,15 @@ if hasunlockzones("Rainbow Road") then
         end
     end
 
+    spawn(function()
+        while true do wait(60 * 8)
+            pcall(function()
+                print('asdasd')
+                clickz('3')
+            end)
+        end
+    end)
+
     local cframemap27 = CFrame.new(794.5797729492188, 19.252973556518555, 1135.04345703125)
 
     -- game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cframemap27
