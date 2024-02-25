@@ -4549,7 +4549,7 @@ if hasunlockzones("Rainbow Road") then
     function getcoin()
         local a = Client.Save.Get()
         for i,v in pairs(a.Inventory.Currency) do
-            if type(v) == "table" and v.id == "Diamonds" then
+            if type(v) == "table" and v.id == "Diamonds" and v._am ~= nil then
                 return {v._am,i}
             end
         end
