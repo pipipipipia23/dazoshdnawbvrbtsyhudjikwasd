@@ -150,7 +150,7 @@ else
         ClaimRankReward = false,
         CauCa = false,
         TapPerTime = 3,
-        DigsiteLevel = 50,
+        DigsiteLevel = 45,
         AutoMerchant = false,
         Atlantis = false,
         DigsiteHopp = false,
