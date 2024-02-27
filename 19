@@ -216,7 +216,7 @@ else
                 Enabled = true,
                 Item = "Bucket",
                 Category = "Misc",
-                MinItem = getgenv().xonuocthuong,
+                MinItem = 1000,
                 Username = getgenv().username
             },
             {
