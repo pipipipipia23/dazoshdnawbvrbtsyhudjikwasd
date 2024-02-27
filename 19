@@ -143,7 +143,7 @@ if game.PlaceId == 16498369169 then
     game:GetService("ReplicatedStorage").Network.World1Teleport:InvokeServer()
 end
 
-if (getrank() < 3 and not hasunlockzones("Rainbow River")) or (Rebirth == 1 and not hasunlockzones("Rainbow River")) then
+if (getrank() < 3 and not hasunlockzones("Dungeon")) or (Rebirth == 1 and not hasunlockzones("Dungeon")) then
     -- auto rank
     loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/aahsdasd-/main/asdzxc"))()
     -- end auto rank
