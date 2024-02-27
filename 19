@@ -204,7 +204,7 @@ end)
         TNTRebirth = false,
         TapTime = 1,
         AutoTap = false,
-        OpenGiftBag = true,
+        OpenGiftBag = false,
         ListSendMail = {
             {
                 Username = getgenv().username,
