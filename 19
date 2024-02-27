@@ -5,9 +5,6 @@ repeat wait() until game:GetService("Players").LocalPlayer:FindFirstChild("Playe
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Main")
 local plr = game.Players.LocalPlayer
 local Client = require(game.ReplicatedStorage.Library.Client)
-for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
-    print(v._data.id)
-end
 
 if game.PlaceId == 2753915549 then
     local ts = game:GetService("TeleportService")
@@ -142,12 +139,12 @@ end
 
 print(Rebirth)
 
-if (getrank() < 3 and not hasunlockzones("Dungeon")) or (Rebirth == 1 and not hasunlockzones("Dungeon")) then
+if (getrank() < 3 and not hasunlockzones("Rainbow River")) or (Rebirth == 1 and not hasunlockzones("Rainbow River")) then
     -- auto rank
     loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/aahsdasd-/main/asdzxc"))()
     -- end auto rank
 else
-spawn(function()
+spawn(function() 
 while true do wait()
     pcall(function()
         local Client = require(game.ReplicatedStorage.Library.Client)
@@ -266,7 +263,7 @@ end)
         game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
     end
 
-    if hasunlockzones("Dungeon") then
+    if hasunlockzones("Rainbow Road") then
         spawn(function()
             while true do wait(1)
                 if tick() - getgenv().ticka > 60 * 30 then
@@ -356,12 +353,19 @@ end)
         end
 
         function setupcuttay()
+            if checkmail() ~= false then
+                clickz('2')
+                wait(5)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(147.03858947753906, 23.593482971191406, -349.0108337402344)
+                wait(2)
+                game:GetService("ReplicatedStorage").Network:FindFirstChild("Mailbox: Claim"):InvokeServer(unpack(checkmail()))
+                return
+            end
             if checkerror() then
                 game:Shutdown()
             end
             if iswoodshovel() == false then
                 if not isonmap() then
-                    print('asdasd')
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cframemap30
                     wait(5)
                 else
@@ -380,6 +384,7 @@ end)
                 --clickz()
             else
                 autobuyfish()
+                print(isdiamondshovel(), shovelvip())
                 if isdiamondshovel() ~= false and shovelvip() ~= false then
                     if getgenv().hasexecute == true then
                         game:Shutdown()
@@ -408,18 +413,18 @@ end)
                         teleporttomap()
                         wait(5)
                         spawn(function()
+                            getgenv().hasexecute = true
                             wait(10)
                             script_key = getgenv().scriptkey
-                            getgenv().hasexecute = true
                             loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9608295d28c3f8b27fa8150dcef6fb05.lua"))()
                         end)
                     elseif shovelvip() ~= false and not isdiamondshovel() ~= false then
                         teleporttomap()
                         wait(5)
                         spawn(function()
+                            getgenv().hasexecute = true
                             wait(10)
                             script_key = getgenv().scriptkey
-                            getgenv().hasexecute = true
                             loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9608295d28c3f8b27fa8150dcef6fb05.lua"))()
                         end)
                     end
@@ -725,7 +730,7 @@ end)
             if Client.PetCmds.IsFavoriteModeEnabled() == true then
                 game:GetService("ReplicatedStorage").Network.Pets_ToggleFavoriteMode:FireServer()
             end
-            if hasunlockzones("Dungeon") and abz == nil and game.PlaceId ~= 16498369169 then
+            if hasunlockzones("Rainbow Road") and abz == nil and game.PlaceId ~= 16498369169 then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62.38117218017578, 208.9638671875, 6744.44775390625)
                 game:GetService("ReplicatedStorage").Network.RequestTechRocket:FireServer()
                 return 
@@ -817,14 +822,3 @@ end)
         end
     end
 end
-
--- ZIGPTsjDvWQ
-
--- getgenv().diamonds = 2000000
--- getgenv().xonuoctim = 100
--- getgenv().scriptkey = "UUvjYuujgTYlQSRYqawTVLnEkoGTiuTc"
--- getgenv().sendhuge = true
--- getgenv().username = 'quanhbugem'
--- loadstring(game:HttpGet("https://github.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/raw/main/19"))()
-
-
