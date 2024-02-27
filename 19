@@ -139,6 +139,10 @@ end
 
 print(Rebirth)
 
+if game.PlaceId == 16498369169 then
+    game:GetService("ReplicatedStorage").Network.World1Teleport:InvokeServer()
+end
+
 if (getrank() < 3 and not hasunlockzones("Rainbow River")) or (Rebirth == 1 and not hasunlockzones("Rainbow River")) then
     -- auto rank
     loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/aahsdasd-/main/asdzxc"))()
@@ -150,7 +154,7 @@ else
         ClaimRankReward = false,
         CauCa = false,
         TapPerTime = 3,
-        DigsiteLevel = 45,
+        DigsiteLevel = 60,
         AutoMerchant = false,
         Atlantis = false,
         DigsiteHopp = false,
@@ -268,10 +272,10 @@ else
         game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
     end
 
-    if hasunlockzones("Dungeon") then
+    if hasunlockzones("Rainbow Road") then
         spawn(function()
             while true do wait(1)
-                if tick() - getgenv().ticka > 60 * 20 then
+                if tick() - getgenv().ticka > 60 * 30 then
                     game:Shutdown()
                 end
             end
@@ -735,7 +739,7 @@ else
             if Client.PetCmds.IsFavoriteModeEnabled() == true then
                 game:GetService("ReplicatedStorage").Network.Pets_ToggleFavoriteMode:FireServer()
             end
-            if hasunlockzones("Dungeon") and abz == nil and game.PlaceId ~= 16498369169 then
+            if hasunlockzones("Rainbow Road") and abz == nil and game.PlaceId ~= 16498369169 then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62.38117218017578, 208.9638671875, 6744.44775390625)
                 game:GetService("ReplicatedStorage").Network.RequestTechRocket:FireServer()
                 return 
@@ -827,3 +831,14 @@ else
         end
     end
 end
+
+-- ZIGPTsjDvWQ
+
+-- getgenv().diamonds = 2000000
+-- getgenv().xonuoctim = 100
+-- getgenv().scriptkey = "UUvjYuujgTYlQSRYqawTVLnEkoGTiuTc"
+-- getgenv().sendhuge = true
+-- getgenv().username = 'quanhbugem'
+-- loadstring(game:HttpGet("https://github.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/raw/main/19"))()
+
+
