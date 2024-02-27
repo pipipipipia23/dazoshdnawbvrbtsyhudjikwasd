@@ -147,6 +147,22 @@ if (getrank() < 3 and not hasunlockzones("Dungeon")) or (Rebirth == 1 and not ha
     loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/aahsdasd-/main/asdzxc"))()
     -- end auto rank
 else
+spawn(function()
+while true do wait()
+    pcall(function()
+        local Client = require(game.ReplicatedStorage.Library.Client)
+        local a = Client.Save.Get()
+        for i,v in pairs(a.HiddenPresents) do
+            local args = {
+                [1] = v.ID
+            }
+            
+            game:GetService("ReplicatedStorage").Network:FindFirstChild("Hidden Presents: Found"):InvokeServer(unpack(args))
+            wait(2)
+        end
+    end)
+end
+end)
     local data2 = {
         FarmCoin = false,
         AutoDigsite = true,
