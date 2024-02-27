@@ -5075,6 +5075,7 @@ else
                             return
                         end
                     end
+                return
                 end
                 if getgenv().hasexecute ~= true then
                     if isdiamondshovel() ~= false and not shovelvip() ~= false then
