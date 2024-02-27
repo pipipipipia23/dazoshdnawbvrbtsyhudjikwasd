@@ -272,7 +272,7 @@ else
         game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
     end
 
-    if hasunlockzones("Rainbow Road") then
+    if hasunlockzones("Dungeon") then
         spawn(function()
             while true do wait(1)
                 if tick() - getgenv().ticka > 60 * 30 then
@@ -739,7 +739,7 @@ else
             if Client.PetCmds.IsFavoriteModeEnabled() == true then
                 game:GetService("ReplicatedStorage").Network.Pets_ToggleFavoriteMode:FireServer()
             end
-            if hasunlockzones("Rainbow Road") and abz == nil and game.PlaceId ~= 16498369169 then
+            if hasunlockzones("Dungeon") and abz == nil and game.PlaceId ~= 16498369169 then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62.38117218017578, 208.9638671875, 6744.44775390625)
                 game:GetService("ReplicatedStorage").Network.RequestTechRocket:FireServer()
                 return 
