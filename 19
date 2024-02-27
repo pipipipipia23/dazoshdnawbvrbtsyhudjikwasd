@@ -5053,6 +5053,7 @@ else
                 end
                 --clickz()
             else
+                autobuyfish()
                 if isdiamondshovel() ~= false and shovelvip() ~= false then
                     if getgenv().hasexecute == true then
                         game:Shutdown()
