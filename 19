@@ -4796,11 +4796,6 @@
 
 
 
-getgenv().diamonds = 2000000
-getgenv().xonuoctim = 100
-getgenv().scriptkey = "UUvjYuujgTYlQSRYqawTVLnEkoGTiuTc"
-getgenv().sendhuge = true
-getgenv().username = 'quanhbugem'
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.ReplicatedStorage
@@ -4808,6 +4803,9 @@ repeat wait() until game:GetService("Players").LocalPlayer:FindFirstChild("Playe
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Main")
 local plr = game.Players.LocalPlayer
 local Client = require(game.ReplicatedStorage.Library.Client)
+for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Misc._byUID) do
+    print(v._data.id)
+end
 
 if game.PlaceId == 2753915549 then
     local ts = game:GetService("TeleportService")
@@ -5029,6 +5027,16 @@ else
             return game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Contents.CustomDesc.Text == 'You cannot enter this instance right now!'
         end
 
+        function getcoin()
+            local a = Client.Save.Get()
+            for i,v in pairs(a.Inventory.Currency) do
+                if type(v) == "table" and v.id == "Diamonds" and v._am ~= nil then
+                    return {v._am,i}
+                end
+            end
+            return 0
+        end
+
         function setupcuttay()
             if checkerror() then
                 game:Shutdown()
@@ -5075,7 +5083,7 @@ else
                             return
                         end
                     end
-                return
+                    return
                 end
                 if getgenv().hasexecute ~= true then
                     if isdiamondshovel() ~= false and not shovelvip() ~= false then
@@ -5118,3 +5126,5 @@ end
 
 -- ZIGPTsjDvWQ
 -- loadstring(game:HttpGet("https://github.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/raw/main/19"))()
+
+
