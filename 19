@@ -139,6 +139,15 @@ end
 
 print(Rebirth)
 
+    spawn(function()
+        while true do wait(1)
+            if tick() - getgenv().ticka > 60 * 30 then
+                game:Shutdown()
+            end
+        end
+    end)
+
+
 if (getrank() < 3 and not hasunlockzones("Dungeon")) or (Rebirth == 1 and not hasunlockzones("Dungeon")) then
     -- auto rank
     loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/aahsdasd-/main/asdzxc"))()
