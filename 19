@@ -272,14 +272,15 @@ else
         game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
     end
 
-    if hasunlockzones("Dungeon") then
         spawn(function()
             while true do wait(1)
-                if tick() - getgenv().ticka > 60 * 30 then
+                if tick() - getgenv().ticka > 60 * 20 then
                     game:Shutdown()
                 end
             end
         end)
+
+    if hasunlockzones("Dungeon") then
 
         function teleporttomap()
             if game:GetService("Players").LocalPlayer.PlayerGui["_MISC"].Instancing.Enabled == false then
