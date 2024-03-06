@@ -19,84 +19,75 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-repeat task.wait() until game:IsLoaded()
-if not game:IsLoaded() then game:IsLoaded():Wait(5) end
-local UserInputService = game:GetService("UserInputService")
-local RunService = game:GetService("RunService")
-
-local WindowFocusReleasedFunction = function()
-    RunService:Set3dRenderingEnabled(false)
-    setfpscap(15)
-    return
+function hasunlockzones(name) 
+    return Client.ZoneCmds.Owns(name)
 end
 
-local WindowFocusedFunction = function()
-    RunService:Set3dRenderingEnabled(true)
-    setfpscap(15)
-    return
-end
-
-local Initialize = function()
-    UserInputService.WindowFocusReleased:Connect(WindowFocusReleasedFunction)
-    UserInputService.WindowFocused:Connect(WindowFocusedFunction)
-    return
-end
-Initialize()
-UserSettings():GetService("UserGameSettings").MasterVolume = 0
-local decalsyeeted = true
-local g = game
-local w = g.Workspace
-local l = g.Lighting
-local t = w.Terrain
-sethiddenproperty(l,"Technology",2)
-sethiddenproperty(t,"Decoration",false)
-t.WaterWaveSize = 0
-t.WaterWaveSpeed = 0
-t.WaterReflectance = 0
-t.WaterTransparency = 1
-l.GlobalShadows = 0
-l.FogEnd = 9e9
-l.Brightness = 0
-settings().Rendering.QualityLevel = "Level01"
-for i, v in pairs(w:GetDescendants()) do
-    if v:IsA("BasePart") and not v:IsA("MeshPart") then
-        v.Material = "Plastic"
-        v.Transparency = 1
-        v.Reflectance = 0
-    elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
-        v.Transparency = 1
-    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-        v.Lifetime = NumberRange.new(0)
-    elseif v:IsA("Explosion") then
-        v.BlastPressure = 1
-        v.BlastRadius = 1
-    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-        v.Enabled = false
-    elseif v:IsA("MeshPart") and decalsyeeted then
-        v.Material = "Plastic"
-        v.Transparency = 1
-        v.Reflectance = 0
-        v.TextureID = 0
-    elseif v:IsA("SpecialMesh") and decalsyeeted  then
-        v.TextureId=0
-    elseif v:IsA("ShirtGraphic") and decalsyeeted then
-        v.Graphic=1
-    elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
-        v[v.ClassName.."Template"]=1
+pcall(function()
+    for i,v in next, workspace:GetDescendants() do
+        pcall(function()
+            v.Transparency = 1
+        end)
     end
-end
-for i = 1,#l:GetChildren() do
-    e=l:GetChildren()[i]
-    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-        e.Enabled = false
+    for i,v in next, getnilinstances() do
+        pcall(function()
+            v.Transparency = 1
+            for i1,v1 in next, v:GetDescendants() do
+                v1.Transparency = 1
+            end
+        end)
     end
-end
-w.DescendantAdded:Connect(function(v)
-    pcall(function()
+    local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+    local g = game
+    local w = g.Workspace
+    local l = g.Lighting
+    local t = w.Terrain
+    sethiddenproperty(l,"Technology",2)
+    sethiddenproperty(t,"Decoration",false)
+    t.WaterWaveSize = 0
+    t.WaterWaveSpeed = 0
+    t.WaterReflectance = 0
+    t.WaterTransparency = 0
+    l.GlobalShadows = 0
+    l.FogEnd = 9e9
+    l.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+    for i, v in pairs(w:GetDescendants()) do
         if v:IsA("BasePart") and not v:IsA("MeshPart") then
             v.Material = "Plastic"
             v.Reflectance = 0
+        elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
             v.Transparency = 1
+        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA("Explosion") then
+            v.BlastPressure = 1
+            v.BlastRadius = 1
+        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+            v.Enabled = false
+        elseif v:IsA("MeshPart") and decalsyeeted then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+            v.TextureID = 10385902758728957
+        elseif v:IsA("SpecialMesh") and decalsyeeted  then
+            v.TextureId=0
+        elseif v:IsA("ShirtGraphic") and decalsyeeted then
+            v.Graphic=0
+        elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+            v[v.ClassName.."Template"]=0
+        end
+    end
+    for i = 1,#l:GetChildren() do
+        e=l:GetChildren()[i]
+        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+            e.Enabled = false
+        end
+    end
+    w.DescendantAdded:Connect(function(v)
+        wait()--prevent errors and shit
+        if v:IsA("BasePart") and not v:IsA("MeshPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
         elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
             v.Transparency = 1
         elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
@@ -109,21 +100,16 @@ w.DescendantAdded:Connect(function(v)
         elseif v:IsA("MeshPart") and decalsyeeted then
             v.Material = "Plastic"
             v.Reflectance = 0
-            v.TextureID = 0
-            v.Transparency = 1
+            v.TextureID = 10385902758728957
         elseif v:IsA("SpecialMesh") and decalsyeeted then
             v.TextureId=0
         elseif v:IsA("ShirtGraphic") and decalsyeeted then
-            v.ShirtGraphic=1
+            v.ShirtGraphic=0
         elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
-            v[v.ClassName.."Template"]=1
+            v[v.ClassName.."Template"]=0
         end
     end)
 end)
-
-function hasunlockzones(name) 
-    return Client.ZoneCmds.Owns(name)
-end
 
 function getrank()
     return Client.Save.Get().Rank
@@ -586,6 +572,47 @@ if hasunlockzones("Cyber Base Camp") then
         getgenv().busy = false
     end
 
+    print('asdasd')
+
+    function fishfuckingfast()
+        local args = {
+            [1] = "AdvancedFishing",
+            [2] = "RequestReel"
+        }
+        
+        game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+        repeat task.wait()
+            local args = {
+                [1] = "AdvancedFishing",
+                [2] = "Clicked"
+            }
+            
+            game:GetService("ReplicatedStorage").Network.Instancing_InvokeCustomFromClient:InvokeServer(unpack(args))
+        until not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound")
+        local args = {
+            [1] = "AdvancedFishing",
+            [2] = "RequestCast",
+            [3] = Vector3.new(1480.2294921875, 61.62503433227539, -4442.16796875)
+        }
+        
+        game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))        
+    end
+    getgenv().fishtime = false
+    function setupmodule()
+        if getgenv().fishtime == false then
+            getgenv().availz = require(workspace.__THINGS.__INSTANCE_CONTAINER.Active.AdvancedFishing.ClientModule)
+            local old
+            old = hookfunction(availz.Networking.Hook, function(a,b)
+                table.foreach(a,print)
+                if game.Players.LocalPlayer.Name == b.Name then
+                    fishfuckingfast()
+                end
+                return old(a,b)
+            end)
+            getgenv().fishtime = true
+        end
+    end
+
     function autofish()
         if getgenv().busy == false then
             if getdata() == false or getcoin()[1] < 200000 then
@@ -635,28 +662,11 @@ if hasunlockzones("Cyber Base Camp") then
                             if not checkisfish() then
                                 getgenv().clickfish = false
                                 plr.Character.HumanoidRootPart.CFrame = CFrame.new(-185.91006469726562, 117.53734588623047, 5170.603515625)
-                            else
-                                -- if (plr.Character.HumanoidRootPart.Position - CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375).Position).Magnitude > 10 then
-                                --     plr.Character.HumanoidRootPart.CFrame = CFrame.new(1451.6363525390625, 68.06724548339844, -4453.59912109375)
-                                -- end
+                                wait(3)
+                                setupmodule()
                             end
                             getgenv().isfish = true
                             if game.Players.LocalPlayer.Character:FindFirstChild("Model") then
-                                if game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
-                                    getgenv().clickfish = false
-                                    local tick1 = tick()
-                                    repeat wait()
-                                    until tick() - tick1 > 2.8
-                                    local args = {
-                                        [1] = "AdvancedFishing",
-                                        [2] = "RequestReel"
-                                    }
-                                    
-                                    game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
-                                end
-                                if game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
-                                    getgenv().clickfish = true
-                                end
                                 if not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound") then
                                     getgenv().clickfish = false
                                     local args = {
