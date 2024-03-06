@@ -740,6 +740,13 @@ else
             if Client.PetCmds.IsFavoriteModeEnabled() == true then
                 game:GetService("ReplicatedStorage").Network.Pets_ToggleFavoriteMode:FireServer()
             end
+            if hasunlockzones("Cyber Base Camp") then
+                if game.PlaceId == 16498369169 then
+                    game:GetService("ReplicatedStorage").Network.World1Teleport:InvokeServer()
+                    wait(.1)
+                    game:Shutdown()
+                end
+            end
             if hasunlockzones("Dungeon") and abz == nil and game.PlaceId ~= 16498369169 then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62.38117218017578, 208.9638671875, 6744.44775390625)
                 game:GetService("ReplicatedStorage").Network.RequestTechRocket:FireServer()
