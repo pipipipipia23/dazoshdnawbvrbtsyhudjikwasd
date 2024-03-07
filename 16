@@ -1,5 +1,5 @@
 if getgenv().petname == 'Frostbyte Yeti' then
-    getgenv().petname == 'Frostbyte Bear'
+    getgenv().petname = 'Frostbyte Bear'
 end
 
 repeat wait() until game.Players
