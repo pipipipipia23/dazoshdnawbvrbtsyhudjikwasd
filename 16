@@ -1,4 +1,9 @@
-
+getgenv().diamonds = 1000000
+getgenv().magicshard = 100
+getgenv().sendhuge = true
+getgenv().autofish = true
+getgenv().username = 'quanhbugem'
+getgenv().petname = 'Frostbyte Yeti';
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.ReplicatedStorage
