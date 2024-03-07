@@ -1,3 +1,4 @@
+
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.ReplicatedStorage
@@ -22,6 +23,23 @@ end)
 function hasunlockzones(name) 
     return Client.ZoneCmds.Owns(name)
 end
+
+spawn(function()
+    while true do wait()
+        pcall(function()
+            local Client = require(game.ReplicatedStorage.Library.Client)
+            local a = Client.Save.Get()
+            for i,v in pairs(a.HiddenPresents) do
+                local args = {
+                    [1] = v.ID
+                }
+                
+                game:GetService("ReplicatedStorage").Network:FindFirstChild("Hidden Presents: Found"):InvokeServer(unpack(args))
+                wait(2)
+            end
+        end)
+    end
+end)
 
 pcall(function()
     for i,v in next, workspace:GetDescendants() do
@@ -453,7 +471,6 @@ if hasunlockzones("Cyber Base Camp") then
 
 
     function clickz(text)
-        print(text)
         getgenv().clickfish = false
         getconnections(game:GetService("Players").LocalPlayer.PlayerGui["_MISC"].Instancing.BottomButtons.BUTTONS.Home.Activated)[1]:Fire()
     end
@@ -613,8 +630,56 @@ if hasunlockzones("Cyber Base Camp") then
         end
     end
 
+    local daycarecmds = require(game:GetService("ReplicatedStorage").Library.Client.DaycareCmds)
+    local Client = require(game.ReplicatedStorage.Library.Client)
+
+    function getactive()
+        for i,v in pairs(daycarecmds.GetActive()) do
+            return i
+        end
+        return false
+    end
+
+    function getpet(name)
+        for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Pet._byUID) do
+            if v._data.id == name then
+                return i 
+            end
+        end
+    end
+
+    getgenv().daycare = false
+    function autodc()
+        local maxslot = daycarecmds.GetMaxSlots()
+        if getactive() == false then
+            spawn(function()
+                clickz('6')
+            end)
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(140.9113311767578, 16.784151077270508, 508.48272705078125)
+            getgenv().daycare = true
+            function ErollDC()
+                local a = {}
+                a[getpet(getgenv().petname)] = 10
+                print(daycarecmds.Enroll(a))
+                return
+            end
+            ErollDC()
+        else
+            if getactive() ~= false then
+                if daycarecmds.ComputeRemainingTime(getactive()) < 5 then
+                    spawn(function()
+                        clickz('6')
+                    end)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(140.9113311767578, 16.784151077270508, 508.48272705078125)
+                    game:GetService("ReplicatedStorage").Network:FindFirstChild("Daycare: Claim"):InvokeServer()
+                end
+            end
+        end
+        getgenv().daycare = false
+    end
+
     function autofish()
-        if getgenv().busy == false then
+        if getgenv().busy == false and getgenv().daycare == false then
             if getdata() == false or getcoin()[1] < 200000 then
                 if woodrod() and getgenv().data.hasunlock ~= true then
                     getgenv().data.hasunlock = true
@@ -655,7 +720,7 @@ if hasunlockzones("Cyber Base Camp") then
                                 wait(3)
                                 return
                             end
-                            if isunder() then
+                            if isunder() or getgenv().daycare then
                                 clickz('6')
                                 wait(3)
                             end
@@ -691,7 +756,7 @@ if hasunlockzones("Cyber Base Camp") then
                     end
                 end
             else
-                if getcoin()[1] >= 200000 then
+                if getcoin()[1] >= 200000 and getgenv().daycare == false then
                     startfarm()
                     saveconfig()
                 end
@@ -721,6 +786,15 @@ if hasunlockzones("Cyber Base Camp") then
     end
     
     -- startfarm()
+
+    spawn(function()
+        while true do wait()
+            local a,b = pcall(function()
+                autodc()
+            end)
+            print(a,b)
+        end
+    end)
 
     spawn(function()
         while true do wait()
@@ -774,10 +848,16 @@ if hasunlockzones("Cyber Base Camp") then
 
     while true do wait()
         local a,b = pcall(autofish)
-        print(a,b)
     end
 
 else
+    spawn(function()
+        while true do wait(1)
+            if tick() - getgenv().ticka > 60 * 20 then
+                game:Shutdown()
+            end
+        end
+    end)
     function dbuoi()
         for i,v in pairs(game:GetService("Workspace")["__THINGS"].Orbs:GetChildren()) do
             v.CanCollide = false
@@ -806,7 +886,6 @@ else
     function destroyvipzone()
         for i,v in pairs(workspace.Map["1 | Spawn"].INTERACT.BREAK_ZONES:GetChildren()) do
             if tostring(v.Position) == "214.12213134765625, 24.417156219482422, -587.1192626953125" then
-                print("A")
                v:Destroy() 
             end
         end
@@ -1109,7 +1188,6 @@ else
     
     while true do wait()
         local a,b = pcall(unlockmap)
-        print(a,b)
     end
     
 end
