@@ -40,6 +40,14 @@ spawn(function()
     end
 end)
 
+function getmapne()
+    if game.PlaceId == 16498369169 then
+        return workspace.Map2
+    else
+        return workspace.Map
+    end
+end
+
 pcall(function()
     for i,v in next, workspace:GetDescendants() do
         pcall(function()
@@ -883,7 +891,7 @@ else
     end
     
     function destroyvipzone()
-        for i,v in pairs(workspace.Map["1 | Spawn"].INTERACT.BREAK_ZONES:GetChildren()) do
+        for i,v in pairs(getmapne()["1 | Spawn"].INTERACT.BREAK_ZONES:GetChildren()) do
             if tostring(v.Position) == "214.12213134765625, 24.417156219482422, -587.1192626953125" then
                v:Destroy() 
             end
@@ -928,7 +936,7 @@ else
     end
     
     function getlocation()
-        for i,v in pairs(workspace.Map:GetChildren()) do
+        for i,v in pairs(getmapne():GetChildren()) do
             if formatmap(v.Name) == formatclient(getlastmap()) and v:FindFirstChild("INTERACT") then
                 return v.INTERACT.BREAKABLE_SPAWNS.Main
             end
@@ -939,7 +947,7 @@ else
     function getfoderlastmap()
         local a = nil
         local b = 0
-        for i,v in pairs(workspace.Map:GetChildren()) do
+        for i,v in pairs(getmapne():GetChildren()) do
             local number = tonumber(string.match(v.Name, "(%d+)"))
             local namemap = formatmap(v.Name)
             if number ~= nil and v:FindFirstChild("INTERACT") then
@@ -1187,6 +1195,7 @@ else
     
     while true do wait()
         local a,b = pcall(unlockmap)
+        print(a,b)
     end
     
 end
