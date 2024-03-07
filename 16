@@ -1,3 +1,7 @@
+if getgenv().petname == 'Frostbyte Yeti' then
+    getgenv().petname == 'Frostbyte Bear'
+end
+
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.ReplicatedStorage
