@@ -684,6 +684,8 @@ if hasunlockzones("Cyber Base Camp") then
                     end)
                     plr.Character.HumanoidRootPart.CFrame = CFrame.new(140.9113311767578, 16.784151077270508, 508.48272705078125)
                     game:GetService("ReplicatedStorage").Network:FindFirstChild("Daycare: Claim"):InvokeServer()
+                else
+                    getgenv().daycare = false
                 end
             end
         end
