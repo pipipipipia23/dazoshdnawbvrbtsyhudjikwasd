@@ -1,7 +1,6 @@
 if getgenv().petname == 'Frostbyte Yeti' then
     getgenv().petname = 'Frostbyte Bear'
 end
-
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.ReplicatedStorage
@@ -645,6 +644,7 @@ if hasunlockzones("Cyber Base Camp") then
     local Client = require(game.ReplicatedStorage.Library.Client)
 
     function getactive()
+        local daycarecmds = require(game:GetService("ReplicatedStorage").Library.Client.DaycareCmds)
         for i,v in pairs(daycarecmds.GetActive()) do
             return i
         end
@@ -661,6 +661,7 @@ if hasunlockzones("Cyber Base Camp") then
 
     getgenv().daycare = false
     function autodc()
+        local daycarecmds = require(game:GetService("ReplicatedStorage").Library.Client.DaycareCmds)
         local maxslot = daycarecmds.GetMaxSlots()
         if getactive() == false then
             spawn(function()
