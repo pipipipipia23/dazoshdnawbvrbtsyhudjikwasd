@@ -695,12 +695,7 @@ if hasunlockzones("Cyber Base Camp") then
     function autofish()
         if getgenv().busy == false and getgenv().daycare == false then
             if getdata() == false or getcoin()[1] < 200000 then
-                if woodrod() and getgenv().data.hasunlock ~= true then
-                    getgenv().data.hasunlock = true
-                    saveconfig()
-                    return
-                end
-                if getgenv().data.hasunlock ~= true and haverod() then
+                if haverod() and not woodrod() then
                     if isfish1() then
                         if workspace.__THINGS.__INSTANCE_CONTAINER.Active.Fishing.Interactable:FindFirstChild("WoodenFishingRod") then
                             wait(3)
