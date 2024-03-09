@@ -381,9 +381,9 @@ if hasunlockzones("Cyber Base Camp") then
     function autobuyfish()
         if not haverodvip() then
             local args = {
-                [1] = "Amethyst Shovel"
+                [1] = "Amethyst Fishing Rod"
             }
-            
+
             game:GetService("ReplicatedStorage").Network.FishingMerchant_PurchaseRod:InvokeServer(unpack(args))
         end
     end
