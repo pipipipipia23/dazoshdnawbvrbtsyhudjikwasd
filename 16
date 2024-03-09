@@ -342,6 +342,7 @@ if hasunlockzones("Cyber Base Camp") then
                 return i
             end
         end
+return false
     end
 
     function haverodvip()
