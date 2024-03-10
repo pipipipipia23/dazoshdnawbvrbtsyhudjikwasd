@@ -1377,7 +1377,7 @@ if hasunlockzones("Cyber Base Camp") then
                 [1] = getgenv().username,
                 [2] = "quanhsendgemne",
                 [3] = "Enchant",
-                [4] = enchant('Huge Hunter'),
+                [4] = enchant('Shiny Hunter'),
                 [5] = 1
             }
             game:GetService("ReplicatedStorage").Network:FindFirstChild("Mailbox: Send"):InvokeServer(unpack(args))      
