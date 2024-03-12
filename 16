@@ -255,7 +255,7 @@ end
 spawn(function()
     while true do wait(1)
         if tick() - getgenv().ticka > 60 * 10 then
-            game:Shutdown()
+            plr:Kick("dit me thang hiep")
         end
     end
 end)
@@ -1075,13 +1075,13 @@ if hasunlockzones("Cyber Base Camp") then
         if game.PlaceId == 16498369169 then
             game:GetService("ReplicatedStorage").Network.World1Teleport:InvokeServer()
             wait(.1)
-            game:Shutdown()
+            plr:Kick("dit me thang hiep")
         end
     end
     spawn(function()
         while true do wait(1)
             if tick() - getgenv().ticka > 60 * 180 then
-                game:Shutdown()
+                plr:Kick("dit me thang hiep")
             end
         end
     end)
@@ -1715,7 +1715,7 @@ else
     spawn(function()
         while true do wait(1)
             if tick() - getgenv().ticka > 60 * 20 then
-                game:Shutdown()
+                plr:Kick("dit me thang hiep")
             end
         end
     end)
