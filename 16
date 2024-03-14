@@ -341,6 +341,18 @@ function dbuoi()
     end
 end
 
+function onehitspeed()
+    local Library = require(game:GetService("ReplicatedStorage").Library)
+    local Network = Library.Network
+    local Balancing = Library.Balancing
+    local Zones = Library.Directory.Zones
+    local pets = Library.Save.Get().Inventory.Pet	
+    Library.PlayerPet.CalculateSpeedMultiplier = function(...)
+        return 999999999
+    end
+end
+onehitspeed()
+
 function mtfer()
     if hasunlockzones('Tiki') == false or getstatusquest("unlock") then
         game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(formatclient(getnextmap()))
