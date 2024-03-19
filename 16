@@ -1096,8 +1096,8 @@ function click2(a)
     game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
 end
 
-if hasunlockzones("Cyber Base Camp") then
-    if hasunlockzones("Cyber Base Camp") then
+if hasunlockzones("Alien Lab") then
+    if hasunlockzones("Alien Lab") then
         if game.PlaceId == 16498369169 then
             game:GetService("ReplicatedStorage").Network.World1Teleport:InvokeServer()
             wait(.1)
