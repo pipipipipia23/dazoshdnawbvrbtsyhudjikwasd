@@ -270,7 +270,6 @@ end
 spawn(function()
     while true do wait(1)
         if tick() - getgenv().ticka > 60 * 10 then
-            plr:Kick("dit me thang hiep")
         end
     end
 end)
