@@ -267,13 +267,6 @@ function hasunlockzones(name)
     return Client.ZoneCmds.Owns(name)
 end
 
-spawn(function()
-    while true do wait(1)
-        if tick() - getgenv().ticka > 60 * 10 then
-        end
-    end
-end)
-
 function romanToNumber(roman)
     local numerals = {
         ["i"] = 1,
@@ -570,7 +563,6 @@ end
 function autovending(item)
     local firstdata = getdataitem(item)
     if firstdata ~= false then
-        print(Client.MachineCmds.CanUse(firstdata[2]))
         if Client.MachineCmds.Owns(firstdata[2]) and Client.MachineCmds.IsAllowedToOpen(firstdata[2]) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = firstdata[1] * CFrame.new(5,10,0)
             wait(5)
@@ -1020,7 +1012,6 @@ end)
 
 while true do wait()
     local a,b = pcall(mainfarmer)
-    print(a,b)
 end
     end)
     -- end auto rank
@@ -1096,8 +1087,8 @@ function click2(a)
     game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
 end
 
-if hasunlockzones("Alien Lab") then
-    if hasunlockzones("Alien Lab") then
+if hasunlockzones("Cloud Garden") then
+    if hasunlockzones("Cloud Garden") then
         if game.PlaceId == 16498369169 then
             game:GetService("ReplicatedStorage").Network.World1Teleport:InvokeServer()
             wait(.1)
@@ -1343,7 +1334,6 @@ if hasunlockzones("Alien Lab") then
                 end
             end
         else
-            print("mother fucker")
             if getgenv().data.time == 0 or tick() - getgenv().data.time > 60 * 60 then
                 getgenv().data.time = tick() + 61 * 60
                 getgenv().data.hasbuy = true
@@ -1366,6 +1356,7 @@ if hasunlockzones("Alien Lab") then
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(x, y))
     end
+    local maslevel = require(game:GetService("ReplicatedStorage").Library.Client.MasteryCmds)
     getgenv().busy = false
     function auto2()
         if checkmail() ~= false then
@@ -1509,26 +1500,22 @@ if hasunlockzones("Alien Lab") then
     end
 
     function getdep()
-        local deepPool
-        for _, instance in pairs(game:GetService("Workspace"):FindFirstChild("THINGS").INSTANCE_CONTAINER.Active.AdvancedFishing:FindFirstChild("Interactable"):GetChildren()) do
-            if instance.Name == "DeepPool" then
-                deepPool = instance
-                break
+        function getcast()
+            local deepPool = nil
+            local castVector = false
+            if game:GetService("Workspace")["__THINGS"]["__INSTANCE_CONTAINER"].Active.AdvancedFishing.Interactable:FindFirstChild('DeepPool') then
+                print("asdasdasdasdasd")
+                deepPool = game:GetService("Workspace")["__THINGS"]["__INSTANCE_CONTAINER"].Active.AdvancedFishing.Interactable:FindFirstChild('DeepPool')
+                castVector = Vector3.new(deepPool.Position.X + Random.new():NextNumber(-4.75, 4.75), deepPool.Position.Y, deepPool.Position.Z + Random.new():NextNumber(-4.75, 4.75))
             end
-        end
-    
-        local castVector = nil
-        if deepPool then
-            -- MAXIMUM: -/+ 5
-            castVector = Vector3.new(deepPool.Position.X + Random.new():NextNumber(-4.75, 4.75), deepPool.Position.Y, deepPool.Position.Z + Random.new():NextNumber(-4.75, 4.75))
-        else
-            castVector = Vector3.new(1480.482421875 + Random.new():NextInteger(-20, 20), 61.62470245361328, -4451.23583984375 + Random.new():NextInteger(-20, 20))
-        end
-        if castVector ~= nil then
             return castVector
-        else
-            return Vector3.new(1480.2294921875, 61.62503433227539, -4442.16796875)
         end
+        local castt = getcast()
+        print(castt)
+        if castt ~= false and getgenv().levelmas >= 30 then
+            return castt
+        end
+        return Vector3.new(1480.2294921875, 61.62503433227539, -4442.16796875)
     end
     
     print('asdasd')
@@ -1541,12 +1528,14 @@ if hasunlockzones("Alien Lab") then
         
         game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
         repeat task.wait()
-            local args = {
-                [1] = "AdvancedFishing",
-                [2] = "Clicked"
-            }
-            
-            game:GetService("ReplicatedStorage").Network.Instancing_InvokeCustomFromClient:InvokeServer(unpack(args))
+            spawn(function()
+                local args = {
+                    [1] = "AdvancedFishing",
+                    [2] = "Clicked"
+                }
+                
+                game:GetService("ReplicatedStorage").Network.Instancing_InvokeCustomFromClient:InvokeServer(unpack(args))
+            end)
         until not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("FishingLine") and not game.Players.LocalPlayer.Character.Model.Rod:FindFirstChild("Sound")
         local args = {
             [1] = "AdvancedFishing",
@@ -1562,7 +1551,6 @@ if hasunlockzones("Alien Lab") then
             getgenv().availz = require(workspace.__THINGS.__INSTANCE_CONTAINER.Active.AdvancedFishing.ClientModule)
             local old
             old = hookfunction(availz.Networking.Hook, function(a,b)
-                table.foreach(a,print)
                 if game.Players.LocalPlayer.Name == b.Name then
                     fishfuckingfast()
                 end
@@ -1624,6 +1612,18 @@ if hasunlockzones("Alien Lab") then
         getgenv().daycare = false
     end
 
+    getgenv().levelmas = maslevel.GetLevel('Fishing')
+    
+    spawn(function()
+        while true do wait(100)
+            pcall(function() 
+                if getgenv().levelmas < 30 then
+                    getgenv().levelmas = maslevel.GetLevel('Fishing')
+                end
+            end)
+        end
+    end)
+
     function autofish()
         if getgenv().busy == false and getgenv().daycare == false then
             if getdata() == false or getcoin()[1] < 200000 then
@@ -1642,13 +1642,11 @@ if hasunlockzones("Alien Lab") then
                             getgenv().data.hasunlock = true
                             saveconfig()
                         else
-                            print('avsdasd')
                             clickz('2')
                             getgenv().data.hasunlock = true
                             saveconfig()
                         end
                     else
-                        print('a')
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cframemap27
                         wait(3)
                         return
@@ -1661,6 +1659,7 @@ if hasunlockzones("Alien Lab") then
                                 wait(3)
                                 return
                             end
+
                             if isunder() or getgenv().daycare then
                                 clickz('6')
                                 wait(3)
@@ -1670,6 +1669,10 @@ if hasunlockzones("Alien Lab") then
                                 plr.Character.HumanoidRootPart.CFrame = CFrame.new(-185.91006469726562, 117.53734588623047, 5170.603515625)
                                 wait(3)
                                 setupmodule()
+                            else
+                                local vectore = Vector3.new(1444.6505126953125, 66.47740173339844, -4455.0322265625)
+                                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                                humanoid:MoveTo(vectore)
                             end
                             getgenv().isfish = true
                             if game.Players.LocalPlayer.Character:FindFirstChild("Model") then
@@ -1678,7 +1681,7 @@ if hasunlockzones("Alien Lab") then
                                     local args = {
                                         [1] = "AdvancedFishing",
                                         [2] = "RequestCast",
-                                        [3] = Vector3.new(1480.2294921875, 61.62503433227539, -4442.16796875)
+                                        [3] = getdep()
                                     }
                                     
                                     game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))        
@@ -1727,13 +1730,14 @@ if hasunlockzones("Alien Lab") then
     end
     
     -- startfarm()
+    -- a.Mastery.Fishing
+
 
     spawn(function()
         while true do wait()
             local a,b = pcall(function()
                 autodc()
             end)
-            print(a,b)
         end
     end)
 
@@ -1748,24 +1752,8 @@ if hasunlockzones("Alien Lab") then
     end)
 
     spawn(function()
-        while true do task.wait()
-            pcall(function()
-                if getgenv().clickfish == true then
-                    local args = {
-                        [1] = "AdvancedFishing",
-                        [2] = "Clicked"
-                    }
-                    
-                    game:GetService("ReplicatedStorage").Network.Instancing_InvokeCustomFromClient:InvokeServer(unpack(args))
-                end
-            end)
-        end
-    end)
-
-    spawn(function()
         while true do wait(60 * 8)
             pcall(function()
-                print('asdasd')
                 clickz('3')
             end)
         end
@@ -1936,6 +1924,14 @@ else
         game:GetService("ReplicatedStorage").Network.ToyBall_Consume:InvokeServer()
         game:GetService("ReplicatedStorage").Network.ToyBone_Consume:InvokeServer()
     end
+
+    spawn(function()
+        while true do wait(1)
+            if tick() - getgenv().ticka > 60 * 10 then
+                plr:Kick("dit me thang hiep")
+            end
+        end
+    end)    
     
     function autotnt() 
         game:GetService("ReplicatedStorage").Network.TNT_Consume:InvokeServer()
@@ -2129,7 +2125,6 @@ else
     
     while true do wait()
         local a,b = pcall(unlockmap)
-        print(a,b)
     end
     
 end
