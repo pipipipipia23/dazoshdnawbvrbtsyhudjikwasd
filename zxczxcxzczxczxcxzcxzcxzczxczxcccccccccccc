@@ -347,6 +347,7 @@ spawn(function()
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
             local vcl = string.split(v_u_22, "//")[2]
             local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
+print(data.Name)
             v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
         end)
         print("dmm")
