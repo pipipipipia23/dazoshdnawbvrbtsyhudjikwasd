@@ -46,6 +46,7 @@ function scriptne()
         return false
     end
     -- checkunit2()
+	table.foreach(getgenv().daaaz, print)
     getgenv().daaaz = checkunit2()
     getgenv().ImportMacro = getgenv().daaaz.macro
     getgenv().Config = {
