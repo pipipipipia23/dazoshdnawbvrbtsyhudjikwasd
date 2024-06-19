@@ -1,0 +1,672 @@
+print('dbuoi')
+getgenv().hasrunn = true
+function scriptne()
+	getgenv().hasrunn = false
+    local autosetup = {
+        ["Strongest Swordsman"] = {
+            namemacro = "Macro73Action",
+            wavereset = 31,
+            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/mihawk",
+        },
+        ["Admiral Of Lava"] = {
+            namemacro = "Macro65Action",
+            wavereset = 31,
+            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/akainu",
+        },
+        ["Shinobi Form 3"] = {
+            namemacro = "Macro58Action",
+            wavereset = 31,
+            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/naruto",
+        },
+        ["Admiral Of Ice"] = {
+            namemacro = "Macro62Action",
+            wavereset = 31,
+            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/bang",
+        }
+    }
+    
+    function inventory()
+        return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
+    end
+    
+    function checkunit2() 
+        for i,v in pairs(inventory().Units) do
+            if autosetup[tostring(v.Type)] ~= nil then
+                return autosetup[tostring(v.Type)]
+            end
+        end
+        return false
+    end
+    -- checkunit2()
+    getgenv().ImportMacro = checkunit2().macro
+    getgenv().Config = {
+        ["SelectChapter"] = "Infinite",
+        ["AutoSave"] = true,
+        ["WH_MatchComplete"] = false,
+        ["AutoSkip"] = true,
+        ["AutoClaimQuest"] = true,
+        ["TPLobbyIfPlayer"] = true,
+        ["SelectChallengeWorld"] = {
+            ["Cursed Academy"] = false,
+            ["Blue Planet"] = false,
+            ["Windmill Village"] = false,
+            ["Mob City"] = false,
+            ["Underwater Temple"] = false
+        },
+        ["WaitForJoiner"] = false,
+        ["SelectMacro"] = checkunit2().namemacro,
+        ["JoinerList"] = {
+            [1] = "No joiner in the list"
+        },
+        ["TeleportLobbyNewBanner"] = false,
+        ["AutoJoinRaid"] = false,
+        ["SelectReward"] = {
+            ["Trait Crystal"] = false,
+            ["Risky Dice"] = false,
+            ["Gems"] = false,
+            ["Star Rift (Rainbow)"] = false,
+            ["Star Rift "] = false,
+            ["Gold"] = false
+        },
+        ["HillHeight"] = {
+            ["Cursed Academy"] = 2,
+            ["Blue Planet"] = 2,
+            ["Windmill Village"] = 2,
+            ["Mob City"] = 2,
+            ["Underwater Temple"] = 2
+        },
+        ["SelectDifficulty"] = {
+            ["All units lowered range"] = false,
+            ["All enemies regen health"] = false,
+            ["All enemies +1 shield"] = false,
+            ["All units increased cost"] = false,
+            ["All enemies 2x health"] = false,
+            ["All enemies 2x speed"] = false
+        },
+        ["AutoLeave"] = true,
+        ["JoinerCooldown"] = 0,
+        ["AutoSell"] = false,
+        ["AutoSummonStandard"] = false,
+        ["BlackScreen"] = false,
+        ["AutoReturnLobby"] = true,
+        ["AutoJoinHoster"] = false,
+        ["SelectWorld"] = "Windmill Village",
+        ["AutoPlay"] = false,
+        ["OFARecord"] = false,
+        ["PlayMacro"] = true,
+        ["MiddlePos"] = {
+    
+        },
+        ["DeleteMap"] = true,
+        ["AutoReplay"] = true,
+        ["HardMode"] = false,
+        ["WH_BannerSummoned"] = false,
+        ["StandardSummonUnit"] = {
+            ["Dragon Slayer"] = false,
+            ["Shinobi Form 3"] = false,
+            ["Vengeful Shinobi"] = false,
+            ["Strongest Swordsman"] = false,
+            ["Admiral Of Lava"] = false,
+            ["The Gamer"] = false,
+            ["Bloomer"] = false,
+            ["The Beast"] = false,
+            ["Admiral Of Light"] = false,
+            ["Clay"] = false,
+            ["Cursed Fighter"] = false,
+            ["Curse Prince"] = false,
+            ["Fire Leg Master"] = false,
+            ["Pink Rockstar"] = false,
+            ["Maxed Qi Master"] = false,
+            ["Carp"] = false,
+            ["Ascended Qi Master"] = false,
+            ["Thunder Shinobi"] = false,
+            ["Spirit Hybrid"] = false,
+            ["Soulforce Reaper"] = false,
+            ["Admiral Of Ice"] = false,
+            ["Inferno Commander"] = false,
+            ["Esper"] = false,
+            ["Ant King"] = false,
+            ["Sharpshooter"] = false,
+            ["Skull Warrior"] = false,
+            ["Flame Dragon King"] = false,
+            ["Elf Wizardess"] = false,
+            ["Chance Taker"] = false,
+            ["Master Swordsman"] = false
+        },
+        ["LeaveSellWave"] = checkunit2().wavereset,
+        ["AutoJoinChallenge"] = false,
+        ["AutoSummonLimited"] = false,
+        ["LimitedSummonUnit"] = {
+            ["Warrior Princess"] = false,
+            ["The Cursed Knight"] = false,
+            ["Donut Warrior"] = false,
+            ["Ocean Guardian"] = false,
+            ["Electric Cyborg"] = false
+        },
+        ["UpgradeAndPlace"] = false,
+        ["UnselectIfSummoned"] = false,
+        ["JoinHighest"] = false,
+        ["PlaceGap"] = {
+            ["Cursed Academy"] = 3.25,
+            ["Blue Planet"] = 3.25,
+            ["Windmill Village"] = 3.25,
+            ["Mob City"] = 3.25,
+            ["Underwater Temple"] = 3.25
+        },
+        ["AutoRejoin"] = true,
+        ["AutoUpgrade"] = true,
+        ["AutoJoinWorld"] = true,
+        ["SelectChallengeMacro"] = {
+    
+        },
+        ["DeleteRarity"] = {
+            ["Epic"] = false,
+            ["Legendary"] = false,
+            ["Rare"] = false
+        },
+        ["IgnoreMacroTiming"] = true,
+        ["SelectRaidMacro"] = {
+    
+        },
+        ["BoostFPS"] = true
+    }
+    getgenv().Key = "kbf4cac87472341c1c6bca82"
+    loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
+end
+if not game:IsLoaded() then game.Loaded:Wait() end
+local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
+local Values = require(game:GetService("ReplicatedStorage").Values) 
+-- 17490500437 -- trade
+-- 17764698696 - 17017769292 -- lobby
+local az = game:GetService("ReplicatedStorage").Actions
+local v1 = cloneref(game:GetService("ReplicatedStorage"))
+local v_u_1 = cloneref(game:GetService("HttpService"))
+local v_u_9 = require(v1.Actions)
+local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
+local v_u_2 = cloneref(game:GetService("RunService"))
+local p63 = v_u_9
+local plr = game.Players.LocalPlayer
+local host = 'https://dashboard-2-f86861d9e488.herokuapp.com'
+---
+
+function inventory()
+    return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
+end
+
+--- game:GetService("Players").fLeNqqs4.PlayerGui.UI.NotificationsHolder.Notification.PromptWindow.PromptMessage
+
+-------
+
+function jump()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
+    wait(4)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, 32, false, game)
+end
+
+spawn(function()
+    while true do wait()
+        pcall(function()
+            local tickm = tick()
+            repeat wait()
+            until tick() - tickm >= 30
+            jump()
+        end)
+    end
+end)
+
+function letfkinggo(p63, ...)
+	local a = {...}
+	-- print(typeof(a[1]),a[1])
+	-- print(typeof(a[2]),a[2])
+	-- print(typeof(a[3]),a[3])
+	if p63.isReplicated then
+		local v73 = v_u_1:JSONEncode({ p63.name, ... })
+		local v74 = v_u_10.new()
+		local v75 = math.random(42, 48)
+		if (v75 + 9 + 19) % 8 == 0 then
+			v75 = v75 + math.random(1, 4)
+		end
+		v74:writeUnit(9, v75)
+		local v76 = workspace:GetServerTimeNow()
+		v74:WriteUint(v75, (math.floor(v76)))
+		v74:writeUnit(19, #v73)
+		v74:WriteBytes(v73)
+		v74:writeUnit(math.random(5, 10), math.random(1, 31))
+		az.Action:FireServer(v74:String())
+	end
+end
+
+if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+    scriptne()
+end
+
+function get(url)
+    return request({
+        Url = url,
+        Method = "GET",
+    })
+end
+
+function click(a)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,true,a,1)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,false,a,1)
+end
+
+function checkmaininsv()
+    for i,v in pairs(game.Players:GetChildren()) do
+        if v.Name == getgenv().myaccmain then
+            return true
+        end
+    end
+    return false
+end
+
+function checkuserinsv(name)
+    for i,v in pairs(game.Players:GetChildren()) do
+        if v.Name == name then
+            return v.Name
+        end
+    end
+    return false
+end
+
+local checkmain = get((host.."/%s" .. "/getmain"):format(plr.Name))
+
+function jsonencode(data) 
+    return game:GetService("HttpService"):JSONEncode(data)
+end
+
+function jsondecode(data) 
+    return game:GetService("HttpService"):JSONDecode(data)
+end
+
+local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
+
+function post(url,data)
+    return request({
+        Url = url,
+        Headers = {
+            ["content-type"] = "application/json"
+        },
+        Method = "POST",
+        Body = jsonencode(data),
+    })
+end
+
+function delete(url,data)
+    return request({
+        Url = url,
+        Method = "GET",
+    })
+end
+
+getgenv().onetime1 = false
+getgenv().onetime2 = false
+
+function getremote(adsadasd)
+    for i,v in pairs(v_u_9) do
+        if i == adsadasd then
+            return v.name
+        end
+    end
+    return false
+end
+
+function scaninbooth(name)
+    local allbooth = {}
+    local Values = require(game:GetService("ReplicatedStorage").Values) 
+    for i,v in pairs(Values['ON_SALE_ITEMS' .. tostring(name)].value.Units) do
+        allbooth[i] = v
+    end
+    return allbooth
+end
+
+function scaninbooth2(name)
+    local allbooth = {}
+    local Values = require(game:GetService("ReplicatedStorage").Values) 
+    for i,v in pairs(Values['ON_SALE_ITEMS' .. tostring(name)].value.Units) do
+        table.insert(allbooth, i)
+    end
+    return allbooth
+end
+
+local aducaptcha = cloneref(game:GetService("Players"))
+spawn(function()
+    while true do wait(1)
+        pcall(function()
+            local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
+            local vcl = string.split(v_u_22, "//")[2]
+            local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
+            v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
+        end)
+    end
+end)
+
+if checkmain.StatusCode == 200 then
+    getgenv().canteleport = ":))"
+    for k,v in getgc() do 
+        if type(v) == "function" and tostring(getfenv(v).script) == "SharedData" then
+            if debug.getinfo(v).name == "CanTeleportToTradeLobby" then
+                getgenv().canteleport = clonefunction(v)
+            end
+        end
+    end
+
+    ---- 
+
+    function scanbooth(path)
+        for i,v in pairs(game:GetService("Workspace").Folder:GetChildren()) do
+            if v:FindFirstChild("PromptHolderPart") then
+                if (path.Position - v.PromptHolderPart.Position).Magnitude < 5 then
+                    return true
+                end
+            end
+        end
+        return false
+    end
+
+    function havebooth()
+        for i,v in pairs(game:GetService("Workspace").Folder:GetChildren()) do
+            if v.Root.SurfaceGui.PlayerName.Text == "Your Booth" then
+                return true
+            end
+        end
+        return false
+    end
+    ---- getqueue
+    
+    ----
+    getgenv().nobuy = true
+    if game.PlaceId ~= 17490500437 then
+		print("asdasd")
+        if getgenv().canteleport(inventory()) then
+            letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
+        end
+    else
+        function autosigai()
+            local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
+            if checkuserinsv(jsondecode(getstart.Body).username) ~= false then
+                print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
+            end
+            print("????")
+            if havebooth() == false then
+                for i,v in pairs(game:GetService("Workspace").BoothLocations:GetChildren()) do
+                    if scanbooth(v) == false and havebooth() == false then
+                        plr.Character.HumanoidRootPart.CFrame = v.CFrame
+                        wait(1)
+                        local tickn = tick()
+                        repeat task.wait()
+                            spawn(function()
+                                game:GetService("VirtualInputManager"):SendKeyEvent(true, 101, false, game)
+                            end)
+                        until tick() - tickn >= 5
+                    end
+                end
+            else
+                local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
+                if getstart.StatusCode == 200 then
+                    for i,v in pairs(inventory().Units) do
+                        if (v.Shiny == true or v.Traded == true) and v.Type == "Electric Cyborg" then
+                            if scaninbooth(game.Players.LocalPlayer.UserId)[i] == nil then
+                                local args = {
+                                    [1] = getremote("SELL_BOOTH_ITEMS"),
+                                    [2] = {
+                                        ["Items"] = {
+                                            [tostring(i)] = {
+                                                ["Class"] = "Units"
+                                            }
+                                        },
+                                        ["Price"] = tonumber(jsondecode(checkmain.Body).gem)
+                                    }
+                                }
+                                letfkinggo(p63.SELL_BOOTH_ITEMS, args[2])
+                            end
+                        end
+                    end
+                else
+                    for i,v in pairs(scaninbooth2(game.Players.LocalPlayer.UserId)) do
+                        local args = {
+                            [1] = getremote("REMOVE_BOOTH_ITEM"),
+                            [2] = v
+                        }
+                        letfkinggo(p63.REMOVE_BOOTH_ITEM, args[2])       
+                    end          
+                end
+            end
+        end
+
+        spawn(function()
+            while getgenv().hasrunn do wait(5)
+                local a,b = pcall(function()
+                    autosigai()
+                end)
+                print(a,b)
+            end
+        end)
+        -- game:GetService("Players").fLeNqqs4.PlayerGui.UI.TradeTransactionUI
+        spawn(function()
+            while getgenv().hasrunn do wait(10)
+                pcall(function()
+                    local args = {
+                        [1] = "TRADE_LOCK",
+                        [4] = true
+                    }
+                    letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                    click(game:GetService("Players").LocalPlayer.PlayerGui.PromptGui.PromptDefault.Holder.Options.Back)
+                end)
+            end
+        end)
+
+        spawn(function()
+            while getgenv().hasrunn do wait(10)
+                local getonetest = get((host.."/%s" .. "/getone"):format(plr.Name))
+                print(getonetest.StatusCode)
+            end
+        end)
+        getgenv().wuattofac = true
+
+        function inventory()
+            return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
+        end
+
+        function adumm()
+            for i,v in pairs(inventory().Items) do
+                if i == "Trait Crystal" then
+                    return v
+                end
+            end
+            return 0
+        end
+
+        spawn(function()
+            while getgenv().wuattofac and getgenv().hasrunn do wait(60)
+                local a ,b = pcall(function()
+                    local data = {
+                        username = game.Players.LocalPlayer.Name,
+                        idserver = tostring(adumm()) .. "|" .. tostring(inventory().Currencies.Gems),
+                        gem = 123123213,
+                        status = true
+                    }                    
+                    if post((host .. "/mainpost"), data).StatusCode == 200 then
+                        -- delete(host .. "/" .. plr.Name .. "/deletemain")
+                        getgenv().wuattofac = false
+                    end
+                end)
+                print("Data: ",a,b)
+            end
+        end)
+    end
+else
+    while getgenv().hasrunn do wait(5)
+        local a,b = pcall(function()
+            --- for user.
+            local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
+            if inventory().Currencies.Gems == nil then
+                inventory().Currencies.Gems = 0
+            end
+            
+            local data = {
+                ["mainaccount"] = getgenv().myaccmain, 
+                ["username"] = plr.Name,
+                ["status"] = "deo de lam gi?",
+                ["done"] = false,
+            }
+            if jsondecode(checkmain.Body).gem == nil then
+                print('scripthere1zzz')
+                scriptne()
+            end
+
+            if inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) then
+                post(host..'/users',data)
+                wait(2)
+            end
+
+			if jsondecode(checkmain.Body).gem == nil then
+                print('scripthere1123123')
+                scriptne()
+			end
+            
+            local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
+            local checkqueue = get((host.."/%s" .. "/getinqueue"):format(plr.Name))
+            -- is meeee start
+            
+            if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
+                getgenv().itme = true
+            else
+                getgenv().itme = false
+            end
+            print(getgenv().itme)
+            function dectectinven()
+                local wtf = {}
+                for i,v in pairs(inventory().Units) do
+                    if v.Traded ~= nil then
+                        if UnitData[v.Type].Rarity >= 4 and v.Type == "Electric Cyborg" then
+                            table.insert(wtf, i)
+                        end
+                    end
+                end
+                return wtf
+            end
+
+            if #dectectinven() == 0 and jsondecode(getstart.Body).username == plr.Name and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
+                print(host .. "/" .. plr.Name .. "/clearme")
+                print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
+                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+            end
+
+            if game.PlaceId == 17490500437 and checkmaininsv() == false then
+                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+            end
+
+            if post(host..'/users',data).StatusCode == 0 or post(host..'/users',data).StatusCode == 500 then
+                delete(host .. "/" .. plr.Name .. "/clearme")
+                print('scripthere1')
+                scriptne()
+            end
+
+            if (getstart.StatusCode == 200 and getgenv().itme) and jsondecode(checkmain.Body).status == true then
+                if game.PlaceId == 17764698696 or game.PlaceId == 17017769292 then
+                    print('here' , jsondecode(checkmain.Body).username)
+                    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby",jsondecode(checkmain.Body).username)
+                end
+            else
+                if #dectectinven() == 0 then
+                    delete(host .. "/" .. plr.Name .. "/clearme")
+                end
+                print('scripthere2')
+                scriptne()
+            end
+            
+            if inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) or (#dectectinven() > 0 and jsondecode(getstart.Body).username == plr.Name) then
+                if game.PlaceId == 17490500437 and jsondecode(checkmain.Body).status == true and jsondecode(getstart.Body).username == plr.Name then
+                    if inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) and #scaninbooth2(game:GetService("Players"):GetUserIdFromNameAsync(jsondecode(checkmain.Body).username)) > 0 then
+                        print("dit me may?")
+                        print(#scaninbooth2(game:GetService("Players"):GetUserIdFromNameAsync(jsondecode(checkmain.Body).username)))
+                        for i,v in pairs(scaninbooth2(game:GetService("Players"):GetUserIdFromNameAsync(jsondecode(checkmain.Body).username))) do
+                            local args = { -- buy -- BUY_BOOTH_ITEM
+                                [1] = getremote("BUY_BOOTH_ITEM"),
+                                [2] = game:GetService("Players"):GetUserIdFromNameAsync(jsondecode(checkmain.Body).username),
+                                [3] = v
+                            }
+                            letfkinggo(p63.BUY_BOOTH_ITEM, args[2],args[3])
+                            if inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) or #scaninbooth2(game:GetService("Players"):GetUserIdFromNameAsync(jsondecode(checkmain.Body).username)) == 0 then
+                                return
+                            end
+                        end                        
+                    else
+                        if checkmaininsv() then
+                            print("dit me may 2??")
+                            v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
+                            if getgenv().spammmtrade == true then
+                                wait(2)
+                                for i,v in pairs(dectectinven()) do
+                                    print("dmm?", v)
+                                    wait(1)
+                                    local args = {
+                                        [1] = v,
+                                        [2] = "Units",
+                                        [3] = 1,
+                                        [4] = true
+                                    }
+                                    
+                                    letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                                end
+                                wait(2)
+                                local args = {
+                                    [1] = "Trait Crystal",
+                                    [2] = "Items",
+                                    [3] = inventory().Items["Trait Crystal"],
+                                    [4] = true
+                                }
+                                
+                                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                                wait(5)
+                                local args = {
+                                    [1] = "TRADE_LOCK",
+                                    [4] = true
+                                }
+                                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                            end
+                            if getgenv().onetime2 == false then
+                                local getupdatetrade = require(game:GetService("Players").LocalPlayer.PlayerGui.UI.UIClasses.UIBaseClass.Page.TradeMenuUI)
+                                local hook = {}
+                                for i,v in pairs(getupdatetrade) do
+                                    hook[i] = v
+                                end
+                                getupdatetrade.Update = function(...)
+                                    local a = ...
+                                    spawn(function()
+                                        pcall(function()
+                                            if a.IsTrading == true then
+                                                getgenv().spammmtrade = true
+                                            end
+                                        end)
+                                    end)
+                                    -- table.foreach(..., print)
+                                    return hook.Update(...)
+                                end
+                                getgenv().onetime2 = true
+                            end
+                            -- if #dectectinven() 
+                        else
+                            letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+                        end
+                    end
+                else
+                    if getstart.StatusCode ~= 200 and getgenv().itme == false then
+                        delete(host .. "/" .. plr.Name .. "/clearme")
+                        print('scripthere3')
+                        scriptne()
+                    end
+                end
+            else
+                if #dectectinven() == 0 and jsondecode(getstart.Body).username == plr.Name then
+                    delete(host .. "/" .. plr.Name .. "/clearme")
+                    print('scripthere4')
+                    scriptne()
+                end
+            end
+        end)
+        print(a,b)
+    end
+end
