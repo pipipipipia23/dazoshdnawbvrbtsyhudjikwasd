@@ -37,7 +37,7 @@ function scriptne()
         return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
     end
     
-    function checkunit2() 
+    function checkunit2()
         for i,v in pairs(inventory().Units) do
             if autosetup[tostring(v.Type)] ~= nil then
                 return autosetup[tostring(v.Type)]
@@ -46,7 +46,8 @@ function scriptne()
         return false
     end
     -- checkunit2()
-    getgenv().ImportMacro = checkunit2().macro
+    getgenv().daaaz = checkunit2()
+    getgenv().ImportMacro = getgenv().daaaz.macro
     getgenv().Config = {
         ["SelectChapter"] = "Infinite",
         ["AutoSave"] = true,
@@ -62,7 +63,7 @@ function scriptne()
             ["Underwater Temple"] = false
         },
         ["WaitForJoiner"] = false,
-        ["SelectMacro"] = checkunit2().namemacro,
+        ["SelectMacro"] = getgenv().daaaz.namemacro,
         ["JoinerList"] = {
             [1] = "No joiner in the list"
         },
@@ -141,7 +142,7 @@ function scriptne()
             ["Chance Taker"] = false,
             ["Master Swordsman"] = false
         },
-        ["LeaveSellWave"] = checkunit2().wavereset,
+        ["LeaveSellWave"] = getgenv().daaaz.wavereset,
         ["AutoJoinChallenge"] = false,
         ["AutoSummonLimited"] = false,
         ["LimitedSummonUnit"] = {
