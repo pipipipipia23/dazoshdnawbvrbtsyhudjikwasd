@@ -10,7 +10,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/
 end)
 function scriptne()
 	getgenv().hasrunn = false
-        local autosetup = {
+    local autosetup = {
         ["Strongest Swordsman"] = {
             namemacro = "Macro73Action",
             wavereset = 31,
@@ -248,6 +248,7 @@ end
 
 if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
     scriptne()
+    return
 end
 
 function get(url)
@@ -347,10 +348,10 @@ spawn(function()
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
             local vcl = string.split(v_u_22, "//")[2]
             local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
-		print(data.Name)
+            print(data.Name)
+            print("dmm")
             v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
         end)
-        print("dmm")
     end
 end)
 
@@ -523,11 +524,12 @@ else
                 ["status"] = "deo de lam gi?",
                 ["done"] = false,
             }
+
             if jsondecode(checkmain.Body).gem == nil then
                 print('scripthere1zzz')
                 scriptne()
+                return
             end
-
             if inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) then
                 post(host..'/users',data)
                 wait(2)
@@ -536,6 +538,7 @@ else
 			if jsondecode(checkmain.Body).gem == nil then
                 print('scripthere1123123')
                 scriptne()
+                return
 			end
             
             local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
@@ -547,7 +550,23 @@ else
             else
                 getgenv().itme = false
             end
-            print(getgenv().itme)
+
+            if getgenv().itme == false then
+                print('123123')
+                scriptne()
+                return
+            else
+                if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+                    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+                end
+            end
+
+            if (inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) and #dectectinven() == 0) or jsondecode(getstart.Body).username ~= plr.Name then
+                print('123123')
+                scriptne()
+                return
+            end
+
             function dectectinven()
                 local wtf = {}
                 for i,v in pairs(inventory().Units) do
@@ -574,6 +593,7 @@ else
                 delete(host .. "/" .. plr.Name .. "/clearme")
                 print('scripthere1')
                 scriptne()
+                return
             end
 
             if (getstart.StatusCode == 200 and getgenv().itme) and jsondecode(checkmain.Body).status == true then
@@ -587,6 +607,7 @@ else
                 end
                 print('scripthere2')
                 scriptne()
+                return
             end
             
             if inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) or (#dectectinven() > 0 and jsondecode(getstart.Body).username == plr.Name) then
@@ -669,6 +690,7 @@ else
                         delete(host .. "/" .. plr.Name .. "/clearme")
                         print('scripthere3')
                         scriptne()
+                        return
                     end
                 end
             else
@@ -676,6 +698,7 @@ else
                     delete(host .. "/" .. plr.Name .. "/clearme")
                     print('scripthere4')
                     scriptne()
+                    return
                 end
             end
         end)
