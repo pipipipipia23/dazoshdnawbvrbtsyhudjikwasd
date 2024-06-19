@@ -10,7 +10,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/
 end)
 function scriptne()
 	getgenv().hasrunn = false
-	local autosetup = {
+    local autosetup = {
         ["Strongest Swordsman"] = {
             namemacro = "Macro73Action",
             wavereset = 31,
@@ -46,8 +46,8 @@ function scriptne()
         return false
     end
     -- checkunit2()
-	table.foreach(getgenv().daaaz, print)
     getgenv().daaaz = checkunit2()
+    table.foreach(getgenv().daaaz, print)
     getgenv().ImportMacro = getgenv().daaaz.macro
     getgenv().Config = {
         ["SelectChapter"] = "Infinite",
