@@ -47,6 +47,7 @@ function scriptne()
     end
     -- checkunit2()
     getgenv().daaaz = checkunit2()
+table.foreach(getgenv().daaaz, print)
     getgenv().ImportMacro = getgenv().daaaz.macro
     getgenv().Config = {
         ["SelectChapter"] = "Infinite",
