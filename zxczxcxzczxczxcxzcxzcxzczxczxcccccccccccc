@@ -342,13 +342,14 @@ end
 
 local aducaptcha = cloneref(game:GetService("Players"))
 spawn(function()
-    while true do wait(1)
-        pcall(function()
+    while true do wait()
+        local a,b = pcall(function()
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
             local vcl = string.split(v_u_22, "//")[2]
             local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
             v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
         end)
+        print("dmm")
     end
 end)
 
