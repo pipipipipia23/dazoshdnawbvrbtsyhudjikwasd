@@ -8,7 +8,6 @@ _G.Config = {
 }
 loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
-
 function scriptne()
 	getgenv().hasrunn = false
     local autosetup = {
@@ -562,12 +561,6 @@ else
                 end
             end
 
-            if (inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) and #dectectinven() == 0) or jsondecode(getstart.Body).username ~= plr.Name then
-                print('123123')
-                scriptne()
-                return
-            end
-
             function dectectinven()
                 local wtf = {}
                 for i,v in pairs(inventory().Units) do
@@ -578,6 +571,12 @@ else
                     end
                 end
                 return wtf
+            end
+            
+            if (inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) and #dectectinven() == 0) or jsondecode(getstart.Body).username ~= plr.Name then
+                print('123123')
+                scriptne()
+                return
             end
 
             if #dectectinven() == 0 and jsondecode(getstart.Body).username == plr.Name and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
