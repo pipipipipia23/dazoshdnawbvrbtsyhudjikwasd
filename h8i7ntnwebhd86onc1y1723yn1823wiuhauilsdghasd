@@ -359,8 +359,12 @@ spawn(function()
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
             local vcl = string.split(v_u_22, "//")[2]
             local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
-            print(data.Name)
-            print("dmm")
+            print(data.Name, data.Description)
+            if string.find(data.Name, "#") then
+                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
+            else
+                v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
+            end
             v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
         end)
     end
@@ -521,6 +525,13 @@ if checkmain.StatusCode == 200 then
         end)
     end
 else
+    spawn(function()
+        while true do wait(60)
+            pcall(function()
+                print(get((host.."/%s" .. "/updatstatusstart"):format(plr.Name)))
+            end)
+        end
+    end)
     while getgenv().hasrunn do wait(5)
         local a,b = pcall(function()
             --- for user.
@@ -535,6 +546,18 @@ else
                 ["status"] = "deo de lam gi?",
                 ["done"] = false,
             }
+
+            function dectectinven()
+                local wtf = {}
+                for i,v in pairs(inventory().Units) do
+                    if v.Traded ~= nil then
+                        if UnitData[v.Type].Rarity >= 4 and v.Type == "Electric Cyborg" then
+                            table.insert(wtf, i)
+                        end
+                    end
+                end
+                return wtf
+            end
 
             if jsondecode(checkmain.Body).gem == nil then
                 print('scripthere1zzz')
@@ -562,6 +585,7 @@ else
                 scriptne()
                 return
             else
+                print(tonumber(jsondecode(checkmain.Body).gem))
                 if #dectectinven() == 0 and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
                     print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
                 end
@@ -569,18 +593,6 @@ else
                     print("ko le2?")
                     letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
                 end
-            end
-
-            function dectectinven()
-                local wtf = {}
-                for i,v in pairs(inventory().Units) do
-                    if v.Traded ~= nil then
-                        if UnitData[v.Type].Rarity >= 4 and v.Type == "Electric Cyborg" then
-                            table.insert(wtf, i)
-                        end
-                    end
-                end
-                return wtf
             end
             
             if (inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) and #dectectinven() == 0) or jsondecode(getstart.Body).username ~= plr.Name then
