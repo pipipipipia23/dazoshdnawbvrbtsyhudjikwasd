@@ -246,11 +246,6 @@ function letfkinggo(p63, ...)
 	end
 end
 
-if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
-    scriptne()
-    return
-end
-
 function get(url)
     return request({
         Url = url,
