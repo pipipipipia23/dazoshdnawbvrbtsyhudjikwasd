@@ -561,7 +561,8 @@ else
                     delete(host .. "/" .. plr.Name .. "/clearme").StatusCode
                 end
                 if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 and #dectectinven() > 0 and inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) then
-                    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+                    print("in here")
+		letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
                 end
             end
 
