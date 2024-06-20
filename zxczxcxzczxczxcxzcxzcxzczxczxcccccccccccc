@@ -557,11 +557,11 @@ else
                 scriptne()
                 return
             else
-                if #dectectinven() == 0 and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem then
+                if #dectectinven() == 0 and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
                     delete(host .. "/" .. plr.Name .. "/clearme").StatusCode
-                    if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
-                        letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
-                    end
+                end
+                if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+                    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
                 end
             end
 
