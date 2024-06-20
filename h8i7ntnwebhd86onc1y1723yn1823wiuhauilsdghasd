@@ -244,7 +244,7 @@ function scriptne()
         },
         ["BoostFPS"] = true
     }
-    getgenv().Key = "kbf4cac87472341c1c6bca82"
+    getgenv().Key = "k8e37c9e28c35399af341081"
     loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
 --
@@ -355,15 +355,22 @@ function scaninbooth2(name)
 end
 
 local aducaptcha = cloneref(game:GetService("Players"))
+
 spawn(function()
-    while true do wait()
+    while true do wait(1)
         local a,b = pcall(function()
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
             local vcl = string.split(v_u_22, "//")[2]
             local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
             print(data.Name, data.Description)
             if string.find(data.Name, "#") then
-                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
+                if game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+                    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
+                else
+                    local ts = game:GetService("TeleportService")
+                    local p = game:GetService("Players").LocalPlayer
+                    ts:Teleport(game.PlaceId, p)
+                end
             else
                 v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
             end
