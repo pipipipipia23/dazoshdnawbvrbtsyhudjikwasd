@@ -51,6 +51,10 @@ end)
 
 function letfkinggo(p63, ...)
 	local a = {...}
+    if a[1] == "NormalLobby" then
+        wait(3)
+        print("dcm where?")
+    end
 	-- print(typeof(a[1]),a[1])
 	-- print(typeof(a[2]),a[2])
 	-- print(typeof(a[3]),a[3])
@@ -75,7 +79,7 @@ end
 function scriptne()
 	getgenv().hasrunn = false
     if game.PlaceId == 17490500437 then
-print("ko le?")
+        print("ko le?")
         letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
     end
     local autosetup = {
@@ -562,8 +566,8 @@ else
                     delete(host .. "/" .. plr.Name .. "/clearme").StatusCode
                 end
                 if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 and #dectectinven() > 0 and inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) then
-                    print("in here")
-		letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+                    print("ko le2?")
+                    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
                 end
             end
 
@@ -591,10 +595,12 @@ else
             if #dectectinven() == 0 and jsondecode(getstart.Body).username == plr.Name and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
                 print(host .. "/" .. plr.Name .. "/clearme")
                 print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
+                print("ko le3?")
                 letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
             end
 
             if game.PlaceId == 17490500437 and checkmaininsv() == false then
+                print("ko le4?")
                 letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
             end
 
@@ -689,6 +695,7 @@ else
                             -- end
                             -- if #dectectinven() 
                         else
+                            print("ko le5?")
                             letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
                         end
                     end
