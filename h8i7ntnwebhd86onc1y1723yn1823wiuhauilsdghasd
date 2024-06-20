@@ -563,7 +563,7 @@ else
                 return
             else
                 if #dectectinven() == 0 and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
-                    delete(host .. "/" .. plr.Name .. "/clearme").StatusCode
+                    print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
                 end
                 if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 and #dectectinven() > 0 and inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) then
                     print("ko le2?")
@@ -585,7 +585,7 @@ else
             
             if (inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) and #dectectinven() == 0) or jsondecode(getstart.Body).username ~= plr.Name then
                 if #dectectinven() == 0 and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
-                    delete(host .. "/" .. plr.Name .. "/clearme").StatusCode
+                    print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
                 end
                 print('123123')
                 scriptne()
