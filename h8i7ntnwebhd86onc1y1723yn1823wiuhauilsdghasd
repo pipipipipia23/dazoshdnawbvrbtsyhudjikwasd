@@ -51,6 +51,10 @@ end)
 
 function letfkinggo(p63, ...)
 	local a = {...}
+    if a[1] == "NormalLobby" then
+        wait(3)
+        print("dcm where?")
+    end
 	-- print(typeof(a[1]),a[1])
 	-- print(typeof(a[2]),a[2])
 	-- print(typeof(a[3]),a[3])
