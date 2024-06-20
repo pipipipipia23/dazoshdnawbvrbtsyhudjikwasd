@@ -8,8 +8,75 @@ _G.Config = {
 }
 loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
+if not game:IsLoaded() then game.Loaded:Wait() end
+local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
+local Values = require(game:GetService("ReplicatedStorage").Values) 
+-- 17490500437 -- trade
+-- 17764698696 - 17017769292 -- lobby
+local az = game:GetService("ReplicatedStorage").Actions
+local v1 = cloneref(game:GetService("ReplicatedStorage"))
+local v_u_1 = cloneref(game:GetService("HttpService"))
+local v_u_9 = require(v1.Actions)
+local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
+local v_u_2 = cloneref(game:GetService("RunService"))
+local p63 = v_u_9
+local plr = game.Players.LocalPlayer
+local host = 'https://dashboard-2-f86861d9e488.herokuapp.com'
+---
+
+function inventory()
+    return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
+end
+
+--- game:GetService("Players").fLeNqqs4.PlayerGui.UI.NotificationsHolder.Notification.PromptWindow.PromptMessage
+
+-------
+
+function jump()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
+    wait(4)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, 32, false, game)
+end
+
+spawn(function()
+    while true do wait()
+        pcall(function()
+            local tickm = tick()
+            repeat wait()
+            until tick() - tickm >= 30
+            jump()
+        end)
+    end
+end)
+
+function letfkinggo(p63, ...)
+	local a = {...}
+	-- print(typeof(a[1]),a[1])
+	-- print(typeof(a[2]),a[2])
+	-- print(typeof(a[3]),a[3])
+	if p63.isReplicated then
+		local v73 = v_u_1:JSONEncode({ p63.name, ... })
+		local v74 = v_u_10.new()
+		local v75 = math.random(42, 48)
+		if (v75 + 9 + 19) % 8 == 0 then
+			v75 = v75 + math.random(1, 4)
+		end
+		v74:writeUnit(9, v75)
+		local v76 = workspace:GetServerTimeNow()
+		v74:WriteUint(v75, (math.floor(v76)))
+		v74:writeUnit(19, #v73)
+		v74:WriteBytes(v73)
+		v74:writeUnit(math.random(5, 10), math.random(1, 31))
+		az.Action:FireServer(v74:String())
+	end
+end
+
+--- script here
 function scriptne()
 	getgenv().hasrunn = false
+    if game.PlaceId == 17490500437 then
+        letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+    end
     local autosetup = {
         ["Strongest Swordsman"] = {
             namemacro = "Macro73Action",
@@ -183,68 +250,12 @@ function scriptne()
     getgenv().Key = "kbf4cac87472341c1c6bca82"
     loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
-if not game:IsLoaded() then game.Loaded:Wait() end
-local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
-local Values = require(game:GetService("ReplicatedStorage").Values) 
--- 17490500437 -- trade
--- 17764698696 - 17017769292 -- lobby
-local az = game:GetService("ReplicatedStorage").Actions
-local v1 = cloneref(game:GetService("ReplicatedStorage"))
-local v_u_1 = cloneref(game:GetService("HttpService"))
-local v_u_9 = require(v1.Actions)
-local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
-local v_u_2 = cloneref(game:GetService("RunService"))
-local p63 = v_u_9
-local plr = game.Players.LocalPlayer
-local host = 'https://dashboard-2-f86861d9e488.herokuapp.com'
----
+--
 
-function inventory()
-    return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
-end
-
---- game:GetService("Players").fLeNqqs4.PlayerGui.UI.NotificationsHolder.Notification.PromptWindow.PromptMessage
-
--------
-
-function jump()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
-    wait(4)
-    game:GetService("VirtualInputManager"):SendKeyEvent(false, 32, false, game)
-end
-
-spawn(function()
-    while true do wait()
-        pcall(function()
-            local tickm = tick()
-            repeat wait()
-            until tick() - tickm >= 30
-            jump()
-        end)
-    end
-end)
-
-function letfkinggo(p63, ...)
-	local a = {...}
-	-- print(typeof(a[1]),a[1])
-	-- print(typeof(a[2]),a[2])
-	-- print(typeof(a[3]),a[3])
-	if p63.isReplicated then
-		local v73 = v_u_1:JSONEncode({ p63.name, ... })
-		local v74 = v_u_10.new()
-		local v75 = math.random(42, 48)
-		if (v75 + 9 + 19) % 8 == 0 then
-			v75 = v75 + math.random(1, 4)
-		end
-		v74:writeUnit(9, v75)
-		local v76 = workspace:GetServerTimeNow()
-		v74:WriteUint(v75, (math.floor(v76)))
-		v74:writeUnit(19, #v73)
-		v74:WriteBytes(v73)
-		v74:writeUnit(math.random(5, 10), math.random(1, 31))
-		az.Action:FireServer(v74:String())
-	end
-end
+-- if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+--     scriptne()
+--     return
+-- end
 
 function get(url)
     return request({
@@ -529,15 +540,10 @@ else
                 post(host..'/users',data)
                 wait(2)
             end
-
-			if jsondecode(checkmain.Body).gem == nil then
-                print('scripthere1123123')
-                scriptne()
-                return
-			end
             
             local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
             local checkqueue = get((host.."/%s" .. "/getinqueue"):format(plr.Name))
+            local updatestatus = get((host.."/%s" .. "/updatstatusstart"):format(plr.Name))
             -- is meeee start
             
             if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
@@ -625,56 +631,54 @@ else
                         if checkmaininsv() then
                             print("dit me may 2??")
                             v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
-                            if getgenv().spammmtrade == true then
-                                wait(2)
-                                for i,v in pairs(dectectinven()) do
-                                    print("dmm?", v)
-                                    wait(1)
-                                    local args = {
-                                        [1] = v,
-                                        [2] = "Units",
-                                        [3] = 1,
-                                        [4] = true
-                                    }
-                                    
-                                    letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                                end
-                                wait(2)
+                            wait(10)
+                            for i,v in pairs(dectectinven()) do
+                                print("dmm?", v)
+                                wait(1)
                                 local args = {
-                                    [1] = "Trait Crystal",
-                                    [2] = "Items",
-                                    [3] = inventory().Items["Trait Crystal"],
+                                    [1] = v,
+                                    [2] = "Units",
+                                    [3] = 1,
                                     [4] = true
                                 }
                                 
                                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                                wait(5)
-                                local args = {
-                                    [1] = "TRADE_LOCK",
-                                    [4] = true
-                                }
-                                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                             end
-                            if getgenv().onetime2 == false then
-                                local getupdatetrade = require(game:GetService("Players").LocalPlayer.PlayerGui.UI.UIClasses.UIBaseClass.Page.TradeMenuUI)
-                                local hook = {}
-                                for i,v in pairs(getupdatetrade) do
-                                    hook[i] = v
-                                end
-                                getupdatetrade.Update = function(...)
-                                    local a = ...
-                                    spawn(function()
-                                        pcall(function()
-                                            if a.IsTrading == true then
-                                                getgenv().spammmtrade = true
-                                            end
-                                        end)
-                                    end)
-                                    -- table.foreach(..., print)
-                                    return hook.Update(...)
-                                end
-                                getgenv().onetime2 = true
-                            end
+                            wait(2)
+                            local args = {
+                                [1] = "Trait Crystal",
+                                [2] = "Items",
+                                [3] = inventory().Items["Trait Crystal"],
+                                [4] = true
+                            }
+                            
+                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                            wait(5)
+                            local args = {
+                                [1] = "TRADE_LOCK",
+                                [4] = true
+                            }
+                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                            -- if getgenv().onetime2 == false then
+                            --     local getupdatetrade = require(game:GetService("Players").LocalPlayer.PlayerGui.UI.UIClasses.UIBaseClass.Page.TradeMenuUI)
+                            --     local hook = {}
+                            --     for i,v in pairs(getupdatetrade) do
+                            --         hook[i] = v
+                            --     end
+                            --     getupdatetrade.Update = function(...)
+                            --         local a = ...
+                            --         spawn(function()
+                            --             pcall(function()
+                            --                 if a.IsTrading == true then
+                            --                     getgenv().spammmtrade = true
+                            --                 end
+                            --             end)
+                            --         end)
+                            --         -- table.foreach(..., print)
+                            --         return hook.Update(...)
+                            --     end
+                            --     getgenv().onetime2 = true
+                            -- end
                             -- if #dectectinven() 
                         else
                             letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
