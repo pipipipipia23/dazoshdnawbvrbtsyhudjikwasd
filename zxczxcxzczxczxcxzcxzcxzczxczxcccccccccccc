@@ -556,10 +556,28 @@ else
     spawn(function()
         while true do wait(60)
             pcall(function()
-                print(get((host.."/%s" .. "/updatstatusstart"):format(plr.Name)))
+                if game.PlaceId == 17490500437 then
+                    print(get((host.."/%s" .. "/updatstatusstart"):format(plr.Name)))
+                end
             end)
         end
     end)
+
+    spawn(function()
+        while true do wait(10)
+            pcall(function()
+                if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+                    local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
+                    if jsondecode(getstart.Body).username == plr.Name then
+                        if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+                            letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+
     while getgenv().hasrunn do wait(5)
         local a,b = pcall(function()
             --- for user.
