@@ -334,6 +334,16 @@ function getremote(adsadasd)
     return false
 end
 
+function gettrash()
+    local wtf = {}
+    for i,v in pairs(inventory().Units) do
+        if UnitData[v.Type].Rarity < 3 then
+            table.insert(wtf, i)
+        end
+    end
+    return wtf
+end
+
 function scaninbooth(name)
     local allbooth = {}
     local Values = require(game:GetService("ReplicatedStorage").Values) 
@@ -525,6 +535,17 @@ if checkmain.StatusCode == 200 then
         end)
     end
 else
+    -- gettrash()
+    spawn(function()
+        while true do wait(60)
+            pcall(function()
+                for i,v in pairs(gettrash()) do
+                    letfkinggo(p63.UNIT_SELL, {v})
+                end
+            end)
+        end
+    end)
+
     spawn(function()
         while true do wait(60)
             pcall(function()
