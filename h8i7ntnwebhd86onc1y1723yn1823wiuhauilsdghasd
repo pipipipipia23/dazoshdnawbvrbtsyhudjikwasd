@@ -557,6 +557,7 @@ else
                 scriptne()
                 return
             else
+		print("RUN HERE")
                 if #dectectinven() == 0 and inventory().Currencies.Gems < tonumber(jsondecode(checkmain.Body).gem) then
                     delete(host .. "/" .. plr.Name .. "/clearme").StatusCode
                 end
