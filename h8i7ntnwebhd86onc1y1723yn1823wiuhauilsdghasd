@@ -654,13 +654,6 @@ else
                 letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
             end
 
-            if post(host..'/users',data).StatusCode == 0 or post(host..'/users',data).StatusCode == 500 then
-                delete(host .. "/" .. plr.Name .. "/clearme")
-                print('scripthere1')
-                scriptne()
-                return
-            end
-
             if (getstart.StatusCode == 200 and getgenv().itme) and jsondecode(checkmain.Body).status == true then
                 if game.PlaceId == 17764698696 or game.PlaceId == 17017769292 then
                     print('here' , jsondecode(checkmain.Body).username)
