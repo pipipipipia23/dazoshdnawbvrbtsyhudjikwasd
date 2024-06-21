@@ -379,8 +379,6 @@ spawn(function()
                     local p = game:GetService("Players").LocalPlayer
                     ts:Teleport(game.PlaceId, p)
                 end
-            else
-                v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
             end
             v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
         end)
@@ -557,7 +555,7 @@ else
         while true do wait(60)
             pcall(function()
                 if game.PlaceId == 17490500437 then
-                    print(get((host.."/%s" .. "/updatstatusstart"):format(plr.Name)))
+                    print(get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain)))
                 end
             end)
         end
@@ -573,6 +571,16 @@ else
                             letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
                         end
                     end
+                end
+            end)
+        end
+    end)
+
+    spawn(function()
+        while true do wait(10)
+            pcall(function()
+                if game.PlaceId == 17490500437 then
+                    local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
                 end
             end)
         end
@@ -617,7 +625,7 @@ else
             
             local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
             local checkqueue = get((host.."/%s" .. "/getinqueue"):format(plr.Name))
-            local updatestatus = get((host.."/%s" .. "/updatstatusstart"):format(plr.Name))
+            local updatestatus = get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain))
             -- is meeee start
             
             if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
@@ -661,6 +669,13 @@ else
                 print("ko le4?")
                 letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
             end
+
+            -- if post(host..'/users',data).StatusCode == 0 or post(host..'/users',data).StatusCode == 500 then
+            --     delete(host .. "/" .. plr.Name .. "/clearme")
+            --     print('scripthere1')
+            --     scriptne()
+            --     return
+            -- end
 
             if (getstart.StatusCode == 200 and getgenv().itme) and jsondecode(checkmain.Body).status == true then
                 if game.PlaceId == 17764698696 or game.PlaceId == 17017769292 then
