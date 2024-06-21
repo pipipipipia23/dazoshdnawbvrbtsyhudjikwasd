@@ -570,6 +570,16 @@ else
         end
     end)
 
+    spawn(function()
+        while true do wait(10)
+            pcall(function()
+                if game.PlaceId == 17490500437 then
+                    local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
+                end
+            end)
+        end
+    end)
+
     while getgenv().hasrunn do wait(5)
         local a,b = pcall(function()
             --- for user.
