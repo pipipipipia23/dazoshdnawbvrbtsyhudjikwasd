@@ -1,5 +1,13 @@
 print('dbuoi')
 getgenv().hasrunn = true
+spawn(function()
+-- _G.Config = {
+--     UserID = "90b68852-f9d9-4f63-93d7-fbd0bf5dea9d",
+--     discord_id = 675516805921374238,
+--     Note = "Pc",
+-- }
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
+end)
 if not game:IsLoaded() then game.Loaded:Wait() end
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
@@ -13,7 +21,7 @@ local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
 local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
 local plr = game.Players.LocalPlayer
-local host = 'https://dashboard-2-f86861d9e488.herokuapp.com'
+local host = 'https://app2-dashboard-3c1d4c638c38.herokuapp.com'
 ---
 
 function inventory()
@@ -245,12 +253,7 @@ function scriptne()
         ["BoostFPS"] = true
     }
     getgenv().Key = "kbf4cac87472341c1c6bca82"
-    repeat
-    spawn(function() 
-        loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
-    end)
-    wait(20)
-	until Joebiden
+    loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
 --
 
@@ -373,8 +376,8 @@ spawn(function()
             until v_u_9.CAPTCHA_SOLVE:Invoke(data.Name) ~= false or tick() - tickn > 10
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
             local ts = game:GetService("TeleportService")
-                local p = game:GetService("Players").LocalPlayer
-                ts:Teleport(17017769292, p)
+            local p = game:GetService("Players").LocalPlayer
+            ts:Teleport(17017769292, p)
         end)
     end
 end)
@@ -760,7 +763,7 @@ else
                         end
                     end
                 else
-                    if getstart.StatusCode ~= 200 and getgenv().itme == false then
+                    if getstart.StatusCode ~= 200 and getgenv().itme == false and #dectectinven() == 0 then
                         delete(host .. "/" .. plr.Name .. "/clearme")
                         print('scripthere3')
                         scriptne()
