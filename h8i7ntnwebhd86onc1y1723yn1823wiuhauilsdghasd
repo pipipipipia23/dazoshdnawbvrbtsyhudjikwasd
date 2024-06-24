@@ -372,13 +372,9 @@ spawn(function()
                 print("dbuoiiiiii")
             until v_u_9.CAPTCHA_SOLVE:Invoke(data.Name) ~= false or tick() - tickn > 10
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
-            if game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
-                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
-            else
-                local ts = game:GetService("TeleportService")
+            local ts = game:GetService("TeleportService")
                 local p = game:GetService("Players").LocalPlayer
-                ts:Teleport(game.PlaceId, p)
-            end
+                ts:Teleport(17017769292, p)
         end)
     end
 end)
