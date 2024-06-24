@@ -362,22 +362,23 @@ end
 local aducaptcha = cloneref(game:GetService("Players"))
 
 spawn(function()
-    while true do wait(1)
+    while true do wait(.5)
         local a,b = pcall(function()
             local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
             local vcl = string.split(v_u_22, "//")[2]
             local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
-            print(data.Name, data.Description)
-            if string.find(data.Name, "#") then
-                if game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
-                    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
-                else
-                    local ts = game:GetService("TeleportService")
-                    local p = game:GetService("Players").LocalPlayer
-                    ts:Teleport(game.PlaceId, p)
-                end
+            local tickn = tick()
+            repeat wait()
+                print("dbuoiiiiii")
+            until v_u_9.CAPTCHA_SOLVE:Invoke(data.Name) ~= false or tick() - tickn > 10
+            local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
+            if game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
+            else
+                local ts = game:GetService("TeleportService")
+                local p = game:GetService("Players").LocalPlayer
+                ts:Teleport(game.PlaceId, p)
             end
-            v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
         end)
     end
 end)
