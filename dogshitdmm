@@ -79,8 +79,9 @@ end
 function scriptne()
 	getgenv().hasrunn = false
     if game.PlaceId == 17490500437 then
-        print("ko le?")
-        letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+                    local ts = game:GetService("TeleportService")
+            local p = game:GetService("Players").LocalPlayer
+            ts:Teleport(17017769292, p)
     end
     local autosetup = {
         ["Strongest Swordsman"] = {
