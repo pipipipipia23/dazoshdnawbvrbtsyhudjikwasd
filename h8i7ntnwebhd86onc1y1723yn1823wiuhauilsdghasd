@@ -1,9 +1,5 @@
 print('dbuoi')
 getgenv().hasrunn = true
-spawn(function()
-_G.Config =  { UserID = "90b68852-f9d9-4f63-93d7-fbd0bf5dea9d", discord_id = 675516805921374238 , Note = "Pc", } 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
-end)
 if not game:IsLoaded() then game.Loaded:Wait() end
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
