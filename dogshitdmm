@@ -592,7 +592,7 @@ else
             local data = {
                 ["mainaccount"] = getgenv().myaccmain, 
                 ["username"] = plr.Name,
-                ["status"] = inventory().Currencies.Gems,
+                ["status"] = tostring(inventory().Currencies.Gems),
                 ["done"] = false,
             }
 
