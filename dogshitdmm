@@ -361,6 +361,16 @@ function scaninbooth2(name)
     return allbooth
 end
 
+function checkOnSale(name, price)
+    local Values = require(game:GetService("ReplicatedStorage").Values) 
+    for i,v in pairs(Values['ON_SALE_ITEMS' .. tostring(name)].value.Units) do
+        if v.OnSale ~= price then
+            return true
+        end
+    end
+    return false
+end
+
 local aducaptcha = cloneref(game:GetService("Players"))
 
 spawn(function()
@@ -442,7 +452,7 @@ if checkmain.StatusCode == 200 then
                 end
             else
                 local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
-                if getstart.StatusCode == 200 then
+                if getstart.StatusCode == 200 and checkOnSale(game.Players.LocalPlayer.UserId,tonumber(jsondecode(getstart.Body).status)) == false then
                     for i,v in pairs(inventory().Units) do
                         if (v.Shiny == true or v.Traded == true) and v.Type == "Electric Cyborg" then
                             if scaninbooth(game.Players.LocalPlayer.UserId)[i] == nil then
