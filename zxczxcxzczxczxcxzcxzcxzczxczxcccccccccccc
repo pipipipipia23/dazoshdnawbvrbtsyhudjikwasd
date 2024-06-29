@@ -1,5 +1,13 @@
 print('dbuoi')
 getgenv().hasrunn = true
+spawn(function()
+-- _G.Config = {
+--     UserID = "90b68852-f9d9-4f63-93d7-fbd0bf5dea9d",
+--     discord_id = 675516805921374238,
+--     Note = "Pc",
+-- }
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
+end)
 if not game:IsLoaded() then game.Loaded:Wait() end
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
@@ -13,7 +21,7 @@ local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
 local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
 local plr = game.Players.LocalPlayer
-local host = 'https://dashboard-2-f86861d9e488.herokuapp.com'
+local host = 'https://app2-dashboard-3c1d4c638c38.herokuapp.com'
 ---
 
 function inventory()
@@ -71,9 +79,8 @@ end
 function scriptne()
 	getgenv().hasrunn = false
     if game.PlaceId == 17490500437 then
-        	local ts = game:GetService("TeleportService")
-            local p = game:GetService("Players").LocalPlayer
-            ts:Teleport(17017769292, p)
+        print("ko le?")
+        letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
     end
     local autosetup = {
         ["Strongest Swordsman"] = {
@@ -355,6 +362,16 @@ function scaninbooth2(name)
     return allbooth
 end
 
+function checkOnSale(name, price)
+    local Values = require(game:GetService("ReplicatedStorage").Values) 
+    for i,v in pairs(Values['ON_SALE_ITEMS' .. tostring(name)].value.Units) do
+        if v.OnSale ~= price then
+            return true
+        end
+    end
+    return false
+end
+
 local aducaptcha = cloneref(game:GetService("Players"))
 
 spawn(function()
@@ -436,7 +453,7 @@ if checkmain.StatusCode == 200 then
                 end
             else
                 local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
-                if getstart.StatusCode == 200 then
+                if getstart.StatusCode == 200 and checkOnSale(game.Players.LocalPlayer.UserId,tonumber(jsondecode(getstart.Body).status)) == false then
                     for i,v in pairs(inventory().Units) do
                         if (v.Shiny == true or v.Traded == true) and v.Type == "Electric Cyborg" then
                             if scaninbooth(game.Players.LocalPlayer.UserId)[i] == nil then
@@ -448,7 +465,7 @@ if checkmain.StatusCode == 200 then
                                                 ["Class"] = "Units"
                                             }
                                         },
-                                        ["Price"] = tonumber(jsondecode(checkmain.Body).gem)
+                                        ["Price"] = tonumber(jsondecode(getstart.Body).status)
                                     }
                                 }
                                 letfkinggo(p63.SELL_BOOTH_ITEMS, args[2])
@@ -461,7 +478,8 @@ if checkmain.StatusCode == 200 then
                             [1] = getremote("REMOVE_BOOTH_ITEM"),
                             [2] = v
                         }
-                        letfkinggo(p63.REMOVE_BOOTH_ITEM, args[2])       
+                        letfkinggo(p63.REMOVE_BOOTH_ITEM, args[2])
+                        wait(5)
                     end          
                 end
             end
@@ -490,7 +508,7 @@ if checkmain.StatusCode == 200 then
         end)
 
         spawn(function()
-            while getgenv().hasrunn do wait(10)
+            while getgenv().hasrunn do wait(60)
                 local getonetest = get((host.."/%s" .. "/getone"):format(plr.Name))
                 print(getonetest.StatusCode)
             end
@@ -586,7 +604,7 @@ else
             local data = {
                 ["mainaccount"] = getgenv().myaccmain, 
                 ["username"] = plr.Name,
-                ["status"] = "deo de lam gi?",
+                ["status"] = tostring(inventory().Currencies.Gems),
                 ["done"] = false,
             }
 
