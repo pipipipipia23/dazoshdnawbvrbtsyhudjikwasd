@@ -477,7 +477,8 @@ if checkmain.StatusCode == 200 then
                             [1] = getremote("REMOVE_BOOTH_ITEM"),
                             [2] = v
                         }
-                        letfkinggo(p63.REMOVE_BOOTH_ITEM, args[2])       
+                        letfkinggo(p63.REMOVE_BOOTH_ITEM, args[2])
+                        wait(2)
                     end          
                 end
             end
