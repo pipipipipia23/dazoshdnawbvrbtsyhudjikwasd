@@ -478,7 +478,7 @@ if checkmain.StatusCode == 200 then
                             [2] = v
                         }
                         letfkinggo(p63.REMOVE_BOOTH_ITEM, args[2])
-                        wait(2)
+                        wait(5)
                     end          
                 end
             end
