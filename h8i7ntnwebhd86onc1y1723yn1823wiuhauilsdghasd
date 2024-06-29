@@ -252,7 +252,7 @@ function scriptne()
         },
         ["BoostFPS"] = true
     }
-    getgenv().Key = "kbf4cac87472341c1c6bca82"
+    getgenv().Key = "k502401ef1af5c6d7c4180d1"
     loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
 --
