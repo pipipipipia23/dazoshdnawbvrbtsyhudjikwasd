@@ -253,7 +253,7 @@ function scriptne()
         ["BoostFPS"] = true
     }
     getgenv().Key = "kbf4cac87472341c1c6bca82"
-    loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
+    repeat wait()spawn(function()loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()end)wait(20)until Joebiden
 end
 --
 
