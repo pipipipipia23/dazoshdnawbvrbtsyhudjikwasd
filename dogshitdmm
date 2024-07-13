@@ -1,3 +1,4 @@
+getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
@@ -119,6 +120,15 @@ function scriptne()
     end
     -- checkunit2()
     getgenv().daaaz = checkunit2()
+
+    if getgenv().daaaz == false then
+        getgenv().Key = getgenv().KeyMaru
+        getgenv().id = "438550168158076928"
+        getgenv().Script_Mode = "Kaitun_Script"
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+        return
+    end
+    
     table.foreach(getgenv().daaaz, print)
     getgenv().ImportMacro = getgenv().daaaz.macro
     getgenv().Config = {
@@ -252,7 +262,7 @@ function scriptne()
         },
         ["BoostFPS"] = true
     }
-    repeat wait()spawn(function()loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()end)wait(20)until Joebiden
+    loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
 --
 
