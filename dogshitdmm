@@ -153,8 +153,7 @@ function scriptne()
     -- checkunit2()
     getgenv().daaaz = checkunit2()
 
-    if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == falses then
-        getgenv().hasrunn = false
+    if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
         if checkindex() > 1 and inventory().Chapters['FooshaVillage_Infinite'].Unlocked == true then
             getgenv().Config = {
                 ["AutoPlay"]=true,
@@ -209,7 +208,9 @@ function scriptne()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
         return
     end
-    
+    if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
+        return
+    end
     table.foreach(getgenv().daaaz, print)
     getgenv().ImportMacro = getgenv().daaaz.macro
     getgenv().Config = {
