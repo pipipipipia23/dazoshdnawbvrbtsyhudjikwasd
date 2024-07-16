@@ -1,4 +1,4 @@
-getgenv().myaccmain = "wB7eiyfe"
+
 getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
 print('dbuoi')
 getgenv().hasrunn = true
@@ -343,7 +343,6 @@ function scriptne()
         },
         ["BoostFPS"] = true
     }
-    getgenv().Key = "kbf4cac87472341c1c6bca82"
     loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
 --
