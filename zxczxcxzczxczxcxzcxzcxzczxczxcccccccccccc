@@ -136,6 +136,7 @@ function scriptne()
             ["Underwater Temple"] = false
         },
         ["WaitForJoiner"] = false,
+["AutoClaimBattlePass"] = true,
         ["SelectMacro"] = getgenv().daaaz.namemacro,
         ["JoinerList"] = {
             [1] = "No joiner in the list"
