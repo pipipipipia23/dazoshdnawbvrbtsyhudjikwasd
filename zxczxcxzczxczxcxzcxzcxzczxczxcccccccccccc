@@ -84,12 +84,12 @@ function scriptne()
     end
     local autosetup = {
         ["Strongest Swordsman"] = {
-            namemacro = "Macro73Action",
+            namemacro = "Macro55Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/mihawk",
         },
         ["Admiral Of Lava"] = {
-            namemacro = "Macro65Action",
+            namemacro = "Macro49Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/akainu",
         },
