@@ -226,6 +226,7 @@ function scriptne()
         },
         ["WaitForJoiner"] = false,
         ["SelectMacro"] = getgenv().daaaz.namemacro,
+["AutoClaimBattlePass"] = true,
         ["JoinerList"] = {
             [1] = "No joiner in the list"
         },
