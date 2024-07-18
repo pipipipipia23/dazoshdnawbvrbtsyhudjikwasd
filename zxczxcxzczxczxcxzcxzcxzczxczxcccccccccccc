@@ -94,7 +94,7 @@ function scriptne()
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/akainu",
         },
         ["Shinobi Form 3"] = {
-            namemacro = "Macro58Action",
+            namemacro = "Macro62Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/naruto",
         },
