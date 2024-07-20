@@ -1,6 +1,6 @@
 local list = {
   ["Flame Dragon King"] = "https://cdn.discordapp.com/attachments/996978080788791318/1247920082068312116/mythic.txt?ex=6689fd64&is=6688abe4&hm=3e5e6a41e3ee250d72b78f91e1645b724e6db829708e26ae974b744d2b51d0e3&",
-  ["Admiral Of Lava"] = "https://cdn.discordapp.com/attachments/996978080788791318/1249305523942330459/reddog.json?ex=669c36af&is=669ae52f&hm=f6e4022019eacab3d91d6a8d2a5c209a5f6e1a2397a33c6c8589142bee8e644d&",
+  ["Admiral Of Lava"] = "https://cdn.discordapp.com/attachments/996978080788791318/1249305523942330459/reddog.json?ex=669cdf6f&is=669b8def&hm=61b01bfd788d17a6ee46c1fef09bbb4d6db18281817b9b429f98c6f0f706917b&",
   ["Strongest Swordsman"] = "https://cdn.discordapp.com/attachments/996978080788791318/1247239304426819584/macronail.txt?ex=669c9b5e&is=669b49de&hm=c771fd34712ca048ee75377864e2420ea38228da8b954b958b434a8b83cab520&",
   ["Sharpshooter"] = "https://cdn.discordapp.com/attachments/996978080788791318/1249305635007500318/sharpshooter.json?ex=668a6a8a&is=6689190a&hm=62be4f1f2695858c7897f4d83642e9d5d80d408ce1cb21e28c91b42369c0cd0a&",
 }
