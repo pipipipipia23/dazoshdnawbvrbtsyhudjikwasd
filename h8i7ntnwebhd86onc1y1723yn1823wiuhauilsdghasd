@@ -99,7 +99,7 @@ function scriptne()
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/naruto",
         },
         ["Admiral Of Ice"] = {
-            namemacro = "Macro64Action",
+            namemacro = "Macro65Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/bang",
         }
