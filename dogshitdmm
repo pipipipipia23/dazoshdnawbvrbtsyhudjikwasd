@@ -23,7 +23,7 @@ local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
 local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
 local plr = game.Players.LocalPlayer
-local host = 'https://app2-dashboard-3c1d4c638c38.herokuapp.com'
+local host = 'http://ahihidongok.vn'
 ---
 
 function letfkinggo(p63, ...)
