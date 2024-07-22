@@ -684,7 +684,7 @@ else
         end
     end)
 
-    while getgenv().hasrunn do wait(5)
+    while getgenv().hasrunn do wait(3)
         local a,b = pcall(function()
             --- for user.
             local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
