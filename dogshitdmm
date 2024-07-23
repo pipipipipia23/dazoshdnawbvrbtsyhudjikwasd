@@ -9,6 +9,13 @@ spawn(function()
 -- }
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
+local firstick = tick()
+repeat wait()
+    print("Errororororor")
+    if tick() - firstick > 40 then
+        game:Shutdown()
+    end
+until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
