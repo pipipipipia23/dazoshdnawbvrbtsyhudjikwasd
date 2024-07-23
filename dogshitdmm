@@ -492,7 +492,7 @@ spawn(function()
         end)
     end
 end)
-
+getgenv().loaded = true
 if checkmain.StatusCode == 200 then
     print("dbuoi3")
     getgenv().canteleport = ":))"
