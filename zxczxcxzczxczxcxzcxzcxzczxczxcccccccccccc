@@ -303,8 +303,6 @@ function jsondecode(data)
     return game:GetService("HttpService"):JSONDecode(data)
 end
 
-local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
-
 function post(url,data)
     return request({
         Url = url,
@@ -632,8 +630,9 @@ else
             end
             
             local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
-            local checkqueue = get((host.."/%s" .. "/getinqueue"):format(plr.Name))
-            local updatestatus = get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain))
+            spawn(function()
+                get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain))
+            end)
             -- is meeee start
             
             if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
