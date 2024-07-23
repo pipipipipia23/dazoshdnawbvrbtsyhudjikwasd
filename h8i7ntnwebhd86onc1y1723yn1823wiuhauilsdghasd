@@ -399,7 +399,7 @@ spawn(function()
         end)
     end
 end)
-
+getgenv().loaded = true
 if checkmain.StatusCode == 200 then
     getgenv().canteleport = ":))"
     for k,v in getgc() do 
