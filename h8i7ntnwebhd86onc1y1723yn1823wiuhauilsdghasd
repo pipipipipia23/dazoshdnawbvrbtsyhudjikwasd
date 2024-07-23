@@ -124,38 +124,140 @@ function scriptne()
     getgenv().daaaz = checkunit2()
     table.foreach(getgenv().daaaz, print)
     getgenv().ImportMacro = getgenv().daaaz.macro
-script_key = "GCpFkiLcrzJhqAKDAIocZXMiyrsAHGBq"
-getgenv().Setting = {
-    AutoSkipWave=true,
-    AutoClaimQuest = true,
-    CapFps = true,
-    FpsBoost = true,
-    WebhookUrl = "",
-    OneClickNewSetting = { 
-        Enable = true,
-        Feed = true,
-        Leave=false,
-        AllChapter = false,
-        IgnoreEquipBest = false,
-        LeaveWave = true,
-        RequiredLevel = 20,
-        AllUnitsToGo = {"Beast Sorcerer","Warrior Princess","Admiral Of Lava","Strongest Swordsman"},
-        SnipeBannerUnits = {"Admiral Of Lava","Strongest Swordsman"}, --Snipe Unit Must Be In All Units To Use
-        TradingSnipe = false,
-        ForceInf = false, --Ignore Level, Unit
-        AnyUnitMythical_Secret = {
-            StartInfinite=true,
-            Feed=true,
-            IgnoreLevel = false
+    getgenv().Config = {
+        ["SelectChapter"] = "Infinite",
+        ["AutoSave"] = true,
+        ["WH_MatchComplete"] = false,
+        ["AutoSkip"] = true,
+        ["AutoClaimQuest"] = true,
+        ["TPLobbyIfPlayer"] = true,
+        ["SelectChallengeWorld"] = {
+            ["Cursed Academy"] = false,
+            ["Blue Planet"] = false,
+            ["Windmill Village"] = false,
+            ["Mob City"] = false,
+            ["Underwater Temple"] = false
         },
-        TradingSnipeUnits = {"Electric Cyborg"},
-        MaxGemUnit = 1000,
-    },
-}
-if getgenv().Loaded  then
-    return 
-end
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/950b9999b1274e4d6f9fadc85fe2d77e.lua"))()
+        ["WaitForJoiner"] = false,
+["AutoClaimBattlePass"] = true,
+        ["SelectMacro"] = getgenv().daaaz.namemacro,
+        ["JoinerList"] = {
+            [1] = "No joiner in the list"
+        },
+        ["TeleportLobbyNewBanner"] = false,
+        ["AutoJoinRaid"] = false,
+        ["SelectReward"] = {
+            ["Trait Crystal"] = false,
+            ["Risky Dice"] = false,
+            ["Gems"] = false,
+            ["Star Rift (Rainbow)"] = false,
+            ["Star Rift "] = false,
+            ["Gold"] = false
+        },
+        ["HillHeight"] = {
+            ["Cursed Academy"] = 2,
+            ["Blue Planet"] = 2,
+            ["Windmill Village"] = 2,
+            ["Mob City"] = 2,
+            ["Underwater Temple"] = 2
+        },
+        ["SelectDifficulty"] = {
+            ["All units lowered range"] = false,
+            ["All enemies regen health"] = false,
+            ["All enemies +1 shield"] = false,
+            ["All units increased cost"] = false,
+            ["All enemies 2x health"] = false,
+            ["All enemies 2x speed"] = false
+        },
+        ["AutoLeave"] = true,
+        ["JoinerCooldown"] = 0,
+        ["AutoSell"] = false,
+        ["AutoSummonStandard"] = false,
+        ["BlackScreen"] = false,
+        ["AutoReturnLobby"] = true,
+        ["AutoJoinHoster"] = false,
+        ["SelectWorld"] = "Windmill Village",
+        ["AutoPlay"] = false,
+        ["OFARecord"] = false,
+        ["PlayMacro"] = true,
+        ["MiddlePos"] = {
+    
+        },
+        ["DeleteMap"] = true,
+        ["AutoReplay"] = true,
+        ["HardMode"] = false,
+        ["WH_BannerSummoned"] = false,
+        ["StandardSummonUnit"] = {
+            ["Dragon Slayer"] = false,
+            ["Shinobi Form 3"] = false,
+            ["Vengeful Shinobi"] = false,
+            ["Strongest Swordsman"] = false,
+            ["Admiral Of Lava"] = false,
+            ["The Gamer"] = false,
+            ["Bloomer"] = false,
+            ["The Beast"] = false,
+            ["Admiral Of Light"] = false,
+            ["Clay"] = false,
+            ["Cursed Fighter"] = false,
+            ["Curse Prince"] = false,
+            ["Fire Leg Master"] = false,
+            ["Pink Rockstar"] = false,
+            ["Maxed Qi Master"] = false,
+            ["Carp"] = false,
+            ["Ascended Qi Master"] = false,
+            ["Thunder Shinobi"] = false,
+            ["Spirit Hybrid"] = false,
+            ["Soulforce Reaper"] = false,
+            ["Admiral Of Ice"] = false,
+            ["Inferno Commander"] = false,
+            ["Esper"] = false,
+            ["Ant King"] = false,
+            ["Sharpshooter"] = false,
+            ["Skull Warrior"] = false,
+            ["Flame Dragon King"] = false,
+            ["Elf Wizardess"] = false,
+            ["Chance Taker"] = false,
+            ["Master Swordsman"] = false
+        },
+        ["LeaveSellWave"] = getgenv().daaaz.wavereset,
+        ["AutoJoinChallenge"] = false,
+        ["AutoSummonLimited"] = false,
+        ["LimitedSummonUnit"] = {
+            ["Warrior Princess"] = false,
+            ["The Cursed Knight"] = false,
+            ["Donut Warrior"] = false,
+            ["Ocean Guardian"] = false,
+            ["Electric Cyborg"] = false
+        },
+        ["UpgradeAndPlace"] = false,
+        ["UnselectIfSummoned"] = false,
+        ["JoinHighest"] = false,
+        ["PlaceGap"] = {
+            ["Cursed Academy"] = 3.25,
+            ["Blue Planet"] = 3.25,
+            ["Windmill Village"] = 3.25,
+            ["Mob City"] = 3.25,
+            ["Underwater Temple"] = 3.25
+        },
+        ["AutoRejoin"] = true,
+        ["AutoUpgrade"] = true,
+        ["AutoJoinWorld"] = true,
+        ["SelectChallengeMacro"] = {
+    
+        },
+        ["DeleteRarity"] = {
+            ["Epic"] = false,
+            ["Legendary"] = false,
+            ["Rare"] = false
+        },
+        ["IgnoreMacroTiming"] = true,
+        ["SelectRaidMacro"] = {
+    
+        },
+        ["BoostFPS"] = true
+    }
+    getgenv().Key = "k502401ef1af5c6d7c4180d1"
+    loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
 --
 
