@@ -352,11 +352,13 @@ function scriptne()
 end
 --
 
+spawn(function()
 if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
     scriptne()
     getgenv().hasrunn = true
     getgenv().ditmechayroi = true
 end
+end)
 
 function get(url)
     return request({
