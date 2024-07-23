@@ -78,6 +78,9 @@ end
 --- script here
 function scriptne()
 	getgenv().hasrunn = false
+    if getgenv().ditmechayroi == true then
+        return
+    end
     if game.PlaceId == 17490500437 then
         print("ko le?")
         letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
@@ -156,10 +159,11 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/950b9999b1274e
 end
 --
 
--- if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
---     scriptne()
---     return
--- end
+if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+    scriptne()
+    getgenv().hasrunn = true
+    getgenv().ditmechayroi = true
+end
 
 function get(url)
     return request({
