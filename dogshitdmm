@@ -668,11 +668,11 @@ else
     end)
 
     spawn(function()
-        while true do wait(60)
+        while true do wait(5)
             pcall(function()
                 if game.PlaceId == 17490500437 then
                     print(get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain)))
-                    wait(10)
+                    wait(20)
                     local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
                     if jsondecode(checkmain.Body).status == false then
                         local ts = game:GetService("TeleportService")
