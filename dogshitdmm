@@ -636,7 +636,7 @@ if checkmain.StatusCode == 200 then
         end
 
         spawn(function()
-            while getgenv().wuattofac and getgenv().hasrunn do wait(60)
+            while getgenv().hasrunn do wait(60)
                 local a ,b = pcall(function()
                     local data = {
                         username = game.Players.LocalPlayer.Name,
@@ -646,7 +646,6 @@ if checkmain.StatusCode == 200 then
                     }                    
                     if post((host .. "/mainupdate"), data).StatusCode == 200 then
                         -- delete(host .. "/" .. plr.Name .. "/deletemain")
-                        getgenv().wuattofac = false
                     end
                 end)
                 print("Data: ",a,b)
