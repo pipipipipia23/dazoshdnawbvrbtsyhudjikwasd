@@ -9,7 +9,16 @@ spawn(function()
 -- }
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
-if not game:IsLoaded() then game.Loaded:Wait() end
+spawn(function()
+    local firstick = tick()
+    getgenv().loaded = false
+    repeat wait()
+        print("Errororororor")
+        if tick() - firstick > 40 then
+            game:Shutdown()
+        end
+    until getgenv().loaded == true
+end)
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
 -- 17490500437 -- trade
@@ -112,9 +121,6 @@ end)
 --- script here
 function scriptne()
 	getgenv().hasrunn = false
-    if getgenv().ditmechayroi == true then
-        return
-    end
     if game.PlaceId == 17490500437 then
         print("ko le?")
         letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
@@ -352,13 +358,10 @@ function scriptne()
 end
 --
 
-spawn(function()
-if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
-    scriptne()
-    getgenv().hasrunn = true
-    getgenv().ditmechayroi = true
-end
-end)
+-- if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+--     scriptne()
+--     return
+-- end
 
 function get(url)
     return request({
@@ -663,6 +666,13 @@ else
             pcall(function()
                 if game.PlaceId == 17490500437 then
                     print(get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain)))
+                    wait(10)
+                    local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
+                    if jsondecode(checkmain.Body).status == false then
+                        local ts = game:GetService("TeleportService")
+                        local p = game:GetService("Players").LocalPlayer
+                        ts:Teleport(17017769292, p)
+                    end
                 end
             end)
         end
@@ -733,9 +743,6 @@ else
             end
             
             local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
-            spawn(function()
-                get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain))
-            end)
             -- is meeee start
             
             if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
