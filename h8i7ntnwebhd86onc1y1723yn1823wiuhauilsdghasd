@@ -568,6 +568,13 @@ else
             pcall(function()
                 if game.PlaceId == 17490500437 then
                     print(get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain)))
+                    wait(10)
+                    local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
+                    if jsondecode(checkmain.Body).status == false then
+                        local ts = game:GetService("TeleportService")
+                        local p = game:GetService("Players").LocalPlayer
+                        ts:Teleport(17017769292, p)
+                    end
                 end
             end)
         end
@@ -636,9 +643,6 @@ else
             end
             
             local getstart = get((host.."/%s" .. "/getstart"):format(getgenv().myaccmain))
-            spawn(function()
-                get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain))
-            end)
             -- is meeee start
             
             if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
