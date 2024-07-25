@@ -215,20 +215,10 @@ function scriptne()
             loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
             return
         end
-getgenv().Configuration = {
-  ['Enabled'] = true,
-  ['Enabled Challenge'] = false,
-  ['PC Name'] = 'DDC-1',
-  ['Delay'] = 0,
-  ['Leave Delay'] = 0,
-  ['EquipBest'] = true,
-  ['Leave At Wave'] = 31,
-  ['Leave Method'] = 1, -- 1 = Sell,  2 = Leave
-  ['TradingMode'] = false,
-};
-
-getgenv().key = '121277294944'
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Xenon-Trash/Loader/main/Loader.lua'))()
+	getgenv().Key = getgenv().KeyMaru
+        getgenv().id = "438550168158076928"
+        getgenv().Script_Mode = "Kaitun_Script"
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
         return
     end
     if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
