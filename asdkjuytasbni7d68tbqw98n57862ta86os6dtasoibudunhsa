@@ -1618,9 +1618,8 @@ local function_unit = {
 	end,
 	getcframebyid = function (id)
 		for i,v in pairs(game:GetService("Workspace").Units:GetChildren()) do
-			print(v:GetAttributes("ClientEntity").Entity, id)
 			if v:GetAttributes("ClientEntity").Entity == id then
-				return v.HumanoidRootPart.CFrame
+				return v.HumanoidRootPart.Position
 			end
 		end
 		return false
@@ -1649,8 +1648,8 @@ function createhook(namehook)
 			end
 			if getnameremote(Remotes.name) == "UNIT_UPGRADE" then
 				defaultindex = defaultindex + 1
-				print(args[1])
-				table.insert(getgenv().macro,{data = {Remote = getnameremote(Remotes.name) , CFrame = function_unit.getcframebyid(args[1]),Money = game.Players.LocalPlayer.leaderstats.Yen.Value, IndexMacro = defaultindex}})
+				-- function_unit.getcframebyid(args[1])
+				table.insert(getgenv().macro,{data = {Remote = getnameremote(Remotes.name) , CFrame = args[1],Money = game.Players.LocalPlayer.leaderstats.Yen.Value, IndexMacro = defaultindex}})
 			end
 		end
 		return hookremote(Remotes,...)
@@ -1664,6 +1663,21 @@ spawn(function()
         if getgenv().recordmacro and getgenv().Save.macro ~= "" then
             writefile(getgenv().Save.macro, game:GetService("HttpService"):JSONEncode(getgenv().macro))
         end
+    end
+end)
+
+spawn(function()
+    while true do wait(1)
+		pcall(function()
+			if getgenv().recordmacro then
+				for i,v in pairs(getgenv().macro) do
+					if v.data.Remote == "UNIT_UPGRADE" and type(v.data.CFrame) ~= "string"then
+						local adz = v.data.CFrame
+						v.data.CFrame = tostring(function_unit.getcframebyid(adz))
+					end
+				end
+			end
+		end)
     end
 end)
 
@@ -1774,7 +1788,6 @@ spawn(function()
 				end
 			end
 		end)
-		print(a,b)
 	end
 end)
 
