@@ -14,7 +14,7 @@ spawn(function()
     getgenv().loaded = false
     repeat wait()
         print("Errororororor")
-        if tick() - firstick > 40 then
+        if tick() - firstick > 80 then
             game:Shutdown()
         end
     until getgenv().loaded == true
