@@ -215,10 +215,38 @@ function scriptne()
             loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
             return
         end
-        getgenv().Key = getgenv().KeyMaru
-        getgenv().id = "438550168158076928"
-        getgenv().Script_Mode = "Kaitun_Script"
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+script_key = "lSCNEsfdVpSVUiYDRYrEuCoXarVMXLep"
+getgenv().Setting = {
+    AutoSkipWave=true,
+    AutoClaimQuest = true,
+    CapFps = true,
+    FpsBoost = true,
+    WebhookUrl = "",
+    OneClickNewSetting = { 
+        Enable = true,
+        Feed = true,
+        Leave=false,
+        AllChapter = false,
+        IgnoreEquipBest = false,
+        LeaveWave = true,
+        RequiredLevel = 20,
+        AllUnitsToGo = {"Electric Cyborg","Beast Sorcerer","Warrior Princess","Admiral Of Lava","Strongest Swordsman"},
+        SnipeBannerUnits = {"Admiral Of Lava","Strongest Swordsman"}, --Snipe Unit Must Be In All Units To Use
+        TradingSnipe = false,
+        ForceInf = false, --Ignore Level, Unit
+        AnyUnitMythical_Secret = {
+            StartInfinite=true,
+            Feed=true,
+            IgnoreLevel = false
+        },
+        TradingSnipeUnits = {"Electric Cyborg"},
+        MaxGemUnit = 1000,
+    },
+}
+if getgenv().Loaded  then
+    return 
+end
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/950b9999b1274e4d6f9fadc85fe2d77e.lua"))()
         return
     end
     if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
