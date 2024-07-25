@@ -1,4 +1,5 @@
 if not game:IsLoaded() then game.Loaded:Wait() end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
 local tweenservice = game:GetService("TweenService")
 local userinputservice = game:GetService("UserInputService")
 local function MakeDraggable(topbarobject, object)
