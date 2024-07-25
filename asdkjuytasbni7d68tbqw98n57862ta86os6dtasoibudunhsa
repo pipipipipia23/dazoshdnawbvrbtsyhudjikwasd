@@ -1760,11 +1760,18 @@ if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId 
 	end)
 end
 
+function checklose()
+	return game:GetService("Players").yeHHBFFc.PlayerGui.PAGES.MatchResultPage.Visible
+end
+
 spawn(function()
     while (game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292) do wait()
 		pcall(function()
 			if tick() - firsttick > 180 then
 				game:Shutdown()
+			end
+			if checklose() then
+				letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
 			end
 		end)
     end
