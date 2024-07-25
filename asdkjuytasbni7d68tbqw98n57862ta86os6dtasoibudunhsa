@@ -1347,6 +1347,12 @@ if getgenv().Save.vers ~= version then
     LoadSetting()
 end
 
+if getgenv().config then
+	for i,v in pairs(getgenv().config) do
+		getgenv().Save[i] = v;
+	end
+end
+
 function inventory()
     return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
 end
@@ -1492,6 +1498,21 @@ function getfile()
     return filemacro
 end
 
+local function get_filename_from_url(url)
+	local asplit = string.split(url , "/")
+    return asplit[#string.split(url , "/")]
+end
+
+if getgenv().ImportMacro then
+    if xamlok == "HTTP Error Code: 404 Reason: Not Found" then
+        lib.Notifi("Noti","Error Import", 3)
+        return 
+    end
+    local xamlok = game:HttpGet(getgenv().ImportMacro, true)
+    writefile("HOHOHUB-AD//Macro//".. get_filename_from_url(getgenv().ImportMacro) .. ".txt", xamlok)
+	getgenv().Save.macro = "HOHOHUB-AD//Macro//".. get_filename_from_url(getgenv().ImportMacro) .. ".txt"
+end
+
 local macrodrop = macropage.Dropdown("Select Macro",getgenv().Save.macro,getfile(),function(quaidan)
     getgenv().Save.macro = quaidan
     print(isfile(quaidan))
@@ -1505,32 +1526,38 @@ macropage.Textbox("Name Macro","Cl",function(quaidan)
     macrodrop.Refresh(getfile())
 end)
 
-local function get_filename_from_url(url)
-    local query_start = url:find("?")
-    if query_start then
-        url = url:sub(1, query_start - 1)
-    end
-    local filename_start = url:match("^.+()/")
-    local filename = url:sub((filename_start or 0) + 1)
-
-    return filename
-end
-
 macropage.Textbox("Import Macro","Cl",function(quaidan)
     if xamlok == "HTTP Error Code: 404 Reason: Not Found" then
         lib.Notifi("Noti","Error Import", 3)
         return 
     end
     local xamlok = game:HttpGet(quaidan, true)
-    writefile("HOHOHUB-AD//Macro//".. get_filename_from_url(quaidan), xamlok)
+    writefile("HOHOHUB-AD//Macro//".. get_filename_from_url(getgenv().ImportMacro) .. ".txt", xamlok)
     macrodrop.Refresh(getfile())
 end)
+
 getgenv().macro = {}
 macropage.Toggle("recordmacro",false,false,"Record Macro",function(quaidan)  -- normal, lock
     getgenv().recordmacro = quaidan
     if quaidan == true then
         getgenv().macro = {}
     end
+    if getgenv().Save.autosave then
+        savesetting()
+    end
+end)
+
+getgenv().loadmacro = {}
+function abc()
+	if getgenv().Save.macro ~= "" and getgenv().Save.playmacro then
+		print("wtf")
+		getgenv().loadmacro = game:GetService("HttpService"):JSONDecode(readfile(getgenv().Save.macro))
+	end
+end
+
+macropage.Toggle("Play Macro",getgenv().Save.playmacro,false,"Play Macro",function(quaidan)  -- normal, lock
+    getgenv().Save.playmacro = quaidan
+	abc()
     if getgenv().Save.autosave then
         savesetting()
     end
@@ -1591,10 +1618,24 @@ local function_unit = {
 	end,
 	getcframebyid = function (id)
 		for i,v in pairs(game:GetService("Workspace").Units:GetChildren()) do
-			if v:GetAttributes("ClientEntity").ClientEntity == id then
+			print(v:GetAttributes("ClientEntity").Entity, id)
+			if v:GetAttributes("ClientEntity").Entity == id then
 				return v.HumanoidRootPart.CFrame
 			end
 		end
+		return false
+	end,
+	getidbycframe = function (cframe)
+		local lowest = 999
+		local pathcframe;
+		for i,v in pairs(game:GetService("Workspace").Units:GetChildren()) do
+			local adubu = (v.HumanoidRootPart.Position - cframe.Position).Magnitude
+			if lowest > adubu then
+				lowest = adubu
+				pathcframe = v
+			end
+		end
+		return pathcframe:GetAttributes("ClientEntity").Entity
 	end
 }
 function createhook(namehook)
@@ -1608,12 +1649,9 @@ function createhook(namehook)
 			end
 			if getnameremote(Remotes.name) == "UNIT_UPGRADE" then
 				defaultindex = defaultindex + 1
+				print(args[1])
 				table.insert(getgenv().macro,{data = {Remote = getnameremote(Remotes.name) , CFrame = function_unit.getcframebyid(args[1]),Money = game.Players.LocalPlayer.leaderstats.Yen.Value, IndexMacro = defaultindex}})
 			end
-			-- if getnameremote(Remotes.name) == "TOWER_SELL" then
-			-- 	defaultindex = defaultindex + 1
-			-- 	table.insert(getgenv().macro,{data = {}})
-			-- end
 		end
 		return hookremote(Remotes,...)
 	end
@@ -1663,7 +1701,10 @@ function autojoin()
 		for i,v in pairs(workspace.SubStuff_DONT_DELETE.StoryPods:GetChildren()) do
 			if checkin(v.Inside) == false and not isselect() then
 				plr.Character.HumanoidRootPart.CFrame = v.Detector.CFrame
-				return
+				wait(.1)
+				if isselect() == true then
+					return
+				end
 			end
 		end
 		if getgenv().Save.hardcore == true then
@@ -1682,11 +1723,65 @@ function autojoin()
 	end
 end
 
+function StringToCFrame(String)
+    local Split = string.split(String, ",")
+    return CFrame.new(Split[1],Split[2],Split[3])
+end
+
+if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+	local args = {
+		[1] = "Auto Skip Wave",
+		[2] = false
+	}
+	game:GetService("ReplicatedStorage").Remotes.ChangeSetting:FireServer(unpack(args))
+end
+
+spawn(function()
+    while (game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292) do wait()
+		pcall(function()
+			if skipUI() then
+				letfkinggo(p63.GAME_SKIPROUND)
+			end
+		end)
+    end
+end)
+
+local index = 1
+spawn(function() 
+	while true do wait(1)
+		local a,b = pcall(function()
+			if getgenv().Save.playmacro then
+				if getgenv().Save.macro ~= "" then
+					if game.Players.LocalPlayer.leaderstats.Yen.Value then
+						if getgenv().loadmacro[index].data.Remote == "UNIT_PLACE" and game.Players.LocalPlayer.leaderstats.Yen.Value >= getgenv().loadmacro[index].data.Money then
+							print("IN HERE4?")
+							local adu = {
+								function_unit.get(getgenv().loadmacro[index].data.Name),
+								getgenv().loadmacro[index].data.CFrame,
+								getgenv().loadmacro[index].data.Index,
+							}
+							letfkinggo(p63.UNIT_PLACE, unpack(adu))
+							index = index + 1
+							wait(1)
+						end
+						if getgenv().loadmacro[index].data.Remote == "UNIT_UPGRADE" and game.Players.LocalPlayer.leaderstats.Yen.Value >= getgenv().loadmacro[index].data.Money then
+							print("IN HERE5?")
+							print("UNIT_UPGRADE", function_unit.getidbycframe(StringToCFrame(getgenv().loadmacro[index].data.CFrame)))
+							letfkinggo(p63.UNIT_UPGRADE, function_unit.getidbycframe(StringToCFrame(getgenv().loadmacro[index].data.CFrame)))
+							index = index + 1
+						end
+					end
+				end
+			end
+		end)
+		print(a,b)
+	end
+end)
+
 spawn(function()
     while (game.PlaceId == 17490500437 or game.PlaceId == 17764698696 or game.PlaceId == 17017769292) do task.wait()
         if getgenv().Save.autojoin then
             local a,b = pcall(autojoin)
-			print(a,b)
         end
     end
 end)
