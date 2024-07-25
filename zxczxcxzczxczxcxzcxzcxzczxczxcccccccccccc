@@ -1,3 +1,5 @@
+getgenv().Key = "kbf4cac87472341c1c6bca82"
+getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
@@ -8,7 +10,16 @@ spawn(function()
 -- }
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
-if not game:IsLoaded() then game.Loaded:Wait() end
+spawn(function()
+    local firstick = tick()
+    getgenv().loaded = false
+    repeat wait()
+        print("Errororororor")
+        if tick() - firstick > 40 then
+            game:Shutdown()
+        end
+    until getgenv().loaded == true
+end)
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
 -- 17490500437 -- trade
@@ -20,34 +31,11 @@ local v_u_9 = require(v1.Actions)
 local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
 local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
+local tickz = tick()
 local plr = game.Players.LocalPlayer
 local host = 'http://ahihidongok.vn'
+
 ---
-
-function inventory()
-    return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
-end
-
---- game:GetService("Players").fLeNqqs4.PlayerGui.UI.NotificationsHolder.Notification.PromptWindow.PromptMessage
-
--------
-
-function jump()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
-    wait(4)
-    game:GetService("VirtualInputManager"):SendKeyEvent(false, 32, false, game)
-end
-
-spawn(function()
-    while true do wait()
-        pcall(function()
-            local tickm = tick()
-            repeat wait()
-            until tick() - tickm >= 30
-            jump()
-        end)
-    end
-end)
 
 function letfkinggo(p63, ...)
 	local a = {...}
@@ -75,6 +63,62 @@ function letfkinggo(p63, ...)
 	end
 end
 
+function inventory()
+    return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
+end
+
+function checkindex()
+    local a = 0
+    for i,v in pairs(inventory().Units) do
+        a = a + 1
+    end
+    return a
+end
+
+function checkunit3()
+    for i,v in pairs(inventory().Units) do
+        if v.Type == "Strongest Swordsman" or v.Type == "Admiral Of Lava" then
+           return i
+        end
+    end
+    return false
+end
+
+if inventory().Items.Meat ~= nil and game.PlaceId == 17764698696 then
+    if inventory().Items.Meat - 1 > 0 then
+        pcall(function()
+            local item = {
+                [1] = {
+                    ["Meat"] = inventory().Items.Meat - 1,
+                },
+                [2] = checkunit3()
+            }
+            p63.ITEM_USE:Invoke(unpack(item))
+        end)
+    end
+end
+
+letfkinggo(p63.UNIT_EQUIP_BEST, "")
+
+-------
+
+function jump()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
+    wait(4)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, 32, false, game)
+end
+
+spawn(function()
+    while true do wait()
+        pcall(function()
+            local tickm = tick()
+            repeat wait()
+            until tick() - tickm >= 30
+            jump()
+        end)
+    end
+end)
+
 --- script here
 function scriptne()
 	getgenv().hasrunn = false
@@ -97,12 +141,12 @@ function scriptne()
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/akainu",
         },
         ["Shinobi Form 3"] = {
-            namemacro = "Macro62Action",
+            namemacro = "Macro59Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/naruto",
         },
         ["Admiral Of Ice"] = {
-            namemacro = "Macro65Action",
+            namemacro = "Macro64Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/bang",
         }
@@ -139,7 +183,6 @@ function scriptne()
             ["Underwater Temple"] = false
         },
         ["WaitForJoiner"] = false,
-["AutoClaimBattlePass"] = true,
         ["SelectMacro"] = getgenv().daaaz.namemacro,
         ["JoinerList"] = {
             [1] = "No joiner in the list"
@@ -256,17 +299,15 @@ function scriptne()
         },
         ["BoostFPS"] = true
     }
-    getgenv().Key = "kbf4cac87472341c1c6bca82"
     loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
 end
 --
-
 spawn(function()
-if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
-    scriptne()
-    getgenv().hasrunn = true
-    getgenv().ditmechayroi = true
-end
+    if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
+        scriptne()
+        getgenv().hasrunn = true
+        getgenv().ditmechayroi = true
+    end
 end)
 
 function get(url)
@@ -300,7 +341,7 @@ function checkuserinsv(name)
 end
 
 local checkmain = get((host.."/%s" .. "/getmain"):format(plr.Name))
-
+print("dbuoi2")
 function jsonencode(data) 
     return game:GetService("HttpService"):JSONEncode(data)
 end
@@ -308,6 +349,8 @@ end
 function jsondecode(data) 
     return game:GetService("HttpService"):JSONDecode(data)
 end
+
+-- local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
 
 function post(url,data)
     return request({
@@ -397,6 +440,7 @@ spawn(function()
 end)
 getgenv().loaded = true
 if checkmain.StatusCode == 200 then
+    print("dbuoi3")
     getgenv().canteleport = ":))"
     for k,v in getgc() do 
         if type(v) == "function" and tostring(getfenv(v).script) == "SharedData" then
@@ -491,7 +535,7 @@ if checkmain.StatusCode == 200 then
         end
 
         spawn(function()
-            while getgenv().hasrunn do wait(3)
+            while getgenv().hasrunn do wait(5)
                 local a,b = pcall(function()
                     autosigai()
                 end)
@@ -534,7 +578,7 @@ if checkmain.StatusCode == 200 then
         end
 
         spawn(function()
-            while getgenv().wuattofac and getgenv().hasrunn do wait(60)
+            while getgenv().hasrunn do wait(60)
                 local a ,b = pcall(function()
                     local data = {
                         username = game.Players.LocalPlayer.Name,
@@ -542,9 +586,8 @@ if checkmain.StatusCode == 200 then
                         gem = 123123213,
                         status = true
                     }                    
-                    if post((host .. "/mainpost"), data).StatusCode == 200 then
+                    if post((host .. "/mainupdate"), data).StatusCode == 200 then
                         -- delete(host .. "/" .. plr.Name .. "/deletemain")
-                        getgenv().wuattofac = false
                     end
                 end)
                 print("Data: ",a,b)
@@ -552,6 +595,7 @@ if checkmain.StatusCode == 200 then
         end)
     end
 else
+    print("Dbuoi4")
     -- gettrash()
     spawn(function()
         while true do wait(60)
@@ -564,11 +608,11 @@ else
     end)
 
     spawn(function()
-        while true do wait(60)
+        while true do wait(30)
             pcall(function()
                 if game.PlaceId == 17490500437 then
                     print(get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain)))
-                    wait(10)
+                    wait(20)
                     local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
                     if jsondecode(checkmain.Body).status == false then
                         local ts = game:GetService("TeleportService")
@@ -605,10 +649,12 @@ else
         end
     end)
 
-    while getgenv().hasrunn do wait(5)
+    while getgenv().hasrunn do wait()
         local a,b = pcall(function()
+            print("Dbuoi5")
             --- for user.
             local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
+            print('inhere')
             if inventory().Currencies.Gems == nil then
                 inventory().Currencies.Gems = 0
             end
@@ -799,6 +845,7 @@ else
                 end
             end
         end)
+        wait(3)
         print(a,b)
     end
 end
