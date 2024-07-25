@@ -295,7 +295,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/Xenon-Trash/Loader/ma
     
         },
         ["DeleteMap"] = true,
-        ["AutoReplay"] = true,
+        ["AutoReplay"] = false,
         ["HardMode"] = false,
         ["WH_BannerSummoned"] = false,
         ["StandardSummonUnit"] = {
