@@ -1504,11 +1504,11 @@ local function get_filename_from_url(url)
 end
 
 if getgenv().ImportMacro then
+	local xamlok = game:HttpGet(getgenv().ImportMacro, true)
     if xamlok == "HTTP Error Code: 404 Reason: Not Found" then
         lib.Notifi("Noti","Error Import", 3)
         return 
     end
-    local xamlok = game:HttpGet(getgenv().ImportMacro, true)
     writefile("HOHOHUB-AD//Macro//".. get_filename_from_url(getgenv().ImportMacro) .. ".txt", xamlok)
 	getgenv().Save.macro = "HOHOHUB-AD//Macro//".. get_filename_from_url(getgenv().ImportMacro) .. ".txt"
 end
@@ -1549,9 +1549,14 @@ end)
 
 getgenv().loadmacro = {}
 function abc()
-	if getgenv().Save.macro ~= "" and getgenv().Save.playmacro then
-		print("wtf")
-		getgenv().loadmacro = game:GetService("HttpService"):JSONDecode(readfile(getgenv().Save.macro))
+	local a,b = pcall(function()
+		if getgenv().Save.macro ~= "" and getgenv().Save.playmacro then
+			print("wtf")
+			getgenv().loadmacro = game:GetService("HttpService"):JSONDecode(readfile(getgenv().Save.macro))
+		end
+	end)
+	if a == false then
+		game:Shutdown()
 	end
 end
 
@@ -1742,19 +1747,38 @@ function StringToCFrame(String)
     return CFrame.new(Split[1],Split[2],Split[3])
 end
 
+local firsttick = tick()
+
 if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
 	local args = {
 		[1] = "Auto Skip Wave",
 		[2] = false
 	}
 	game:GetService("ReplicatedStorage").Remotes.ChangeSetting:FireServer(unpack(args))
+	game:GetService("Workspace").ClientEnemies.ChildAdded:Connect(function(child)
+		firsttick = tick()
+	end)
 end
+
+spawn(function()
+    while (game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292) do wait()
+		pcall(function()
+			if tick() - firsttick > 180 then
+				game:Shutdown()
+			end
+		end)
+    end
+end)
 
 spawn(function()
     while (game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292) do wait()
 		pcall(function()
 			if skipUI() then
 				letfkinggo(p63.GAME_SKIPROUND)
+			end
+			local Values = require(game:GetService("ReplicatedStorage").Values) 
+			if Values.GAME_WAVE.value.min > 30 then
+				letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
 			end
 		end)
     end
