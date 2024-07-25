@@ -1445,7 +1445,7 @@ local grup = lib.Group("Menu")
 local mainpage = grup.Page("Main", "rbxassetid://6026568198")
 local macropage = grup.Page("Macro", "rbxassetid://6026568198")
 local setting = grup.Page("Setting", "rbxassetid://6026568198")
-
+game:GetService("CoreGui").DolceLib.Enabled = false
 local Chapters = {}
 
 for i,v in pairs(map_data) do
@@ -1794,7 +1794,7 @@ end)
 
 local index = 1
 spawn(function() 
-	while true do wait(1)
+	while true do wait()
 		local a,b = pcall(function()
 			if getgenv().Save.playmacro then
 				if getgenv().Save.macro ~= "" then
@@ -1808,13 +1808,14 @@ spawn(function()
 							}
 							letfkinggo(p63.UNIT_PLACE, unpack(adu))
 							index = index + 1
-							wait(1)
+							wait(3)
 						end
 						if getgenv().loadmacro[index].data.Remote == "UNIT_UPGRADE" and game.Players.LocalPlayer.leaderstats.Yen.Value >= getgenv().loadmacro[index].data.Money then
 							print("IN HERE5?")
 							print("UNIT_UPGRADE", function_unit.getidbycframe(StringToCFrame(getgenv().loadmacro[index].data.CFrame)))
 							letfkinggo(p63.UNIT_UPGRADE, function_unit.getidbycframe(StringToCFrame(getgenv().loadmacro[index].data.CFrame)))
 							index = index + 1
+							wait(3)
 						end
 					end
 				end
