@@ -1762,7 +1762,7 @@ if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId 
 end
 
 function checklose()
-	return game:GetService("Players").yeHHBFFc.PlayerGui.PAGES.MatchResultPage.Visible
+	return game:GetService("Players").LocalPlayer.PlayerGui.PAGES.MatchResultPage.Visible
 end
 
 spawn(function()
