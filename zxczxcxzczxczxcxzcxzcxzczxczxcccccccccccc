@@ -1,5 +1,5 @@
 getgenv().Key = "kbf4cac87472341c1c6bca82"
-getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
+getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
@@ -9,6 +9,16 @@ spawn(function()
 --     Note = "Pc",
 -- }
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
+end)
+spawn(function()
+    local firstick = tick()
+    getgenv().loaded = false
+    repeat wait()
+        print("Errororororor")
+        if tick() - firstick > 120 then
+            game:Shutdown()
+        end
+    until getgenv().loaded == true
 end)
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
@@ -123,20 +133,20 @@ function scriptne()
         ["Strongest Swordsman"] = {
             namemacro = "Macro55Action",
             wavereset = 31,
-            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/mihawk",
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/MIHOAC",
         },
         ["Admiral Of Lava"] = {
             namemacro = "Macro49Action",
             wavereset = 31,
-            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/akainu",
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/AKAINU",
         },
         ["Shinobi Form 3"] = {
-            namemacro = "Macro62Action",
+            namemacro = "Macro59Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/naruto",
         },
         ["Admiral Of Ice"] = {
-            namemacro = "Macro65Action",
+            namemacro = "Macro64Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/bang",
         }
@@ -156,140 +166,79 @@ function scriptne()
     end
     -- checkunit2()
     getgenv().daaaz = checkunit2()
+    if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
+        if checkindex() > 1 and inventory().Chapters['FooshaVillage_Infinite'].Unlocked == true then
+            getgenv().Config = {
+                ["AutoPlay"]=true,
+                ["MiddlePos"]={["Windmill Village"]="-1671.0181884765625, 24.114013671875, -527.197998046875"},
+                ["UpgradeMethod"]="Nearest from Middle Position (until Max)",
+                ["AutoUpgrade"]=true,
+                ["SelectChapter"] = "Chapter 1",
+                ["AutoSave"] = true,
+                ["WH_MatchComplete"] = true,
+                ["AutoSkip"] = true,
+                ["AutoClaimQuest"] = true,
+                ["TPLobbyIfPlayer"] = true,
+                    ["SelectMacro"] = "jinbe",
+                ["AutoJoinRaid"] = false,
+                ["BoostFPS"] = true,
+                ["UnselectIfSummoned"] = true,
+                ["AutoReplay"] = false,
+                ["AutoReturnLobby"] = true,
+                ["AutoLeave"] = true,
+                ["HardMode"] = false,
+                ["WH_BannerSummoned"] = true,
+                    ["SelectWorld"] = "Windmill Village",
+                ["StandardSummonUnit"] = {
+                    ["Admiral Of Lava"] = true,
+                    ["Strongest Swordsman"] = true,
+                },
+                ["AutoSummonStandard"] = true,
+                ["JoinHighest"] = false,
+                ["LeaveSellWave"] = 31,
+                ["AutoSell"] = false,
+                ["AutoRejoin"] = true,
+                ["WebhookURL"] = "",
+                ["BlackScreen"] = true,
+                ["AutoJoinWorld"] = true,
+                ["DeleteRarity"] = {
+                    ["Epic"] = true,
+                    ["Legendary"] = false,
+                    ["Rare"] = true
+                },
+                ["IgnoreMacroTiming"] = true,
+                ["SelectRaidMacro"] = {
+        
+                },
+                ["PlayMacro"] = false
+            }
+            loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
+            return
+        end
+        getgenv().Key = getgenv().KeyMaru
+        getgenv().id = "438550168158076928"
+        getgenv().Script_Mode = "Kaitun_Script"
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+        return
+    end
+    if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
+        return
+    end
     table.foreach(getgenv().daaaz, print)
     getgenv().ImportMacro = getgenv().daaaz.macro
-    getgenv().Config = {
-        ["SelectChapter"] = "Infinite",
-        ["AutoSave"] = true,
-        ["WH_MatchComplete"] = false,
-        ["AutoSkip"] = true,
-        ["AutoClaimQuest"] = true,
-        ["TPLobbyIfPlayer"] = true,
-        ["SelectChallengeWorld"] = {
-            ["Cursed Academy"] = false,
-            ["Blue Planet"] = false,
-            ["Windmill Village"] = false,
-            ["Mob City"] = false,
-            ["Underwater Temple"] = false
-        },
-        ["WaitForJoiner"] = false,
-        ["SelectMacro"] = getgenv().daaaz.namemacro,
-        ["JoinerList"] = {
-            [1] = "No joiner in the list"
-        },
-        ["TeleportLobbyNewBanner"] = false,
-        ["AutoJoinRaid"] = false,
-        ["SelectReward"] = {
-            ["Trait Crystal"] = false,
-            ["Risky Dice"] = false,
-            ["Gems"] = false,
-            ["Star Rift (Rainbow)"] = false,
-            ["Star Rift "] = false,
-            ["Gold"] = false
-        },
-        ["HillHeight"] = {
-            ["Cursed Academy"] = 2,
-            ["Blue Planet"] = 2,
-            ["Windmill Village"] = 2,
-            ["Mob City"] = 2,
-            ["Underwater Temple"] = 2
-        },
-        ["SelectDifficulty"] = {
-            ["All units lowered range"] = false,
-            ["All enemies regen health"] = false,
-            ["All enemies +1 shield"] = false,
-            ["All units increased cost"] = false,
-            ["All enemies 2x health"] = false,
-            ["All enemies 2x speed"] = false
-        },
-        ["AutoLeave"] = true,
-        ["JoinerCooldown"] = 0,
-        ["AutoSell"] = false,
-        ["AutoSummonStandard"] = false,
-        ["BlackScreen"] = false,
-        ["AutoReturnLobby"] = true,
-        ["AutoJoinHoster"] = false,
-        ["SelectWorld"] = "Windmill Village",
-        ["AutoPlay"] = false,
-        ["OFARecord"] = false,
-        ["PlayMacro"] = true,
-        ["MiddlePos"] = {
-    
-        },
-        ["DeleteMap"] = true,
-        ["AutoReplay"] = true,
-        ["HardMode"] = false,
-        ["WH_BannerSummoned"] = false,
-        ["StandardSummonUnit"] = {
-            ["Dragon Slayer"] = false,
-            ["Shinobi Form 3"] = false,
-            ["Vengeful Shinobi"] = false,
-            ["Strongest Swordsman"] = false,
-            ["Admiral Of Lava"] = false,
-            ["The Gamer"] = false,
-            ["Bloomer"] = false,
-            ["The Beast"] = false,
-            ["Admiral Of Light"] = false,
-            ["Clay"] = false,
-            ["Cursed Fighter"] = false,
-            ["Curse Prince"] = false,
-            ["Fire Leg Master"] = false,
-            ["Pink Rockstar"] = false,
-            ["Maxed Qi Master"] = false,
-            ["Carp"] = false,
-            ["Ascended Qi Master"] = false,
-            ["Thunder Shinobi"] = false,
-            ["Spirit Hybrid"] = false,
-            ["Soulforce Reaper"] = false,
-            ["Admiral Of Ice"] = false,
-            ["Inferno Commander"] = false,
-            ["Esper"] = false,
-            ["Ant King"] = false,
-            ["Sharpshooter"] = false,
-            ["Skull Warrior"] = false,
-            ["Flame Dragon King"] = false,
-            ["Elf Wizardess"] = false,
-            ["Chance Taker"] = false,
-            ["Master Swordsman"] = false
-        },
-        ["LeaveSellWave"] = getgenv().daaaz.wavereset,
-        ["AutoJoinChallenge"] = false,
-        ["AutoSummonLimited"] = false,
-        ["LimitedSummonUnit"] = {
-            ["Warrior Princess"] = false,
-            ["The Cursed Knight"] = false,
-            ["Donut Warrior"] = false,
-            ["Ocean Guardian"] = false,
-            ["Electric Cyborg"] = false
-        },
-        ["UpgradeAndPlace"] = false,
-        ["UnselectIfSummoned"] = false,
-        ["JoinHighest"] = false,
-        ["PlaceGap"] = {
-            ["Cursed Academy"] = 3.25,
-            ["Blue Planet"] = 3.25,
-            ["Windmill Village"] = 3.25,
-            ["Mob City"] = 3.25,
-            ["Underwater Temple"] = 3.25
-        },
-        ["AutoRejoin"] = true,
-        ["AutoUpgrade"] = true,
-        ["AutoJoinWorld"] = true,
-        ["SelectChallengeMacro"] = {
-    
-        },
-        ["DeleteRarity"] = {
-            ["Epic"] = false,
-            ["Legendary"] = false,
-            ["Rare"] = false
-        },
-        ["IgnoreMacroTiming"] = true,
-        ["SelectRaidMacro"] = {
-    
-        },
-        ["BoostFPS"] = true
+    getgenv().config = {
+        chapter = "FooshaVillage";
+        map = "FooshaVillage_Infinite";
+        autoselectmap = false; 
+        autojoin = true;
+        macro = "HOHOHUB-AD/Macro/deo can quan tam?.txt";
+        playmacro = true;
+        checkbug = true;
+        kaitun = false;
+        autosave = false;
+        hardcore = true;
     }
-    loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/asdkjuytasbni7d68tbqw98n57862ta86os6dtasoibudunhsa"))()
 end
 --
 spawn(function()
@@ -762,7 +711,7 @@ else
                         end                        
                     else
                         if checkmaininsv() then
-print("dit me may 2??")
+                            print("dit me may 2??")
                             v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
                             wait(3)
                             for i,v in pairs(dectectinven()) do
