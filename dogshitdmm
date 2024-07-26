@@ -704,7 +704,7 @@ else
                         if checkmaininsv() then
                             print("dit me may 2??")
                             v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
-                            wait(5)
+                            wait(3)
                             for i,v in pairs(dectectinven()) do
                                 print("dmm?", v)
                                 wait(1)
