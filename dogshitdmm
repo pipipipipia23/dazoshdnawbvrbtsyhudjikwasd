@@ -9,7 +9,6 @@ spawn(function()
 -- }
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
--- getgenv().scriptloaded = true
 spawn(function()
     local firstick = tick()
     getgenv().loaded = false
@@ -176,7 +175,9 @@ function scriptne()
     -- checkunit2()
     getgenv().daaaz = checkunit2()
     if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
+        getgenv().scriptloaded = true
         if checkindex() > 1 and inventory().Chapters['FooshaVillage_Infinite'].Unlocked == true then
+            getgenv().scriptloaded = true
             getgenv().Config = {
                 ["AutoPlay"]=true,
                 ["MiddlePos"]={["Windmill Village"]="-1671.0181884765625, 24.114013671875, -527.197998046875"},
@@ -389,7 +390,7 @@ end)
 getgenv().loaded = true
 if checkmain.StatusCode == 200 then
     print("dbuoi3")
-	getgenv().scriptloaded = true
+    getgenv().scriptloaded = true
     getgenv().canteleport = ":))"
     for k,v in getgc() do 
         if type(v) == "function" and tostring(getfenv(v).script) == "SharedData" then
@@ -626,12 +627,13 @@ else
                 end
                 return wtf
             end
+
             if jsondecode(checkmain.Body).gem == nil then
                 print('scripthere1zzz')
                 scriptne()
                 return
             end
-		getgenv().scriptloaded = true
+            getgenv().scriptloaded = true
             if inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) then
                 post(host..'/users',data)
                 wait(2)
