@@ -207,7 +207,7 @@ function scriptne()
             return
         end
         getgenv().Key = getgenv().KeyMaru
-        getgenv().id = "438550168158076928"
+        getgenv().id = "681527986935169044"
         getgenv().Script_Mode = "Kaitun_Script"
         loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
         return
