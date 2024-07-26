@@ -1,16 +1,6 @@
 getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
 print('dbuoi')
 getgenv().hasrunn = true
-spawn(function()
-    local firstick = tick()
-    getgenv().loaded = false
-    repeat wait()
-        print("Errororororor")
-        if tick() - firstick > 120 then
-            game:Shutdown()
-        end
-    until getgenv().loaded == true
-end)
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
 -- 17490500437 -- trade
