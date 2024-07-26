@@ -1753,6 +1753,8 @@ local firsttick = tick()
 if game.PlaceId == 17490500437 then
 	print("ko le?")
 	letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+	wait(10)
+	game:Shutdown()
 end
 
 if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 then
