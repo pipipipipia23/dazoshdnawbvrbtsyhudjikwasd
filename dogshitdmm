@@ -1,20 +1,9 @@
-getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
-print('dbuoi')
-getgenv().hasrunn = true
-spawn(function()
--- _G.Config = {
---     UserID = "90b68852-f9d9-4f63-93d7-fbd0bf5dea9d",
---     discord_id = 675516805921374238,
---     Note = "Pc",
--- }
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
-end)
 spawn(function()
     local firstick = tick()
     getgenv().loaded = false
     repeat wait()
         print("Errororororor")
-        if tick() - firstick > 60 then
+        if tick() - firstick > 70 then
             game:Shutdown()
         end
     until getgenv().loaded == true
@@ -139,6 +128,16 @@ function scriptne()
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/AKAINU",
         },
+        ["Shinobi Form 3"] = {
+            namemacro = "Macro59Action",
+            wavereset = 31,
+            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/naruto",
+        },
+        ["Admiral Of Ice"] = {
+            namemacro = "Macro64Action",
+            wavereset = 31,
+            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/bang",
+        }
     }
     
     function inventory()
@@ -702,7 +701,7 @@ else
                         if checkmaininsv() then
                             print("dit me may 2??")
                             v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
-                            wait(10)
+                            wait(2)
                             for i,v in pairs(dectectinven()) do
                                 print("dmm?", v)
                                 wait(1)
@@ -715,7 +714,7 @@ else
                                 
                                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                             end
-                            wait(1)
+                            wait(2)
                             local args = {
                                 [1] = "Trait Crystal",
                                 [2] = "Items",
@@ -724,7 +723,7 @@ else
                             }
                             
                             letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(1)
+                            wait(2)
                             local args = {
                                 [1] = "Risky Dice",
                                 [2] = "Items",
@@ -733,7 +732,7 @@ else
                             }
                             
                             letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(5)
+                            wait(2)
                             local args = {
                                 [1] = "TRADE_LOCK",
                                 [4] = true
