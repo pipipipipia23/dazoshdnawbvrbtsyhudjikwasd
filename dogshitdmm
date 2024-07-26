@@ -1,4 +1,4 @@
-getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
+getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
