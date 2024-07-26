@@ -22,7 +22,6 @@ spawn(function()
 end)
 spawn(function()
     local firstick2 = tick()
-    getgenv().loaded = false
     repeat wait()
         print("Errororororor")
         if tick() - firstick2 > 200 then
@@ -390,6 +389,7 @@ end)
 getgenv().loaded = true
 if checkmain.StatusCode == 200 then
     print("dbuoi3")
+	getgenv().scriptloaded = true
     getgenv().canteleport = ":))"
     for k,v in getgc() do 
         if type(v) == "function" and tostring(getfenv(v).script) == "SharedData" then
