@@ -1838,3 +1838,4 @@ spawn(function()
         end
     end
 end)
+getgenv().scriptloaded = true
