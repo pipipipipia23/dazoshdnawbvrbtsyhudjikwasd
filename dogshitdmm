@@ -9,15 +9,26 @@ spawn(function()
 -- }
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
+-- getgenv().scriptloaded = true
 spawn(function()
     local firstick = tick()
     getgenv().loaded = false
     repeat wait()
         print("Errororororor")
-        if tick() - firstick > 120 then
+        if tick() - firstick > 200 then
             game:Shutdown()
         end
     until getgenv().loaded == true
+end)
+spawn(function()
+    local firstick2 = tick()
+    getgenv().loaded = false
+    repeat wait()
+        print("Errororororor")
+        if tick() - firstick2 > 200 then
+            game:Shutdown()
+        end
+    until getgenv().scriptloaded == true
 end)
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
