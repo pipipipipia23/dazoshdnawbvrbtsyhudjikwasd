@@ -1,6 +1,24 @@
-getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
+getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
+spawn(function()
+-- _G.Config = {
+--     UserID = "90b68852-f9d9-4f63-93d7-fbd0bf5dea9d",
+--     discord_id = 675516805921374238,
+--     Note = "Pc",
+-- }
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
+end)
+spawn(function()
+    local firstick = tick()
+    getgenv().loaded = false
+    repeat wait()
+        print("Errororororor")
+        if tick() - firstick > 120 then
+            game:Shutdown()
+        end
+    until getgenv().loaded == true
+end)
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
 local Values = require(game:GetService("ReplicatedStorage").Values) 
 -- 17490500437 -- trade
@@ -424,7 +442,7 @@ if checkmain.StatusCode == 200 then
                 local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
                 if getstart.StatusCode == 200 and checkOnSale(game.Players.LocalPlayer.UserId,tonumber(jsondecode(getstart.Body).status)) == false then
                     for i,v in pairs(inventory().Units) do
-                        if (v.Shiny == true or v.Traded == true) and v.Type == "Electric Cyborg" then
+                        if (v.Shiny == true or v.Traded == true) and (v.Type == "Electric Cyborg" or v.Type == "Legion Veteran") then
                             if scaninbooth(game.Players.LocalPlayer.UserId)[i] == nil then
                                 local args = {
                                     [1] = getremote("SELL_BOOTH_ITEMS"),
@@ -590,7 +608,7 @@ else
                 local wtf = {}
                 for i,v in pairs(inventory().Units) do
                     if v.Traded ~= nil then
-                        if UnitData[v.Type].Rarity >= 4 and v.Type == "Electric Cyborg" then
+                        if v.Type == "Electric Cyborg" or v.Type == "Legion Veteran" then
                             table.insert(wtf, i)
                         end
                     end
