@@ -626,12 +626,12 @@ else
                 end
                 return wtf
             end
-
             if jsondecode(checkmain.Body).gem == nil then
                 print('scripthere1zzz')
                 scriptne()
                 return
             end
+		getgenv().scriptloaded = true
             if inventory().Currencies.Gems >= tonumber(jsondecode(checkmain.Body).gem) then
                 post(host..'/users',data)
                 wait(2)
