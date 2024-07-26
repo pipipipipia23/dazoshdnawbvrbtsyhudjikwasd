@@ -1,9 +1,12 @@
+getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
+print('dbuoi')
+getgenv().hasrunn = true
 spawn(function()
     local firstick = tick()
     getgenv().loaded = false
     repeat wait()
         print("Errororororor")
-        if tick() - firstick > 70 then
+        if tick() - firstick > 40 then
             game:Shutdown()
         end
     until getgenv().loaded == true
@@ -701,7 +704,7 @@ else
                         if checkmaininsv() then
                             print("dit me may 2??")
                             v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
-                            wait(2)
+                            wait(5)
                             for i,v in pairs(dectectinven()) do
                                 print("dmm?", v)
                                 wait(1)
@@ -732,7 +735,7 @@ else
                             }
                             
                             letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(2)
+                            wait(3)
                             local args = {
                                 [1] = "TRADE_LOCK",
                                 [4] = true
