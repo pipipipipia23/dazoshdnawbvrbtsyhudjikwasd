@@ -610,6 +610,7 @@ else
         while true do wait(2)
             pcall(function()
                 if getgenv().inherez == true then
+                    local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
                     v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
                 end
             end)
