@@ -547,7 +547,7 @@ if checkmain.StatusCode == 200 then
                 local a ,b = pcall(function()
                     local data = {
                         username = game.Players.LocalPlayer.Name,
-                        idserver = tostring(adumm()) .. "|" .. tostring(inventory().Currencies.Gems) .. "|" .. dectectinven(),
+                        idserver = tostring(adumm()) .. "|" .. tostring(inventory().Currencies.Gems) .. "|" .. tostring(dectectinven()),
                         gem = 123123213,
                         status = true
                     }                    
