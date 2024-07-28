@@ -736,9 +736,15 @@ else
                         if checkmaininsv() then
                             getgenv().inherez = true
                             print("dit me may 2??")
+                            local args = {
+                                [1] = "TRADE_LOCK",
+                                [4] = true
+                            }
+                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                            wait(1)
                             for i,v in pairs(dectectinven()) do
                                 print("dmm?", v)
-                                wait(3)
+                                wait(2)
                                 local args = {
                                     [1] = v,
                                     [2] = "Units",
@@ -748,7 +754,7 @@ else
                                 
                                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                             end
-                            wait(4)
+                            wait(2)
                             local args = {
                                 [1] = "Trait Crystal",
                                 [2] = "Items",
@@ -757,7 +763,7 @@ else
                             }
                             
                             letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(3)
+                            wait(2)
                             local args = {
                                 [1] = "Risky Dice",
                                 [2] = "Items",
@@ -766,7 +772,7 @@ else
                             }
                             
                             letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(3)
+                            wait(2)
                             local args = {
                                 [1] = "TRADE_LOCK",
                                 [4] = true
