@@ -729,7 +729,7 @@ else
                             wait(3)
                             for i,v in pairs(dectectinven()) do
                                 print("dmm?", v)
-                                wait(1)
+                                wait(2)
                                 local args = {
                                     [1] = v,
                                     [2] = "Units",
