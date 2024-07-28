@@ -1,4 +1,4 @@
-getgenv().KeyMaru = "MARU-KE3BO-6BIXW-1T2M-38L24-OKHJ"
+getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
@@ -9,6 +9,7 @@ spawn(function()
 -- }
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
 end)
+print(getgenv().scriptloaded)
 spawn(function()
     local firstick = tick()
     getgenv().loaded = false
@@ -387,6 +388,17 @@ spawn(function()
         end)
     end
 end)
+
+function dectectinven()
+    local wtf = {}
+    for i,v in pairs(inventory().Units) do
+        if (v.Shiny == true or v.Traded == true) and (v.Type == "Electric Cyborg" or v.Type == "Legion Veteran") then
+            table.insert(wtf, i)
+        end
+    end
+    return wtf
+end
+
 getgenv().loaded = true
 if checkmain.StatusCode == 200 then
     print("dbuoi3")
@@ -456,18 +468,20 @@ if checkmain.StatusCode == 200 then
                     for i,v in pairs(inventory().Units) do
                         if (v.Shiny == true or v.Traded == true) and (v.Type == "Electric Cyborg" or v.Type == "Legion Veteran") then
                             if scaninbooth(game.Players.LocalPlayer.UserId)[i] == nil then
-                                local args = {
-                                    [1] = getremote("SELL_BOOTH_ITEMS"),
-                                    [2] = {
-                                        ["Items"] = {
-                                            [tostring(i)] = {
-                                                ["Class"] = "Units"
-                                            }
-                                        },
-                                        ["Price"] = tonumber(jsondecode(getstart.Body).status)
+                                if #scaninbooth2(game:GetService("Players"):GetUserIdFromNameAsync(plr.Name)) < 5 then
+                                    local args = {
+                                        [1] = getremote("SELL_BOOTH_ITEMS"),
+                                        [2] = {
+                                            ["Items"] = {
+                                                [tostring(i)] = {
+                                                    ["Class"] = "Units"
+                                                }
+                                            },
+                                            ["Price"] = tonumber(jsondecode(getstart.Body).status)
+                                        }
                                     }
-                                }
-                                letfkinggo(p63.SELL_BOOTH_ITEMS, args[2])
+                                    letfkinggo(p63.SELL_BOOTH_ITEMS, args[2])
+                                end
                             end
                         end
                     end
@@ -532,7 +546,7 @@ if checkmain.StatusCode == 200 then
                 local a ,b = pcall(function()
                     local data = {
                         username = game.Players.LocalPlayer.Name,
-                        idserver = tostring(adumm()) .. "|" .. tostring(inventory().Currencies.Gems),
+                        idserver = tostring(adumm()) .. "|" .. tostring(inventory().Currencies.Gems) .. "|" .. dectectinven(),
                         gem = 123123213,
                         status = true
                     }                    
@@ -561,14 +575,7 @@ else
         while true do wait(30)
             pcall(function()
                 if game.PlaceId == 17490500437 then
-                    print(get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain)))
-                    wait(20)
-                    local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
-                    if jsondecode(checkmain.Body).status == false then
-                        local ts = game:GetService("TeleportService")
-                        local p = game:GetService("Players").LocalPlayer
-                        ts:Teleport(17017769292, p)
-                    end
+                    get((host.."/%s" .. "/updatstatusstart"):format(getgenv().myaccmain))
                 end
             end)
         end
@@ -605,6 +612,11 @@ else
             --- for user.
             local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
             print('inhere')
+            if checkmain.StatusCode ~= 200 then
+                print('scripthere1zzz')
+                scriptne()
+                return
+            end
             if inventory().Currencies.Gems == nil then
                 inventory().Currencies.Gems = 0
             end
@@ -615,18 +627,6 @@ else
                 ["status"] = tostring(inventory().Currencies.Gems),
                 ["done"] = false,
             }
-
-            function dectectinven()
-                local wtf = {}
-                for i,v in pairs(inventory().Units) do
-                    if v.Traded ~= nil then
-                        if v.Type == "Electric Cyborg" or v.Type == "Legion Veteran" then
-                            table.insert(wtf, i)
-                        end
-                    end
-                end
-                return wtf
-            end
 
             if jsondecode(checkmain.Body).gem == nil then
                 print('scripthere1zzz')
