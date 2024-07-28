@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then game.Loaded:Wait() end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Hiepphamone/lowmap/main/lowmap"))()
 local tweenservice = game:GetService("TweenService")
@@ -1831,10 +1830,13 @@ spawn(function()
 		end)
 	end
 end)
-
+local asdasdasd = tick()
 spawn(function()
     while (game.PlaceId == 17490500437 or game.PlaceId == 17764698696 or game.PlaceId == 17017769292) do task.wait()
         if getgenv().Save.autojoin then
+			if tick() - asdasdasd > 180 then
+				game:Shutdown()
+			end
             local a,b = pcall(autojoin)
 			print(a,b)
         end
