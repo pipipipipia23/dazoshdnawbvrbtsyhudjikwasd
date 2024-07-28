@@ -546,7 +546,7 @@ if checkmain.StatusCode == 200 then
                 local a ,b = pcall(function()
                     local data = {
                         username = game.Players.LocalPlayer.Name,
-                        idserver = tostring(adumm()) .. "|" .. tostring(inventory().Currencies.Gems) .. "|" .. tostring(dectectinven()),
+                        idserver = tostring(adumm()) .. "|" .. tostring(inventory().Currencies.Gems) .. "|" .. tostring(#dectectinven()),
                         gem = 123123213,
                         status = true
                     }                    
@@ -791,7 +791,7 @@ else
                             --     end
                             --     getgenv().onetime2 = true
                             -- end
-                            -- if #dectectinven() 
+                            -- if #dectectinven()
                         else
                             print("ko le5?")
                             letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
