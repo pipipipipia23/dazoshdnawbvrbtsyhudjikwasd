@@ -448,8 +448,10 @@ if checkmain.StatusCode == 200 then
         function autosigai()
             local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
             local v_u_3 = require(game.ReplicatedStorage.Values)
-            if checkuserinsv(jsondecode(getstart.Body).username) ~= false and v_u_3.TRADE_LIMITS:Get().Sales > 0 then
-                print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
+            if v_u_3.TRADE_LIMITS then
+                if checkuserinsv(jsondecode(getstart.Body).username) ~= false and v_u_3.TRADE_LIMITS:Get().Sales > 0 then
+                    print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
+                end
             end
             print("????")
             if havebooth() == false then
