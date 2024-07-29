@@ -650,12 +650,14 @@ else
                 
                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                 wait(2)
-                local args = {
-                    [1] = "TRADE_LOCK",
-                    [4] = true
-                }
-                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                wait(10)
+                local asdasda= tick()
+                repeat wait()
+                    local args = {
+                        [1] = "TRADE_LOCK",
+                        [4] = true
+                    }
+                    letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                until tick() - asdasda > 200
             end
         end)
     end
