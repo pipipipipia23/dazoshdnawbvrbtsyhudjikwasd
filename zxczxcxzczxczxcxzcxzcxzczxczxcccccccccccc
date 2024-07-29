@@ -608,9 +608,9 @@ else
     end)
 
     spawn(function()
-        while true do wait(2)
+        while true do wait(1)
             pcall(function()
-                if getgenv().inherez == true then
+                if getgenv().caidbuoi == true then
                     local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
                     v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
                 end
@@ -618,7 +618,50 @@ else
         end
     end)
 
-    while getgenv().hasrunn do wait(2)
+    if game.PlaceId == 17490500437 then
+        local v_u_11 = game.ReplicatedStorage:WaitForChild("TradeRemotes")
+        v_u_11.TradeUpdated.OnClientEvent:Connect(function(p27, p28)
+            if p27 == "Requesting" then
+                for i,v in pairs(dectectinven()) do
+                    local args = {
+                        [1] = v,
+                        [2] = "Units",
+                        [3] = 1,
+                        [4] = true
+                    }
+                    
+                    letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                    wait(2)
+                end
+                local args = {
+                    [1] = "Trait Crystal",
+                    [2] = "Items",
+                    [3] = inventory().Items["Trait Crystal"],
+                    [4] = true
+                }
+                
+                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                wait(2)
+                local args = {
+                    [1] = "Risky Dice",
+                    [2] = "Items",
+                    [3] = inventory().Items["Risky Dice"],
+                    [4] = true
+                }
+                
+                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                wait(2)
+                local args = {
+                    [1] = "TRADE_LOCK",
+                    [4] = true
+                }
+                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                wait(10)
+            end
+        end)
+    end
+
+    while getgenv().hasrunn do wait()
         local a,b = pcall(function()
             print("Dbuoi5")
             --- for user.
@@ -735,71 +778,7 @@ else
                         end                        
                     else
                         if checkmaininsv() then
-                            getgenv().inherez = true
-                            print("dit me may 2??")
-                            local args = {
-                                [1] = "TRADE_LOCK",
-                                [4] = true
-                            }
-                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(1)
-                            for i,v in pairs(dectectinven()) do
-                                print("dmm?", v)
-                                wait(2)
-                                local args = {
-                                    [1] = v,
-                                    [2] = "Units",
-                                    [3] = 1,
-                                    [4] = true
-                                }
-                                
-                                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            end
-                            wait(2)
-                            local args = {
-                                [1] = "Trait Crystal",
-                                [2] = "Items",
-                                [3] = inventory().Items["Trait Crystal"],
-                                [4] = true
-                            }
-                            
-                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(2)
-                            local args = {
-                                [1] = "Risky Dice",
-                                [2] = "Items",
-                                [3] = inventory().Items["Risky Dice"],
-                                [4] = true
-                            }
-                            
-                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            wait(2)
-                            local args = {
-                                [1] = "TRADE_LOCK",
-                                [4] = true
-                            }
-                            letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                            -- if getgenv().onetime2 == false then
-                            --     local getupdatetrade = require(game:GetService("Players").LocalPlayer.PlayerGui.UI.UIClasses.UIBaseClass.Page.TradeMenuUI)
-                            --     local hook = {}
-                            --     for i,v in pairs(getupdatetrade) do
-                            --         hook[i] = v
-                            --     end
-                            --     getupdatetrade.Update = function(...)
-                            --         local a = ...
-                            --         spawn(function()
-                            --             pcall(function()
-                            --                 if a.IsTrading == true then
-                            --                     getgenv().spammmtrade = true
-                            --                 end
-                            --             end)
-                            --         end)
-                            --         -- table.foreach(..., print)
-                            --         return hook.Update(...)
-                            --     end
-                            --     getgenv().onetime2 = true
-                            -- end
-                            -- if #dectectinven()
+                            getgenv().caidbuoi = true
                         else
                             print("ko le5?")
                             letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
