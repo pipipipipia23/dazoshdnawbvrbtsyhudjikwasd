@@ -434,8 +434,9 @@ if checkmain.StatusCode == 200 then
         return false
     end
     ---- getqueue
-    
+
     ----
+
     getgenv().nobuy = true
     if game.PlaceId ~= 17490500437 then
 		print("asdasd")
@@ -445,7 +446,8 @@ if checkmain.StatusCode == 200 then
     else
         function autosigai()
             local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
-            if checkuserinsv(jsondecode(getstart.Body).username) ~= false then
+            local v_u_3 = require(game.ReplicatedStorage.Values)
+            if checkuserinsv(jsondecode(getstart.Body).username) ~= false and v_u_3.TRADE_LIMITS:Get().Sales > 0 then
                 print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
             end
             print("????")
