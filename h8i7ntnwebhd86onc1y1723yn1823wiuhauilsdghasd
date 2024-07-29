@@ -652,7 +652,7 @@ else
                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                 wait(2)
                 local asdasda= tick()
-                repeat wait()
+                repeat wait(10)
                     local args = {
                         [1] = "TRADE_LOCK",
                         [4] = true
