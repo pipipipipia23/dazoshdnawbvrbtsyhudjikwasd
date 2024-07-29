@@ -623,6 +623,7 @@ else
         v_u_11.TradeUpdated.OnClientEvent:Connect(function(p27, p28)
             if p27 == "Requesting" then
                 for i,v in pairs(dectectinven()) do
+                    wait(2)
                     local args = {
                         [1] = v,
                         [2] = "Units",
@@ -631,7 +632,6 @@ else
                     }
                     
                     letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                    wait(2)
                 end
                 local args = {
                     [1] = "Trait Crystal",
