@@ -440,9 +440,12 @@ if checkmain.StatusCode == 200 then
     getgenv().nobuy = true
     if game.PlaceId ~= 17490500437 then
 		print("asdasd")
-        if getgenv().canteleport(inventory()) then
+        letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
+        local tickz = tick()
+        repeat wait(1)
             letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
-        end
+        until tick() - tickz > 30
+        game:Shutdown()
     else
         function autosigai()
             local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
