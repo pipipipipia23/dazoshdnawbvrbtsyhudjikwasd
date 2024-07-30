@@ -1,3 +1,4 @@
+getgenv().myaccmain = "wB7eiyfe"
 getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
@@ -392,7 +393,7 @@ end)
 function dectectinven()
     local wtf = {}
     for i,v in pairs(inventory().Units) do
-        if (v.Shiny == true or v.Traded == true) and (v.Type == "Electric Cyborg" or v.Type == "Legion Veteran") then
+        if (v.Type == "Electric Cyborg" or v.Type == "Legion Veteran") then
             table.insert(wtf, i)
         end
     end
@@ -479,7 +480,7 @@ if checkmain.StatusCode == 200 then
                 local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
                 if getstart.StatusCode == 200 and checkOnSale(game.Players.LocalPlayer.UserId,tonumber(jsondecode(getstart.Body).status)) == false then
                     for i,v in pairs(inventory().Units) do
-                        if (v.Shiny == true or v.Traded == true) and (v.Type == "Electric Cyborg" or v.Type == "Legion Veteran") then
+                        if v.Type == "Electric Cyborg" or v.Type == "Legion Veteran" then
                             if scaninbooth(game.Players.LocalPlayer.UserId)[i] == nil then
                                 if #scaninbooth2(game:GetService("Players"):GetUserIdFromNameAsync(plr.Name)) < 5 then
                                     local args = {
@@ -670,7 +671,6 @@ else
             if p27 == "Cancelled" or p27 == "Completed" then
                 getgenv().autolock = false
             end
-
         end)
     end
 
