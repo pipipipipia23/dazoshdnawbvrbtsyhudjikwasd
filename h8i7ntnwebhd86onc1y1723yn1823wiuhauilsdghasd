@@ -1,3 +1,4 @@
+getgenv().myaccmain = "wB7eiyfe"
 getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
@@ -447,8 +448,17 @@ if checkmain.StatusCode == 200 then
         function autosigai()
             local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
             local v_u_3 = require(game.ReplicatedStorage.Values)
-            if v_u_3.TRADE_LIMITS then
-                if checkuserinsv(jsondecode(getstart.Body).username) ~= false and v_u_3.TRADE_LIMITS:Get().Sales > 0 then
+            if type(v_u_3.TRADE_LIMITS) == "table" then
+                if type(v_u_3.TRADE_LIMITS.Get) == "function" then
+                    if type(v_u_3.TRADE_LIMITS:Get().Sales) == "number" then
+                        if checkuserinsv(jsondecode(getstart.Body).username) ~= false and v_u_3.TRADE_LIMITS:Get().Sales > 0 then
+                            print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
+                        end
+                    end
+                end
+            else
+                local number = string.match(game:GetService("Players").LocalPlayer.PlayerGui.HUD.TradeLimitHUDMobile.TextLabel.Text, "%d+")
+                if tonumber(number) and checkuserinsv(jsondecode(getstart.Body).username) ~= false then
                     print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
                 end
             end
@@ -658,6 +668,10 @@ else
                 wait(2)
                 getgenv().autolock = true
             end
+            if p27 == "Cancelled" or p27 == "Completed" then
+                getgenv().autolock = false
+            end
+
         end)
     end
 
