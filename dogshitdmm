@@ -1,4 +1,3 @@
-getgenv().myaccmain = "wB7eiyfe"
 getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
