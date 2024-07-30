@@ -1,4 +1,3 @@
-getgenv().myaccmain = "wB7eiyfe"
 getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
@@ -448,19 +447,30 @@ if checkmain.StatusCode == 200 then
         function autosigai()
             local getstart = get((host.."/%s" .. "/getstart"):format(plr.Name))
             local v_u_3 = require(game.ReplicatedStorage.Values)
-            if type(v_u_3.TRADE_LIMITS) == "table" then
-                if type(v_u_3.TRADE_LIMITS.Get) == "function" then
-                    if type(v_u_3.TRADE_LIMITS:Get().Sales) == "number" then
-                        if checkuserinsv(jsondecode(getstart.Body).username) ~= false and v_u_3.TRADE_LIMITS:Get().Sales > 0 then
-                            print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
-                        end
+            
+            local function getTradeLimit()
+                if type(v_u_3.TRADE_LIMITS) == "table" and type(v_u_3.TRADE_LIMITS.Get) == "function" then
+                    local tradeLimits = v_u_3.TRADE_LIMITS:Get()
+                    if type(tradeLimits.Sales) == "number" then
+                        return tradeLimits.Sales
                     end
                 end
-            else
-                local number = string.match(game:GetService("Players").LocalPlayer.PlayerGui.HUD.TradeLimitHUDMobile.TextLabel.Text, "%d+")
-                if tonumber(number) and checkuserinsv(jsondecode(getstart.Body).username) ~= false then
-                    print(v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[checkuserinsv(jsondecode(getstart.Body).username)].UserId, true, true))
-                end
+                return tonumber(string.match(game:GetService("Players").LocalPlayer.PlayerGui.HUD.TradeLimitHUDMobile.TextLabel.Text, "%d+"))
+            end
+            
+            local function isUserValid(username)
+                return checkuserinsv(username) ~= false
+            end
+            
+            local function sendTradeRequest(userId)
+                print(v_u_9.TRADE_SEND_REQUEST:Invoke(userId, true, true))
+            end
+            
+            local tradeLimit = getTradeLimit()
+            local startBody = jsondecode(getstart.Body)
+            
+            if tradeLimit and isUserValid(startBody.username) and tradeLimit > 0 then
+                sendTradeRequest(game:GetService("Players")[checkuserinsv(startBody.username)].UserId)
             end
             print("????")
             if havebooth() == false then
