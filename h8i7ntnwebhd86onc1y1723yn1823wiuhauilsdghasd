@@ -688,6 +688,7 @@ else
                         end
                     end
                 end
+                getgenv().autolock = true
             elseif p27 == "Cancelled" or p27 == "Completed" then
                 getgenv().autolock = false
             end
