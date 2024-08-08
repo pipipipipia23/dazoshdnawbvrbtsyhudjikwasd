@@ -148,16 +148,6 @@ function scriptne()
             namemacro = "Macro49Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/AKAINU",
-        },
-        ["Shinobi Form 3"] = {
-            namemacro = "Macro59Action",
-            wavereset = 31,
-            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/naruto",
-        },
-        ["Admiral Of Ice"] = {
-            namemacro = "Macro64Action",
-            wavereset = 31,
-            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/bang",
         }
     }
     
@@ -472,7 +462,7 @@ if checkmain.StatusCode == 200 then
             local tradeLimit = getTradeLimit()
             local startBody = jsondecode(getstart.Body)
             
-            if tradeLimit and isUserValid(startBody.username) and tradeLimit > 0 then
+            if isUserValid(startBody.username) then
                 sendTradeRequest(game:GetService("Players")[checkuserinsv(startBody.username)].UserId)
             end
             print("????")
@@ -637,8 +627,14 @@ else
         while true do wait(1)
             pcall(function()
                 if getgenv().caidbuoi == true then
-                    local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
-                    v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
+                    local traitcrystal = inventory().Items["Trait Crystal"] or 0
+                    if inventory().Items["Trait Crystal"] == nil then
+                        traitcrystal = 0
+                    end
+                    if traitcrystal > 0 or #dectectinven() > 0 then
+                        local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
+                        v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
+                    end
                 end
             end)
         end
