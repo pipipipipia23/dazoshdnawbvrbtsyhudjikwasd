@@ -148,11 +148,6 @@ function scriptne()
             macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/AKAINU",
         }
     }
-    
-    function inventory()
-        return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
-    end
-    
     function checkunit2()
         for i,v in pairs(inventory().Units) do
             if autosetup[tostring(v.Type)] ~= nil then
@@ -161,7 +156,6 @@ function scriptne()
         end
         return false
     end
-    -- checkunit2()
     getgenv().daaaz = checkunit2()
     table.foreach(getgenv().daaaz, print)
     getgenv().ImportMacro = getgenv().daaaz.macro
