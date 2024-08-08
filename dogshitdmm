@@ -2,19 +2,9 @@ getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
--- _G.Config = {
---     UserID = "90b68852-f9d9-4f63-93d7-fbd0bf5dea9d",
---     discord_id = 675516805921374238,
---     Note = "Pc",
--- }
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
-end)
-print(getgenv().scriptloaded)
-spawn(function()
     local firstick = tick()
     getgenv().loaded = false
     repeat wait()
-        print("Errororororor")
         if tick() - firstick > 200 then
             game:Shutdown()
         end
@@ -23,7 +13,6 @@ end)
 spawn(function()
     local firstick2 = tick()
     repeat wait()
-        print("Errororororor")
         if tick() - firstick2 > 200 then
             game:Shutdown()
         end
@@ -43,7 +32,7 @@ local p63 = v_u_9
 local tickz = tick()
 local plr = game.Players.LocalPlayer
 local host = 'http://ahihidongok.vn'
-
+local map_data = require(game:GetService("ReplicatedStorage").Modules.Bins.MapData)
 ---
 
 function letfkinggo(p63, ...)
@@ -86,7 +75,7 @@ end
 
 function checkunit3()
     for i,v in pairs(inventory().Units) do
-        if v.Type == "Strongest Swordsman" or v.Type == "Admiral Of Lava" then
+        if v.Type == "Legion Assassin" then
            return i
         end
     end
@@ -128,6 +117,176 @@ spawn(function()
     end
 end)
 
+--- hop server
+local PlaceID = game.PlaceId
+local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
+local Deleted = false
+local File = pcall(function()
+AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+end)
+if not File then
+table.insert(AllIDs, actualHour)
+writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+end
+function TPReturner()
+local Site;
+if foundAnything == "" then
+Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+else
+Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+end
+local ID = ""
+if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+foundAnything = Site.nextPageCursor
+end
+local num = 0;
+for i,v in pairs(Site.data) do
+local Possible = true
+ID = tostring(v.id)
+if tonumber(v.maxPlayers) > tonumber(v.playing) and tonumber(v.playing) > 10 then
+    for _,Existing in pairs(AllIDs) do
+        if num ~= 0 then
+            if ID == tostring(Existing) then
+                Possible = false
+            end
+        else
+            if tonumber(actualHour) ~= tonumber(Existing) then
+                local delFile = pcall(function()
+                    delfile("NotSameServers.json")
+                    AllIDs = {}
+                    table.insert(AllIDs, actualHour)
+                end)
+            end
+        end
+        num = num + 1
+    end
+    if Possible == true then
+        table.insert(AllIDs, ID)
+        wait()
+        pcall(function()
+            writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+            wait()
+            game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+        end)
+        wait(4)
+    end
+end
+end
+end
+
+function Teleport()
+    while wait() do
+        pcall(function()
+            TPReturner()
+            if foundAnything ~= "" then
+                TPReturner()
+            end
+        end)
+    end
+end
+
+---
+
+local aducaptcha = cloneref(game:GetService("Players"))
+
+spawn(function()
+    while true do wait(.5)
+        local a,b = pcall(function()
+            local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
+            local vcl = string.split(v_u_22, "//")[2]
+            local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
+            local tickn = tick()
+            if string.find(data.Name, "#") then
+                local ts = game:GetService("TeleportService")
+                local p = game:GetService("Players").LocalPlayer
+                ts:Teleport(17017769292, p)
+            end
+            v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
+        end)
+    end
+end)
+
+while checkunit3() == false do wait()
+    local a,b = pcall(function()
+        if checkunit3() == false then
+            if inventory().Currencies.Gems <= 5000 then
+                local autosetup = {
+                    ["Strongest Swordsman"] = {
+                        namemacro = "Macro55Action",
+                        wavereset = 31,
+                        macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/MIHOAC",
+                    },
+                    ["Admiral Of Lava"] = {
+                        namemacro = "Macro49Action",
+                        wavereset = 31,
+                        macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/AKAINU",
+                    },
+                }
+                function checkunit2()
+                    for i,v in pairs(inventory().Units) do
+                        if autosetup[tostring(v.Type)] ~= nil then
+                            return autosetup[tostring(v.Type)]
+                        end
+                    end
+                    return false
+                end
+                -- checkunit2()
+                getgenv().daaaz = checkunit2()
+                getgenv().ImportMacro = getgenv().daaaz.macro
+                getgenv().config = {
+                    chapter = "FooshaVillage";
+                    map = "FooshaVillage_Infinite";
+                    autoselectmap = false; 
+                    autojoin = true;
+                    macro = "HOHOHUB-AD/Macro/deo can quan tam?.txt";
+                    playmacro = true;
+                    checkbug = true;
+                    kaitun = false;
+                    autosave = false;
+                    hardcore = true;
+                }
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/asdkjuytasbni7d68tbqw98n57862ta86os6dtasoibudunhsa"))()
+                wait(10)
+                return
+            end
+            if game.PlaceId ~= 17490500437 then
+                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby")
+            else
+                local Values = require(game:GetService("ReplicatedStorage").Values) 
+                for i,v in pairs(Values) do
+                    if string.find(i, "ON_SALE_ITEMS") then
+                        if v.value then
+                            for i1,v1 in pairs(v.value.Units) do
+                                if v1.OnSale <= 5000 then
+                                    if v1.Type == "Legion Assassin" then
+                                        local userformat = string.match(i, "ON_SALE_ITEMS(.+)")
+                                        if userformat ~= nil then
+                                            local args = { -- buy -- BUY_BOOTH_ITEM
+                                                [2] = tonumber(userformat),
+                                                [3] = i1
+                                            }
+                                            print(args[2], args[3])
+                                            letfkinggo(p63.BUY_BOOTH_ITEM, args[2],args[3])
+                                            if checkunit3() ~= false then
+                                                return
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+                Teleport()
+            end
+        end
+    end)
+    print(a,b)
+end
+
+
 --- script here
 function scriptne()
 	getgenv().hasrunn = false
@@ -139,107 +298,67 @@ function scriptne()
         letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
     end
     local autosetup = {
-        ["Strongest Swordsman"] = {
-            namemacro = "Macro55Action",
-            wavereset = 31,
-            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/MIHOAC",
+        ["FooshaVillage"] = {
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map1"
         },
-        ["Admiral Of Lava"] = {
-            namemacro = "Macro49Action",
-            wavereset = 31,
-            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/AKAINU",
-        }
+        ["MobCity"] = {
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map2"
+        },
+        ["CursedAcademy"] = {
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map3"
+        },
+        ["BluePlanet"] = {
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map4"
+        },
+        ["UnderwaterTemple"] = {
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map5"
+        },
     }
     
-    function inventory()
-        return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
+    local mapsorted = {}
+    local fakedata = map_data
+    local fakeinventory = inventory()
+
+    for i, v in pairs(fakedata) do
+        if v.Index < 999 then
+            mapsorted[v.Index] = i
+        end
     end
-    
-    function checkunit2()
-        for i,v in pairs(inventory().Units) do
-            if autosetup[tostring(v.Type)] ~= nil then
-                return autosetup[tostring(v.Type)]
+
+    function getmap()
+        local asdada = {}
+        for i,v in pairs(mapsorted) do
+            for i1,v1 in pairs(fakedata[v].Chapters) do
+                if fakeinventory.Chapters[v1] then
+                    if fakeinventory.Chapters[v1].Unlocked == true then
+                        asdada = {v, v1}
+                        if v1 == "UnderwaterTemple_Infinite" and fakeinventory.Chapters[v1].Unlocked == true then
+                            return asdada
+                        end
+                    end
+                end
             end
         end
-        return false
+        return asdada
     end
+    print(getmap()[1], getmap()[2])
     -- checkunit2()
-    getgenv().daaaz = checkunit2()
-    if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
-        getgenv().scriptloaded = true
-        if checkindex() > 1 and inventory().Chapters['FooshaVillage_Infinite'].Unlocked == true then
-            getgenv().scriptloaded = true
-            getgenv().Config = {
-                ["AutoPlay"]=true,
-                ["MiddlePos"]={["Windmill Village"]="-1671.0181884765625, 24.114013671875, -527.197998046875"},
-                ["UpgradeMethod"]="Nearest from Middle Position (until Max)",
-                ["AutoUpgrade"]=true,
-                ["SelectChapter"] = "Chapter 1",
-                ["AutoSave"] = true,
-                ["WH_MatchComplete"] = true,
-                ["AutoSkip"] = true,
-                ["AutoClaimQuest"] = true,
-                ["TPLobbyIfPlayer"] = true,
-                    ["SelectMacro"] = "jinbe",
-                ["AutoJoinRaid"] = false,
-                ["BoostFPS"] = true,
-                ["UnselectIfSummoned"] = true,
-                ["AutoReplay"] = false,
-                ["AutoReturnLobby"] = true,
-                ["AutoLeave"] = true,
-                ["HardMode"] = false,
-                ["WH_BannerSummoned"] = true,
-                    ["SelectWorld"] = "Windmill Village",
-                ["StandardSummonUnit"] = {
-                    ["Admiral Of Lava"] = true,
-                    ["Strongest Swordsman"] = true,
-                },
-                ["AutoSummonStandard"] = true,
-                ["JoinHighest"] = false,
-                ["LeaveSellWave"] = 31,
-                ["AutoSell"] = false,
-                ["AutoRejoin"] = true,
-                ["WebhookURL"] = "",
-                ["BlackScreen"] = true,
-                ["AutoJoinWorld"] = true,
-                ["DeleteRarity"] = {
-                    ["Epic"] = true,
-                    ["Legendary"] = false,
-                    ["Rare"] = true
-                },
-                ["IgnoreMacroTiming"] = true,
-                ["SelectRaidMacro"] = {
-        
-                },
-                ["PlayMacro"] = false
-            }
-            loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
-            return
-        end
-        getgenv().Key = getgenv().KeyMaru
-        getgenv().id = "438550168158076928"
-        getgenv().Script_Mode = "Kaitun_Script"
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
-        return
+    if checkunit3() ~= false then
+        getgenv().ImportMacro = autosetup[getmap()[1]].macro
+        getgenv().config = {
+            chapter = getmap()[1];
+            map = getmap()[2];
+            autoselectmap = false; 
+            autojoin = true;
+            macro = "HOHOHUB-AD/Macro/deo can quan tam?.txt";
+            playmacro = true;
+            checkbug = true;
+            kaitun = false;
+            autosave = false;
+            hardcore = true;
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/asdkjuytasbni7d68tbqw98n57862ta86os6dtasoibudunhsa"))()
     end
-    if getgenv().daaaz == false or inventory().Chapters['FooshaVillage_Infinite'].Unlocked == false then
-        return
-    end
-    table.foreach(getgenv().daaaz, print)
-    getgenv().ImportMacro = getgenv().daaaz.macro
-    getgenv().config = {
-        chapter = "FooshaVillage";
-        map = "FooshaVillage_Infinite";
-        autoselectmap = false; 
-        autojoin = true;
-        macro = "HOHOHUB-AD/Macro/deo can quan tam?.txt";
-        playmacro = true;
-        checkbug = true;
-        kaitun = false;
-        autosave = false;
-        hardcore = true;
-    }
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/asdkjuytasbni7d68tbqw98n57862ta86os6dtasoibudunhsa"))()
 end
 --
 spawn(function()
@@ -359,25 +478,6 @@ function checkOnSale(name, price)
     end
     return false
 end
-
-local aducaptcha = cloneref(game:GetService("Players"))
-
-spawn(function()
-    while true do wait(.5)
-        local a,b = pcall(function()
-            local v_u_22 = aducaptcha.LocalPlayer.PlayerGui.PAGES.CaptchaPage.Frame.Main.InfoDisplay.ImageLabel.Image
-            local vcl = string.split(v_u_22, "//")[2]
-            local data = game.MarketplaceService:GetProductInfo(tonumber(vcl), Enum.InfoType.Asset)
-            local tickn = tick()
-            if string.find(data.Name, "#") then
-                local ts = game:GetService("TeleportService")
-                local p = game:GetService("Players").LocalPlayer
-                ts:Teleport(17017769292, p)
-            end
-            v_u_9.CAPTCHA_SOLVE:Invoke(data.Name)
-        end)
-    end
-end)
 
 function dectectinven()
     local wtf = {}
@@ -628,9 +728,6 @@ else
             pcall(function()
                 if getgenv().caidbuoi == true then
                     local traitcrystal = inventory().Items["Trait Crystal"] or 0
-                    if inventory().Items["Trait Crystal"] == nil then
-                        traitcrystal = 0
-                    end
                     if traitcrystal > 0 or #dectectinven() > 0 then
                         local checkmain = get((host.."/%s" .. "/getmain"):format(getgenv().myaccmain))
                         v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
