@@ -14,7 +14,6 @@ spawn(function()
     local firstick = tick()
     getgenv().loaded = false
     repeat wait()
-        print("Errororororor")
         if tick() - firstick > 200 then
             game:Shutdown()
         end
@@ -23,7 +22,6 @@ end)
 spawn(function()
     local firstick2 = tick()
     repeat wait()
-        print("Errororororor")
         if tick() - firstick2 > 200 then
             game:Shutdown()
         end
