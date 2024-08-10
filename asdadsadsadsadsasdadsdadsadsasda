@@ -314,6 +314,12 @@ function scriptne()
         ["UnderwaterTemple"] = {
             macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map5"
         },
+        ["SwordsmanDojo"] = {
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map6"
+        },
+	["SnowyWoods"] = {
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/map7"
+        },
     }
     
     local mapsorted = {}
@@ -333,7 +339,7 @@ function scriptne()
                 if fakeinventory.Chapters[v1] then
                     if fakeinventory.Chapters[v1].Unlocked == true then
                         asdada = {v, v1}
-                        if v1 == "UnderwaterTemple_Infinite" and fakeinventory.Chapters[v1].Unlocked == true then
+                        if v1 == "SnowyWoods_Infinite" and fakeinventory.Chapters[v1].Unlocked == true then
                             return asdada
                         end
                     end
