@@ -146,6 +146,11 @@ function scriptne()
             namemacro = "Macro49Action",
             wavereset = 31,
             macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/AKAINU",
+        },
+        ["Shinobi Form 3"] = {
+            namemacro = "Macro49Action",
+            wavereset = 31,
+            macro = "https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/Shinobi",
         }
     }
     function checkunit2()
