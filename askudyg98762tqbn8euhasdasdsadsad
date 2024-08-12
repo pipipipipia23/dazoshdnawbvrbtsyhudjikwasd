@@ -511,14 +511,14 @@ else
             end)
         end
     end)
-
+    print(getgenv().caidbuoi)
     spawn(function()
         while true do wait(1)
             pcall(function()
                 if getgenv().caidbuoi == true then
                     if adumm() > 0 then
-                        local checkmain = get((host.."/%s" .. "/getmain"):format(plr.Name))
-                        v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(checkmain.Body).username].UserId, false, true)
+                        local getstart = get((host.."/%s" .. "/getmystart"):format(plr.Name))
+                        v_u_9.TRADE_SEND_REQUEST:Invoke(game:GetService("Players")[jsondecode(getstart.Body).mainaccount].UserId, false, true)
                     end
                 end
             end)
@@ -611,6 +611,7 @@ else
             else
                 getgenv().itme = false
             end
+
             print("Status: ", getgenv().itme)
 
             if getgenv().itme == false then
@@ -628,10 +629,8 @@ else
                 end
             end
             
-            if (adumm() < 10) or jsondecode(getstart.Body).username ~= plr.Name then
-                if adumm() <= 10 then
-                    print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
-                end
+            if jsondecode(getstart.Body).username ~= plr.Name then
+                print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
                 print('123123')
                 scriptne()
                 return
@@ -662,7 +661,7 @@ else
                     letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby",jsondecode(checkmain.Body).username)
                 end
             else
-                if adumm() == 0 then
+                if adumm() < 10 then
                     delete(host .. "/" .. plr.Name .. "/clearme")
                 end
                 print('scripthere2')
@@ -670,7 +669,7 @@ else
                 return
             end
             
-            if adumm() >= tonumber(getgenv().rr) or (#adumm() > 0 and jsondecode(getstart.Body).username == plr.Name) then
+            if adumm() >= tonumber(getgenv().rr) and jsondecode(getstart.Body).username == plr.Name then
                 if game.PlaceId == 17490500437 and jsondecode(checkmain.Body).status == true and jsondecode(getstart.Body).username == plr.Name then
                     if checkmaininsv(myaccmain) then
                         getgenv().caidbuoi = true
