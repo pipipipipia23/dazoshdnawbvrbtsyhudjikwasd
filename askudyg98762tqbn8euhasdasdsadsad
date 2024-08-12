@@ -42,7 +42,7 @@ local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
 local tickz = tick()
 local plr = game.Players.LocalPlayer
-local host = 'https://e412-42-112-60-78.ngrok-free.app'
+local host = 'https://0d60-42-112-60-78.ngrok-free.app'
 
 ---
 
@@ -606,12 +606,12 @@ else
             getgenv().scriptloaded = true
             
             -- is meeee start
-            
             if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
                 getgenv().itme = true
             else
                 getgenv().itme = false
             end
+            print("Status: ", getgenv().itme)
 
             if getgenv().itme == false then
                 print('123123')
