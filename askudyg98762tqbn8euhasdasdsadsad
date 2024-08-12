@@ -198,9 +198,9 @@ function click(a)
     game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,false,a,1)
 end
 
-function checkmaininsv()
+function checkmaininsv(name)
     for i,v in pairs(game.Players:GetChildren()) do
-        if v.Name == getgenv().myaccmain then
+        if v.Name == name then
             return true
         end
     end
@@ -644,7 +644,7 @@ else
                 letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
             end
 
-            if game.PlaceId == 17490500437 and checkmaininsv() == false then
+            if game.PlaceId == 17490500437 and checkmaininsv(myaccmain) == false then
                 print("ko le4?")
                 letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
             end
@@ -672,7 +672,7 @@ else
             
             if adumm() >= tonumber(getgenv().rr) or (#adumm() > 0 and jsondecode(getstart.Body).username == plr.Name) then
                 if game.PlaceId == 17490500437 and jsondecode(checkmain.Body).status == true and jsondecode(getstart.Body).username == plr.Name then
-                    if checkmaininsv() then
+                    if checkmaininsv(myaccmain) then
                         getgenv().caidbuoi = true
                     else
                         print("ko le5?")
