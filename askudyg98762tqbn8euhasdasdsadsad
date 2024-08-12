@@ -1,5 +1,6 @@
 print("ÂCC")
 getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
+getgenv().rr = 100
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
@@ -578,7 +579,10 @@ else
                 ["status"] = tostring(adumm()),
                 ["done"] = false,
             }
-            if adumm() >= tonumber(jsondecode(checkmain.Body).gem) then
+
+            local checkmain = get((host.."/%s" .. "/getmain"):format(myaccmain))
+
+            if adumm() >= tonumber(getgenv().rr) then
                 post(host..'/users',data)
                 wait(2)
             end
@@ -588,7 +592,6 @@ else
                 myaccmain = jsondecode(getstart.Body).mainaccount
             end
 
-            local checkmain = get((host.."/%s" .. "/getmain"):format(myaccmain))
             print('inhere')
             if checkmain.StatusCode ~= 200 then
                 print('scripthere1zzz')
@@ -599,11 +602,6 @@ else
                 inventory().Currencies.Gems = 0
             end
 
-            if jsondecode(checkmain.Body).gem == nil then
-                print('scripthere1zzz')
-                scriptne()
-                return
-            end
             getgenv().scriptloaded = true
             
             -- is meeee start
@@ -619,11 +617,11 @@ else
                 scriptne()
                 return
             else
-                print(tonumber(jsondecode(checkmain.Body).gem))
+                print(tonumber(getgenv().rr))
                 if adumm() <= 10 then
                     print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
                 end
-                if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 and adumm() >= tonumber(jsondecode(checkmain.Body).gem) then
+                if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 and adumm() >= tonumber(getgenv().rr) then
                     print("ko le2?")
                     letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
                 end
@@ -671,7 +669,7 @@ else
                 return
             end
             
-            if adumm() >= tonumber(jsondecode(checkmain.Body).gem) or (#adumm() > 0 and jsondecode(getstart.Body).username == plr.Name) then
+            if adumm() >= tonumber(getgenv().rr) or (#adumm() > 0 and jsondecode(getstart.Body).username == plr.Name) then
                 if game.PlaceId == 17490500437 and jsondecode(checkmain.Body).status == true and jsondecode(getstart.Body).username == plr.Name then
                     if checkmaininsv() then
                         getgenv().caidbuoi = true
