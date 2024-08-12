@@ -8,7 +8,7 @@ spawn(function()
 --     discord_id = 675516805921374238,
 --     Note = "Pc",
 -- }
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/animedefender"))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/askudyg98762tqbn8euhasdasdsadsad"))()
 end)
 print(getgenv().scriptloaded)
 spawn(function()
@@ -573,7 +573,22 @@ else
         local a,b = pcall(function()
             print("Dbuoi5")
             --- for user.
-            local checkmain = get((host.."/%s" .. "/getmain"):format(plr.Name))
+            local data = {
+                ["username"] = plr.Name,
+                ["status"] = tostring(adumm()),
+                ["done"] = false,
+            }
+            if adumm() >= tonumber(jsondecode(checkmain.Body).gem) then
+                post(host..'/users',data)
+                wait(2)
+            end
+            local getstart = get((host.."/%s" .. "/getmystart"):format(plr.Name))
+            local myaccmain = "deo co?"
+            if getstart.StatusCode == 200 then
+                myaccmain = jsondecode(getstart.Body).mainaccount
+            end
+
+            local checkmain = get((host.."/%s" .. "/getmain"):format(myaccmain))
             print('inhere')
             if checkmain.StatusCode ~= 200 then
                 print('scripthere1zzz')
@@ -583,12 +598,6 @@ else
             if inventory().Currencies.Gems == nil then
                 inventory().Currencies.Gems = 0
             end
-            
-            local data = {
-                ["username"] = plr.Name,
-                ["status"] = tostring(adumm()),
-                ["done"] = false,
-            }
 
             if jsondecode(checkmain.Body).gem == nil then
                 print('scripthere1zzz')
@@ -596,12 +605,7 @@ else
                 return
             end
             getgenv().scriptloaded = true
-            if adumm() >= tonumber(jsondecode(checkmain.Body).gem) then
-                post(host..'/users',data)
-                wait(2)
-            end
             
-            local getstart = get((host.."/%s" .. "/getmystart"):format(plr.Name))
             -- is meeee start
             
             if getstart.StatusCode == 200 and jsondecode(getstart.Body).username == plr.Name then
