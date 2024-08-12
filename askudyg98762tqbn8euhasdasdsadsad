@@ -580,16 +580,17 @@ else
                 ["done"] = false,
             }
 
-            local checkmain = get((host.."/%s" .. "/getmain"):format(myaccmain))
-
-            if adumm() >= tonumber(getgenv().rr) then
-                post(host..'/users',data)
-                wait(2)
-            end
             local getstart = get((host.."/%s" .. "/getmystart"):format(plr.Name))
             local myaccmain = "deo co?"
             if getstart.StatusCode == 200 then
                 myaccmain = jsondecode(getstart.Body).mainaccount
+            end
+            local checkmain = get((host.."/%s" .. "/getmain"):format(myaccmain))
+
+            if adumm() >= tonumber(getgenv().rr) then
+                print("post data")
+                post(host..'/users',data)
+                wait(2)
             end
 
             print('inhere')
