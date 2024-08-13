@@ -1,6 +1,3 @@
-print("ÂCC")
-getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
-getgenv().rr = 100
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
@@ -42,7 +39,7 @@ local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
 local tickz = tick()
 local plr = game.Players.LocalPlayer
-local host = 'https://0d60-42-112-60-78.ngrok-free.app'
+local host = 'https://3c60-42-112-60-78.ngrok-free.app'
 
 ---
 
@@ -160,22 +157,7 @@ function scriptne()
         end
         return false
     end
-    getgenv().daaaz = checkunit2()
-    table.foreach(getgenv().daaaz, print)
-    getgenv().ImportMacro = getgenv().daaaz.macro
-    getgenv().config = {
-        chapter = "FooshaVillage";
-        map = "FooshaVillage_Infinite";
-        autoselectmap = false; 
-        autojoin = true;
-        macro = "HOHOHUB-AD/Macro/deo can quan tam?.txt";
-        playmacro = true;
-        checkbug = true;
-        kaitun = false;
-        autosave = false;
-        hardcore = true;
-    }
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/pipipipipia23/dazoshdnawbvrbtsyhudjikwasd/main/asdkjuytasbni7d68tbqw98n57862ta86os6dtasoibudunhsa"))()
+    getgenv().script()
 end
 --
 spawn(function()
