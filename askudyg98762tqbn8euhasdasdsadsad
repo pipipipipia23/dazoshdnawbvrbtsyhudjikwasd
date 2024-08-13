@@ -418,7 +418,9 @@ if checkmain.StatusCode == 200 then
         spawn(function()
             while getgenv().hasrunn do wait(10)
                 pcall(function()
-                    get((host.."/%s" .. "/getstart"):format(plr.Name))
+                    if adumm() < 20000 then
+                        get((host.."/%s" .. "/getstart"):format(plr.Name))
+                    end
                 end)
             end
         end)
