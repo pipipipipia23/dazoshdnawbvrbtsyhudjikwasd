@@ -582,6 +582,7 @@ else
 
     while getgenv().hasrunn do wait()
         local a,b = pcall(function()
+		getgenv().scriptloaded = true
             print("Dbuoi5")
             --- for user.
             local data = {
