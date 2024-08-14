@@ -32,8 +32,11 @@ spawn(function()
         end
     until getgenv().scriptloaded == true
 end)
+local host = 'http://103.238.235.231'
 repeat wait() until game:IsLoaded()
+local plr = game.Players.LocalPlayer
 if game.PlaceId == 16437984479 then
+    print(host .. "/" .. plr.Name .. "/clearme")
     getgenv().scriptloaded = true
 end
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
@@ -48,8 +51,6 @@ local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
 local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
 local tickz = tick()
-local plr = game.Players.LocalPlayer
-local host = 'http://103.238.235.231'
 
 ---
 
@@ -582,7 +583,7 @@ else
 
     while getgenv().hasrunn do wait()
         local a,b = pcall(function()
-		getgenv().scriptloaded = true
+            getgenv().scriptloaded = true
             print("Dbuoi5")
             --- for user.
             local data = {
