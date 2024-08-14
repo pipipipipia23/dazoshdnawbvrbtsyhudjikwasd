@@ -24,10 +24,15 @@ print(getgenv().scriptloaded)
 --         end
 --     until getgenv().loaded == true
 -- end)
+local plr = game.Players.LocalPlayer
+local host = 'http://103.238.235.231'
 spawn(function()
     local firstick2 = tick()
     repeat wait()
-        if tick() - firstick2 > 200 then
+        if tick() - firstick2 > 100 then
+            spawn(function()
+                print(host .. "/" .. plr.Name .. "/clearme")
+            end)
             game:Shutdown()
         end
     until getgenv().scriptloaded == true
