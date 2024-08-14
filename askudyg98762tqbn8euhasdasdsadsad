@@ -596,7 +596,6 @@ else
             end
             local getstart = get((host.."/%s" .. "/getmystart"):format(plr.Name))
             local myaccmain = "deo co?"
-            game.Players.LocalPlayer:Kick(jsondecode(getstart.Body))
             if getstart.StatusCode == 200 then
                 myaccmain = jsondecode(getstart.Body).mainaccount
             end
