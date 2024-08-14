@@ -485,7 +485,7 @@ if checkmain.StatusCode == 200 then
     else
         function autosigai()
             local Players = game:GetService("Players")
-            if Players.NumPlayers > 25 then
+            if Players.NumPlayers >= 35 then
                 Teleport()
             end
             local getstart = get((host.."/%s" .. "/getstatusstart"):format(plr.Name))
