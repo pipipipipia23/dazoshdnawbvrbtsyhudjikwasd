@@ -435,6 +435,13 @@ end
 
 ---
 
+if game.PlaceId == 17490500437 then
+    local Players = game:GetService("Players")
+    if Players.NumPlayers >= 25 then
+        Teleport()
+    end
+end
+
 getgenv().loaded = true
 if checkmain.StatusCode == 200 then
     print("dbuoi3")
@@ -484,10 +491,6 @@ if checkmain.StatusCode == 200 then
         game:Shutdown()
     else
         function autosigai()
-            local Players = game:GetService("Players")
-            if Players.NumPlayers >= 35 then
-                Teleport()
-            end
             local getstart = get((host.."/%s" .. "/getstatusstart"):format(plr.Name))
             local v_u_3 = require(game.ReplicatedStorage.Values)
             
