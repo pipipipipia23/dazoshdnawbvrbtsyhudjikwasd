@@ -31,7 +31,7 @@ spawn(function()
     repeat wait()
         if tick() - firstick2 > 100 then
             spawn(function()
-                print(host .. "/" .. plr.Name .. "/clearme")
+                print(delete(host .. "/" .. plr.Name .. "/clearme"))
             end)
             game:Shutdown()
         end
@@ -58,7 +58,7 @@ if game.PlaceId == 16437984479 then
         end
     end)
     
-    print(host .. "/" .. plr.Name .. "/clearme")
+    print(delete(host .. "/" .. plr.Name .. "/clearme"))
     getgenv().scriptloaded = true
 end
 local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
@@ -693,6 +693,7 @@ else
                 ["done"] = false,
             }
             if adumm() < 100 then
+                delete(host .. "/" .. plr.Name .. "/clearme")
                 local ts = game:GetService("TeleportService")
                 local p = game:GetService("Players").LocalPlayer
                 ts:Teleport(16437984479, p)
