@@ -26,6 +26,12 @@ print(getgenv().scriptloaded)
 -- end)
 local plr = game.Players.LocalPlayer
 local host = 'http://103.238.235.231'
+function delete(url,data)
+    return request({
+        Url = url,
+        Method = "GET",
+    })
+end
 spawn(function()
     local firstick2 = tick()
     repeat wait()
@@ -275,13 +281,6 @@ function post(url,data)
         },
         Method = "POST",
         Body = jsonencode(data),
-    })
-end
-
-function delete(url,data)
-    return request({
-        Url = url,
-        Method = "GET",
     })
 end
 
