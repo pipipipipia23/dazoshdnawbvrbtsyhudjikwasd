@@ -766,10 +766,10 @@ else
             --     letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
             -- end
 
-            -- if game.PlaceId == 17490500437 and checkmaininsv(myaccmain) == false then
-            --     print("ko le4?")
-            --     letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
-            -- end
+            if game.PlaceId == 17490500437 and checkmaininsv(myaccmain) == false and getgenv().itme == true then
+                print("ko le4?")
+                letfkinggo(p63.GAME_MODE_SELECTED_CTS, "NormalLobby")
+            end
 
             -- if post(host..'/users',data).StatusCode == 0 or post(host..'/users',data).StatusCode == 500 then
             --     delete(host .. "/" .. plr.Name .. "/clearme")
