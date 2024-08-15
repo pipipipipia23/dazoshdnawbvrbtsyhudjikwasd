@@ -64,7 +64,9 @@ if game.PlaceId == 16437984479 then
             end)
         end
     end)
-    
+    spawn(function()
+        writefile(plr.Name..".txt", "Completed-AccHoanThanh")
+    end)
     print(delete(host .. "/" .. plr.Name .. "/clearme"))
     getgenv().scriptloaded = true
 end
@@ -273,6 +275,13 @@ function adumm()
     return 0
 end
 
+function writefilene()
+    if adumm() < tonumber(getgenv().rr) then
+        writefile(plr.Name..".txt", "Completed-AccHoanThanh")
+    end
+end
+
+writefilene()
 function post(url,data)
     return request({
         Url = url,
@@ -694,6 +703,7 @@ else
                 spawn(function()
                     delete(host .. "/" .. plr.Name .. "/clearme")
                 end)
+                writefilene()
                 local ts = game:GetService("TeleportService")
                 local p = game:GetService("Players").LocalPlayer
                 ts:Teleport(16437984479, p)
@@ -743,6 +753,7 @@ else
                 print(tonumber(getgenv().rr))
                 if adumm() <= 10 then
                     print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
+                    writefilene()
                 end
                 -- if game.PlaceId ~= 17490500437 and game.PlaceId ~= 17764698696 and game.PlaceId ~= 17017769292 and adumm() >= tonumber(getgenv().rr) then
                 --     print("ko le2?")
@@ -752,6 +763,7 @@ else
             
             if jsondecode(getstart.Body).username ~= plr.Name then
                 print(delete(host .. "/" .. plr.Name .. "/clearme").StatusCode)
+                writefilene()
                 print('123123')
                 scriptne()
                 return
@@ -784,6 +796,7 @@ else
             else
                 if adumm() < 10 then
                     delete(host .. "/" .. plr.Name .. "/clearme")
+                    writefilene()
                 end
                 print('scripthere2')
                 scriptne()
@@ -801,6 +814,7 @@ else
                 else
                     if getstart.StatusCode ~= 200 and getgenv().itme == false and #adumm() == 0 then
                         delete(host .. "/" .. plr.Name .. "/clearme")
+                        writefilene()
                         print('scripthere3')
                         scriptne()
                         return
@@ -809,6 +823,7 @@ else
             else
                 if jsondecode(getstart.Body).username == plr.Name then
                     delete(host .. "/" .. plr.Name .. "/clearme")
+                    writefilene()
                     print('scripthere4')
                     scriptne()
                     return
