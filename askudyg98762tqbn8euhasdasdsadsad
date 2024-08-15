@@ -702,6 +702,8 @@ else
             local myaccmain = "deo co?"
             if getstart.StatusCode == 200 then
                 myaccmain = jsondecode(getstart.Body).mainaccount
+            else
+                return
             end
             local checkmain = get((host.."/%s" .. "/getmain"):format(myaccmain))
 
@@ -773,7 +775,7 @@ else
             --     return
             -- end
 
-            if (getstart.StatusCode == 200 and getgenv().itme) and jsondecode(checkmain.Body).status == true then
+            if getgenv().itme and jsondecode(checkmain.Body).status == true then
                 if game.PlaceId == 17764698696 or game.PlaceId == 17017769292 then
                     print('here' , jsondecode(checkmain.Body).username)
                     letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby",jsondecode(checkmain.Body).username)
