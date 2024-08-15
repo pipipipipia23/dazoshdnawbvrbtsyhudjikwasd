@@ -590,11 +590,9 @@ else
     end)
 
     spawn(function()
-        while true do wait(30)
+        while true do wait(1)
             pcall(function()
-                if game.PlaceId == 17490500437 then
-                    get((host.."/%s" .. "/updatstatusstart"):format(plr.Name))
-                end
+                get((host.."/%s" .. "/updatstatusstart"):format(plr.Name))
             end)
         end
     end)
