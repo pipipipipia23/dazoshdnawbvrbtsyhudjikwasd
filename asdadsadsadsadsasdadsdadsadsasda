@@ -1,5 +1,3 @@
-getgenv().myaccmain = "GAS"
-getgenv().KeyMaru = "MARU-WSHO-PT9LF-VC0H-VG334-XIJ5"
 print('dbuoi')
 getgenv().hasrunn = true
 spawn(function()
@@ -318,7 +316,7 @@ function scriptne()
             macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/map6"
         },
         ["SnowyWoods"] = {
-            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/map7"
+            macro = "https://raw.githubusercontent.com/tuananh1312/b-ng/main/infmap7"
         },
     }
     
