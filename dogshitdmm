@@ -566,7 +566,7 @@ else
     end)
 
     spawn(function()
-        while true do wait(1)
+        while true do wait(10)
             pcall(function()
                 if getgenv().caidbuoi == true then
                     local traitcrystal = inventory().Items["Trait Crystal"] or 0
