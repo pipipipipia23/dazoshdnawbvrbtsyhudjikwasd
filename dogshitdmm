@@ -40,7 +40,7 @@ local v_u_2 = cloneref(game:GetService("RunService"))
 local p63 = v_u_9
 local tickz = tick()
 local plr = game.Players.LocalPlayer
-local host = 'http://ahihidongok.vn'
+local host = 'http://103.238.235.122'
 
 ---
 
