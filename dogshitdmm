@@ -14,7 +14,7 @@ spawn(function()
     local firstick = tick()
     getgenv().loaded = false
     repeat wait()
-        if tick() - firstick > 100 then
+        if tick() - firstick > 200 then
             game:Shutdown()
         end
     until getgenv().loaded == true
@@ -22,7 +22,7 @@ end)
 spawn(function()
     local firstick2 = tick()
     repeat wait()
-        if tick() - firstick2 > 100 then
+        if tick() - firstick2 > 200 then
             game:Shutdown()
         end
     until getgenv().scriptloaded == true
